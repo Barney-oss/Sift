@@ -2,48 +2,47 @@
   "edition": 1,
   "date": "2026-11-19",
   "dateLabel": "Thursday, 19 Nov",
-  "minutes": 6,
+  "minutes": 10,
   "stories": [
     {
       "type": "build",
-      "title": "Claude read 13 years of his inbox. The sales pitches won.",
-      "short": "Claude read 13 years of one inbox",
-      "dek": "A blogger turned a vague feeling into a real number in one afternoon.",
-      "byline": "Josh Strange",
-      "source": "Hacker News",
+      "title": "Impeccable teaches AI agents to have taste in design.",
+      "short": "Impeccable: design skills for AI agents",
+      "dek": "A free design vocabulary that stops AI-made interfaces from all looking the same.",
+      "byline": "Paul Bakaus",
+      "source": "GitHub",
       "minutes": 2,
-      "body": "Josh loved getting email from people who read his blog and comments. Lately it felt like most of it was selling, so he asked Claude to analyze everything since 2013. His theory: LLMs make it easy to write persuasive pitches tailored to someone's real comments.",
-      "stat": {
-        "before": {
-          "value": "20%",
-          "label": "sales email in 2022"
-        },
-        "after": {
-          "value": "88%",
-          "label": "sales email in 2026"
-        }
-      },
+      "url": "https://github.com/pbakaus/impeccable",
+      "discussionUrl": "https://latent.space/p/skill-engineering-design",
+      "body": "Impeccable is an open-source design skills system that gives coding agents a vocabulary for improving interfaces. It started as an extension of Anthropic's frontend design skill and grew into something much bigger.\n\nInside: 7 reference files (typography, color, spatial, motion, interaction, responsive and UX writing), 23 commands like audit, polish and critique, and 27 rules that catch common design anti-patterns. It works with Claude Code, Cursor, Gemini CLI and other agents that support skills, and it was trending on GitHub with over 32,000 stars.\n\nPaul's point: most models converge on the same look, so if everyone uses the same skill, everything looks alike. Impeccable pushes boldness through hierarchy, scale and decisive typography instead.",
       "made": [
-        "Claude",
-        "His own email archive",
-        "13 years of data"
+        "Claude Code",
+        "Cursor",
+        "Gemini CLI",
+        "Markdown skills"
       ],
-      "why": "A small, personal use of Claude that turns a hunch into a number. You could run the same test on your own inbox tonight."
+      "discussion": [
+        {
+          "text": "Rather than moving directly into code and having no help, they use Impeccable as a bridge, because it communicates the way they communicate.",
+          "author": "Paul Bakaus, on Latent Space"
+        }
+      ],
+      "why": "If you design with Claude, this is a ready-made set of design opinions you can plug in today."
     },
     {
       "type": "build",
-      "title": "48 AI agents searched NASA lidar for lost Maya sites.",
-      "short": "48 AI agents searched NASA lidar",
-      "source": "his blog",
-      "url": "https://pietromiotti.com/latest/maya-site/",
-      "body": "Pietro Miotti, a Google engineer and self-described non-archaeologist, turned public NASA lidar scans of about 1,200 km² of Mexican jungle into images. Then 48 AI agents went through them one by one with a written guide, looking for pyramids, platforms and plazas while ignoring natural hills and roads.\n\nThey flagged a hilltop with a plaza and an 8 to 12 m oval pyramid, and Mexico's INAH said no site was registered there. The whole thing, from idea to official reply, took under 72 hours.\n\nThe twist: the site had already been described in a 2025 archaeology paper the agents missed. Archaeologists pushed back on amateurs announcing AI \"discoveries.\"",
+      "title": "Hacker Times turns Hacker News into a New York Times front page.",
+      "short": "Hacker News, as a newspaper",
+      "source": "Show HN",
+      "minutes": 1,
+      "url": "https://hackertimes.ca",
+      "discussionUrl": "https://zeli.app/story/50346981",
+      "body": "Hacker Times takes the firehose of Hacker News and lays it out like a classic newspaper: headlines, deck-style summaries and editorial images instead of a ranked list of links.\n\nIn the discussion, one longtime reader said the plain HN interface never gets old and hoped it never changes. Others loved having a calmer way to read the same stories.",
       "made": [
-        "48 AI agents",
-        "Public NASA lidar data"
+        "Hacker News data",
+        "Newspaper layout"
       ],
-      "why": "A great build and a great cautionary tale in one. Agents are amazing at looking, and still need someone checking the homework.",
-      "byline": "Pietro Miotti",
-      "discussionUrl": "https://zeli.app/story/50452455"
+      "why": "Same content, completely different feeling. A great lesson in how layout changes how calm reading feels. Sift's close cousin."
     },
     {
       "type": "build",
@@ -62,44 +61,49 @@
     },
     {
       "type": "debate",
-      "title": "Should you be able to say no to AI at work?",
-      "short": "Can you say no to AI at work?",
-      "source": "Fortune",
-      "url": "https://fortune.com/2026/10/30/kentucky-administrator-ai-religious-exemption-title-vii-humanism/",
-      "body": "David Durman, a research administrator at the University of Kentucky, got a religious accommodation under Title VII so he doesn't have to personally use AI at work. He's a humanist, and says handing his thinking and decisions to AI would go against his beliefs.\n\nHe's believed to be the first humanist to get an AI exemption, though not the first person: a Unitarian Universalist software engineer got one earlier this year. On Hacker News, people dug into what it really means.",
-      "for": "It sets a precedent: people can refuse AI on grounds of conscience, not just preference.",
-      "against": "Commenters doubt an exemption will hold up once productivity pressure kicks in.",
-      "agree": "When AI stands in for ethical judgment, someone still has to be accountable.",
-      "discussionUrl": "https://zeli.app/story/50273396"
+      "title": "With AI agents everywhere, is Figma in trouble?",
+      "short": "Is Figma in trouble?",
+      "minutes": 2,
+      "source": "The Decoder",
+      "url": "https://the-decoder.com/figma-bets-on-human-judgment-at-config-2026-while-the-ai-powering-its-canvas-belongs-to-someone-else/",
+      "discussionUrl": "https://news.ycombinator.com/item?id=49923960",
+      "body": "At Config 2026, Figma put an AI design agent right inside its multiplayer canvas. But the AI powering it comes from providers like Anthropic, who also build competing products such as Claude Design. Figma's answer: human judgment is the part that matters.",
+      "views": [
+        {
+          "text": "Figma is in a really tough spot right now.",
+          "author": "A Hacker News commenter"
+        },
+        {
+          "text": "AI is a tool, and the output depends on how you drive it.",
+          "author": "Loredana Crisan, Figma's Chief Design Officer"
+        },
+        {
+          "text": "Basically anyone who understands systems will be fine and more and more important, even.",
+          "author": "A Hacker News commenter"
+        }
+      ]
     },
     {
       "type": "steal",
-      "title": "Ship a dark mode. Nearly half your visitors want one.",
-      "short": "Dark mode, for the 40%",
-      "source": "9to5Mac",
-      "url": "https://9to5mac.com/2026/11/03/ios-27-3-and-macos-27-3-add-vertical-tabs-adaptive-dark-mode-and-more-to-safari/",
-      "stats": [
-        {
-          "value": "40%",
-          "label": "of page loads come from dark mode users"
-        },
-        {
-          "value": "10%",
-          "label": "of pages actually support it"
-        }
-      ],
-      "code": "@media (prefers-color-scheme: dark) {\n  :root {\n    --bg: #121212;\n    --text: #EDEDED;\n  }\n}",
-      "note": "Safari 27.3 beta now darkens pages on its own if you don't. Better to pick your own colors. (This site does it too: switch your phone to dark mode.)",
-      "body": "Safari 27.3 beta adds Adaptive Dark Mode: when someone's phone is in dark mode, Safari offers to repaint light-only websites dark on its own. Sites that declare their own dark colors are left alone.\n\nSo the choice is simple. Design your dark mode yourself, or let the browser guess."
+      "title": "Write a DESIGN.md so every AI tool follows your rules.",
+      "short": "A DESIGN.md for your AI tools",
+      "minutes": 2,
+      "source": "Flywheel",
+      "url": "https://wetheflywheel.com/en/radar/google-stitch-review/",
+      "body": "Google Stitch keeps a project's brand rules, and the reasoning behind them, in a Markdown file called DESIGN.md. Google open-sourced the draft spec in April 2026.\n\nIt's the same idea as Impeccable and Claude skills: write your taste down once, and every AI tool you use can follow it.",
+      "code": "# DESIGN.md\n\n## Voice\nFriendly, plain words. No jargon.\n\n## Color\n- Primary #2743E0, for actions only\n- Text #121212 on #F7F7F5\n\n## Type\n- Headlines: Fraunces 600\n- Body: Inter 16px, line height 1.6\n\n## Rules\n- Touch targets at least 44px\n- One primary button per screen",
+      "note": "Drop it in your project folder and point Stitch, Claude or any agent at it. These are Sift's own rules, by the way.",
+      "why": "Five minutes of writing that makes every future AI design session more on-brand."
     },
     {
       "type": "news",
-      "title": "Figma connectors now work on every plan, Starter included.",
-      "short": "Figma connectors on every plan",
-      "source": "The Only",
-      "url": "https://buttondown.com/theonly/archive/ai-is-learning-how-your-team-works/",
-      "body": "You can also create a Google Drive doc from inside Figma, handy for capturing design decisions or summing up a review.",
-      "why": "Tools that used to need a paid seat are now open to solo designers and students."
+      "title": "Figma's design agent now works right on the shared canvas.",
+      "short": "Figma's agent joins the canvas",
+      "minutes": 1,
+      "source": "AIM",
+      "url": "https://analyticsindiamag.com/ai-news/figma-brings-ai-agent-for-real-time-design-collaboration",
+      "body": "Figma launched an AI design agent built into its multiplayer canvas. It generates, edits and refines designs alongside the team in real time, and Figma pitches it as a collaborator rather than a chatbot. Weekly users of Figma's MCP server grew fivefold in the first quarter of 2026.\n\nAlso new this month: Figma Motion added physics-based springs and a preview of how an animation will play as a Lottie file before you export it.",
+      "why": "The tool you use every day is changing fast. Worth trying the agent on a real screen this week."
     },
     {
       "type": "wildcard",

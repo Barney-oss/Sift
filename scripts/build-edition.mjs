@@ -24,7 +24,10 @@ const HOURS = (h) => h * 3600 * 1000;
 // =====================================================================
 // TASTE: edit these to tune what Sift picks.
 // =====================================================================
-const SUBREDDITS = ['ClaudeAI', 'UXDesign', 'userexperience', 'web_design', 'SideProject', 'FigmaDesign'];
+// Your main topic: AI design tools. Stories that match TOPIC get picked first in every slot except the wildcard.
+const TOPIC = /\b(figma|stitch|claude design|framer|canva|v0|lovable|bolt\.new|uizard|relume|penpot|magic patterns|galileo|design (agent|tool|system|skill)s?|ai design|ai[- ]native design|vibe ?design|vibe ?cod|design[- ]to[- ]code|ui generat|prompt[- ]to[- ](ui|prototype|app)|prototyp|mcp|impeccable|design\.md|figma make|figcraft|lottie|design engineer)/i;
+
+const SUBREDDITS = ['FigmaDesign', 'UI_Design', 'UXDesign', 'ClaudeAI', 'vibecoding', 'SideProject'];
 const RSS_FEEDS = [
   // [name, url, role]  role: steal | news | wildcard | any
   ['Smashing Magazine', 'https://www.smashingmagazine.com/feed/', 'steal'],
@@ -32,12 +35,15 @@ const RSS_FEEDS = [
   ['Nielsen Norman Group', 'https://www.nngroup.com/feed/rss/', 'steal'],
   ['UX Collective', 'https://uxdesign.cc/feed', 'steal'],
   ['Simon Willison', 'https://simonwillison.net/atom/everything/', 'steal'],
+  ['Figma Blog', 'https://www.figma.com/blog/feed/atom.xml', 'news'],
+  ['HeyDesigner', 'https://heydesigner.com/feed/', 'steal'],
+  ['Latent Space', 'https://www.latent.space/feed', 'any'],
   ['Sidebar', 'https://sidebar.io/feed.xml', 'any'],
   ['The Verge', 'https://www.theverge.com/rss/index.xml', 'news'],
   ['Colossal', 'https://www.thisiscolossal.com/feed/', 'wildcard'],
   ['Atlas Obscura', 'https://www.atlasobscura.com/feeds/latest', 'wildcard']
 ];
-const BSKY_QUERIES = ['built with claude', 'claude code', 'ux design', 'figma'];
+const BSKY_QUERIES = ['claude design', 'figma ai', 'google stitch', 'vibe design', 'ai design tool'];
 
 const BOOST_CLAUDE = /\bclaude\b|anthropic|\bmcp\b/i;
 const BOOST_DESIGN = /\b(design|designer|ux|ui|figma|typograph|font|color|colour|interface|prototype|accessib|animation|css|layout|icon)/i;
@@ -164,7 +170,9 @@ async function hackerNews() {
   const lists = await Promise.all([
     get(`${base}created_at_i>${since},points>80&tags=story`),
     get(`${base}created_at_i>${since},points>20&tags=show_hn`),
-    get(`${base}created_at_i>${since},points>15&tags=story&query=claude`)
+    get(`${base}created_at_i>${since},points>15&tags=story&query=claude`),
+    get(`${base}created_at_i>${since},points>10&tags=story&query=figma`),
+    get(`${base}created_at_i>${since},points>10&tags=story&query=design`)
   ]);
   const seen = new Set();
   return lists.flatMap((l) => l.hits)
@@ -216,7 +224,7 @@ async function github() {
   const since = new Date(NOW - HOURS(24 * 7)).toISOString().slice(0, 10);
   const headers = { Accept: 'application/vnd.github+json' };
   if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-  const queries = [`claude created:>${since}`, `figma created:>${since}`, `design created:>${since}`];
+  const queries = [`figma mcp created:>${since}`, `design skill created:>${since}`, `ai design created:>${since}`, `claude design created:>${since}`];
   const out = [];
   for (const q of queries) {
     const data = await get(`https://api.github.com/search/repositories?q=${encodeURIComponent(q)}&sort=stars&order=desc&per_page=10`, { headers });
@@ -415,6 +423,7 @@ function percentiles(pool) {
 
 function base(c) {
   let v = c.pct || 0;
+  if (TOPIC.test(blob(c))) v += 0.6;
   if (BOOST_CLAUDE.test(blob(c))) v += 0.35;
   if (BOOST_DESIGN.test(blob(c))) v += 0.2;
   if ((c.text || '').length > 80) v += 0.1;
@@ -431,6 +440,12 @@ function pickBest(pool, used, test, scoreFn = base, perSource = 9) {
   return pool
     .filter((c) => !used.has(c) && test(c) && (counts[c.source] || 0) < perSource)
     .sort((a, b) => scoreFn(b) - scoreFn(a))[0];
+}
+
+// Try your topic first; fall back to anything good if today has nothing on it.
+function pickTopic(pool, used, test, scoreFn, perSource) {
+  return pickBest(pool, used, (c) => test(c) && TOPIC.test(blob(c)), scoreFn, perSource)
+    || pickBest(pool, used, test, scoreFn, perSource);
 }
 
 function words(t) {
@@ -586,7 +601,7 @@ async function main() {
 
   // 1-3. Builds (no more than 2 from one source)
   for (let i = 0; i < 3; i++) {
-    const c = take(pickBest(pool, used, isBuild, base, 2));
+    const c = take(pickTopic(pool, used, isBuild, base, 2));
     if (c) picks.push(['build', c]);
   }
 
@@ -596,8 +611,9 @@ async function main() {
 
   // 4. Debate: lots of comments relative to points, so people disagree
   const debatable = pool
-    .filter((c) => !used.has(c) && (c.kind === 'hn' || c.kind === 'reddit') && c.comments >= 60)
-    .sort((a, b) => (b.comments * Math.min(2, b.comments / Math.max(1, b.score))) - (a.comments * Math.min(2, a.comments / Math.max(1, a.score))))
+    .filter((c) => !used.has(c) && (c.kind === 'hn' || c.kind === 'reddit') && c.comments >= 40)
+    .map((c) => ({ c, v: c.comments * Math.min(2, c.comments / Math.max(1, c.score)) * (TOPIC.test(blob(c)) ? 3 : 1) }))
+    .sort((a, b) => b.v - a.v).map((x) => x.c)
     .slice(0, 4);
   let debate = null;
   for (const c of debatable) {
@@ -606,11 +622,11 @@ async function main() {
   }
 
   // 5. Steal this
-  const steal = take(pickBest(pool, used, (c) => c.role === 'steal' || STEAL_WORDS.test(c.title),
+  const steal = take(pickTopic(pool, used, (c) => c.role === 'steal' || STEAL_WORDS.test(c.title),
     (c) => base(c) + (STEAL_WORDS.test(c.title) ? 0.4 : 0) + (c.role === 'steal' ? 0.2 : 0)));
 
   // 6. Worth knowing
-  const news = take(pickBest(pool, used, (c) => !isBuild(c) && (c.role === 'news' || (NEWS_WORDS.test(c.title) && NEWS_TOPICS.test(c.title)))));
+  const news = take(pickTopic(pool, used, (c) => !isBuild(c) && (c.role === 'news' || (NEWS_WORDS.test(c.title) && NEWS_TOPICS.test(c.title)))));
 
   // 7. Wildcard
   const wild = take(pickBest(pool, used, (c) => c.role === 'wildcard' || (WILD_WORDS.test(c.title) && !NOT_WILD.test(c.title))));
