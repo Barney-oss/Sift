@@ -44,7 +44,7 @@ const RSS_FEEDS = [
   ['Colossal', 'https://www.thisiscolossal.com/feed/', 'wildcard'],
   ['Atlas Obscura', 'https://www.atlasobscura.com/feeds/latest', 'wildcard']
 ];
-const BSKY_QUERIES = ['built with claude', 'made with claude', 'claude design', 'figma ai', 'google stitch', 'vibe design'];
+const BSKY_QUERIES = ['claude design', 'claude figma', 'claude code design', 'figma ai', 'google stitch', 'vibe design'];
 
 const BOOST_CLAUDE = /\bclaude\b|anthropic|\bmcp\b/i;
 const BOOST_DESIGN = /\b(design|designer|ux|ui|figma|typograph|font|color|colour|interface|prototype|accessib|animation|css|layout|icon)/i;
@@ -225,7 +225,7 @@ async function github() {
   const since = new Date(NOW - HOURS(24 * 7)).toISOString().slice(0, 10);
   const headers = { Accept: 'application/vnd.github+json' };
   if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
-  const queries = [`figma mcp created:>${since}`, `design skill created:>${since}`, `ai design created:>${since}`, `claude design created:>${since}`];
+  const queries = [`figma mcp created:>${since}`, `claude figma created:>${since}`, `design skill created:>${since}`, `ai design created:>${since}`, `claude design created:>${since}`];
   const out = [];
   for (const q of queries) {
     const data = await get(`https://api.github.com/search/repositories?q=${encodeURIComponent(q)}&sort=stars&order=desc&per_page=10`, { headers });
@@ -630,7 +630,8 @@ async function main() {
   }
 
   // Shipped with Claude: real things people made using Claude
-  const claudeBuilt = fill('claude', (c) => isClaudeBuild(c), (c) => base(c) + (isBuild(c) || /built with claude|showcase/i.test(c.flair || '') ? 0.3 : 0), 2, false);
+  // Only design-related Claude builds: they must match your topic or design words too.
+  const claudeBuilt = fill('claude', (c) => isClaudeBuild(c) && (TOPIC.test(blob(c)) || BOOST_DESIGN.test(blob(c))), (c) => base(c) + (isBuild(c) || /built with claude|showcase/i.test(c.flair || '') ? 0.3 : 0), 2, false);
 
   // Builds on your topic
   const builds = fill('build', isBuild);

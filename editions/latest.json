@@ -2,7 +2,7 @@
   "edition": 1,
   "date": "2026-11-19",
   "dateLabel": "Thursday, 19 Nov",
-  "minutes": 14,
+  "minutes": 13,
   "stories": [
     {
       "type": "claude",
@@ -31,36 +31,35 @@
     },
     {
       "type": "claude",
-      "title": "20 real things people built with Claude this year.",
-      "short": "20 things people built with Claude",
-      "minutes": 2,
-      "source": "João Queirós",
-      "url": "https://www.ai.joaoqueiros.com/blog/twenty-claude-builds-2026-games-hardware-agents",
-      "body": "A countdown of 20 Claude builds from 2026, with the claims checked against the original sources. A few highlights:\n\n• Dave Jones (EEVblog) used Claude to help reverse-engineer firmware for a 121GW multimeter, then tested it on a real meter.\n• Nicholas Carlini at Anthropic had 16 agents build a C compiler across nearly 2,000 sessions. The repo warns the code isn't validated.\n• Meng To has Claude run a tabletop adventure as game master for his kids.\n• Wataru Takasato had Claude write OpenSCAD for a 3D-printed shelf hook. The first print's holes came out too small.\n• Austin Lau at Anthropic built a Figma plugin and CSV workflow that turns human-written copy into ad variants.\n\nThe lesson the writer draws: the best builds give the agent a concrete job, let it see the result, and test it in the real world.",
+      "title": "A Claude Code plugin that builds a whole design system, in Figma and code.",
+      "short": "A design system, scaffolded by Claude",
+      "minutes": 1,
+      "source": "r/ClaudeAI",
+      "url": "https://www.reddit.com/r/ClaudeAI/comments/1uvhbox/",
+      "body": "A designer who builds design systems for a living made a Claude Code plugin that scaffolds a full design system in both Figma and code. It packs 12 skills and 10 reference docs, and uses different models for different jobs.\n\nTo test it, they built a full sample system, from a blank canvas to a synced, build-ready library, in about two hours.",
       "made": [
         "Claude Code",
-        "Opus agents",
-        "OpenSCAD",
-        "Figma plugin"
+        "Figma",
+        "12 skills",
+        "10 reference docs"
       ],
-      "why": "A menu of real, finished things, from silly to serious. Pick one as inspiration for your next weekend build."
+      "why": "Made by someone who does this work every day, which is exactly the kind of Claude build worth learning from."
     },
     {
       "type": "claude",
-      "title": "48 AI agents searched NASA lidar for lost Maya sites.",
-      "short": "48 AI agents searched NASA lidar",
+      "title": "claude2figma: four skills that make Claude Code respect your design system.",
+      "short": "claude2figma: Claude follows your system",
       "minutes": 2,
-      "byline": "Pietro Miotti",
-      "source": "his blog",
-      "url": "https://pietromiotti.com/latest/maya-site/",
-      "discussionUrl": "https://zeli.app/story/50452455",
-      "body": "Pietro Miotti, a Google engineer and self-described non-archaeologist, turned public NASA lidar scans of about 1,200 km² of Mexican jungle into images. Then 48 agents, run on models including Claude, Gemini and GPT, went through them one by one with a written guide.\n\nThey flagged a hilltop with a plaza and an 8 to 12 m oval pyramid, and Mexico's INAH said no site was registered there. The whole thing took under 72 hours.\n\nThe twist: the site had already been described in a 2025 archaeology paper the agents missed while searching the literature.",
+      "byline": "Senlin",
+      "source": "UX Collective",
+      "url": "https://uxdesign.cc/how-to-make-claude-code-follow-your-design-system-in-figma-559618cffaa9",
+      "discussionUrl": "https://github.com/senlindesign/claude2figma",
+      "body": "The problem: the design system had everything Claude Code needed, and Claude Code used none of it. It freestyled instead.\n\nThe fix was a set of four Claude Code skills built for Figma design workflows, each handling one job, so Claude works within design system rules instead of making things up. The author is careful to call it a workflow enforcement layer rather than a harness.",
       "made": [
-        "48 AI agents",
-        "Claude, Gemini, GPT",
-        "Public NASA lidar"
+        "Claude Code skills",
+        "Figma MCP"
       ],
-      "why": "Agents are amazing at looking, and still need someone checking the homework."
+      "why": "If you've ever watched an AI ignore your components, this is a practical fix you can install."
     },
     {
       "type": "build",
@@ -123,7 +122,7 @@
       "minutes": 2,
       "source": "Flywheel",
       "url": "https://wetheflywheel.com/en/radar/google-stitch-review/",
-      "body": "Google Stitch keeps a project's brand rules, and the reasoning behind them, in a Markdown file called DESIGN.md. Google open-sourced the draft spec in April 2026.\n\nIt's the same idea as Impeccable and Claude skills: write your taste down once, and every AI tool you use can follow it.",
+      "body": "Google Stitch keeps a project's brand rules, and the reasoning behind them, in a Markdown file called DESIGN.md. Google open-sourced the draft spec in April 2026.\n\nIt's the same idea as Impeccable and Claude skills: write your taste down once, and every AI tool you use can follow it.\n\nShortcut: design-md-figma, an open-source Figma plugin from bergside, extracts the local styles and variables from your file and generates DESIGN.md and SKILL.md files for Claude Code, Cursor or Codex.",
       "code": "# DESIGN.md\n\n## Voice\nFriendly, plain words. No jargon.\n\n## Color\n- Primary #2743E0, for actions only\n- Text #121212 on #F7F7F5\n\n## Type\n- Headlines: Fraunces 600\n- Body: Inter 16px, line height 1.6\n\n## Rules\n- Touch targets at least 44px\n- One primary button per screen",
       "note": "Drop it in your project folder and point Stitch, Claude or any agent at it. These are Sift's own rules, by the way.",
       "why": "Five minutes of writing that makes every future AI design session more on-brand."
