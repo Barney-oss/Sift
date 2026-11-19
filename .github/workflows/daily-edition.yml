@@ -1,0 +1,44 @@
+name: Daily edition
+
+on:
+  schedule:
+    # 03:47 UTC = 6:47 in Addis Ababa, so the edition is ready by 7:00
+    - cron: '47 3 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-edition
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build today's edition
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
+          BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+        run: node scripts/build-edition.mjs
+
+      - name: Publish it
+        run: |
+          git config user.name "sift-bot"
+          git config user.email "sift-bot@users.noreply.github.com"
+          git add editions/
+          if git diff --cached --quiet; then
+            echo "Nothing new today."
+          else
+            git commit -m "Edition for $(TZ=Africa/Addis_Ababa date +%F)"
+            git push
+          fi

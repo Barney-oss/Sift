@@ -1,0 +1,84 @@
+{
+  "edition": 1,
+  "date": "2026-11-19",
+  "dateLabel": "Thursday, 19 Nov",
+  "minutes": 6,
+  "stories": [
+    {
+      "type": "build",
+      "title": "Claude read 13 years of his inbox. The sales pitches won.",
+      "short": "Claude read 13 years of one inbox",
+      "dek": "A blogger turned a vague feeling into a real number in one afternoon.",
+      "byline": "Josh Strange",
+      "source": "Hacker News",
+      "minutes": 2,
+      "url": "https://zeli.app/ja/digest/2026-11-09",
+      "body": "Josh loved getting email from people who read his blog and comments. Lately it felt like most of it was selling, so he asked Claude to analyze everything since 2013. His theory: LLMs make it easy to write persuasive pitches tailored to someone's real comments.",
+      "stat": { "before": { "value": "20%", "label": "sales email in 2022" }, "after": { "value": "88%", "label": "sales email in 2026" } },
+      "made": ["Claude", "His own email archive", "13 years of data"],
+      "why": "A small, personal use of Claude that turns a hunch into a number. You could run the same test on your own inbox tonight."
+    },
+    {
+      "type": "build",
+      "title": "48 AI agents searched NASA lidar and may have found a pyramid.",
+      "short": "48 AI agents searched NASA lidar",
+      "source": "Hacker News",
+      "url": "https://zeli.app/digest/2026-11-11",
+      "body": "A non-archaeologist pointed 48 AI agents at public NASA lidar data covering about 1,200 km² of Mexican jungle. They flagged a hilltop with straight edges, a plaza and an 8 to 12 m pyramid.",
+      "made": ["48 AI agents", "Public NASA lidar data"],
+      "why": "Public data plus a swarm of agents let one curious person do a research team's job. That pattern will show up everywhere."
+    },
+    {
+      "type": "build",
+      "title": "Blender's famously fast interface, set free.",
+      "short": "Blender's interface, set free",
+      "source": "Hacker News",
+      "url": "https://zeli.app/digest/2026-11-06",
+      "body": "BUI pulls Blender's fast, battery-friendly interface out of Blender and ships it as a small C runtime, with bindings for Python, Rust, JavaScript/React, C, C++ and Dear ImGui.",
+      "made": ["C runtime", "Python", "Rust", "JavaScript/React"],
+      "why": "Interface designers rarely get to borrow a pro tool's UI engine. This makes dense, fast, desktop-grade UI available to anyone."
+    },
+    {
+      "type": "debate",
+      "title": "Should you be able to say no to AI at work?",
+      "short": "Can you say no to AI at work?",
+      "source": "Hacker News",
+      "url": "https://zeli.app/ko/digest/2026-10-28",
+      "body": "A man in Kentucky became the first to win a religious exemption from using AI at his job, based on his humanist beliefs. Hacker News had a lot to say.",
+      "for": "It sets a precedent: people can refuse AI on grounds of conscience, not just preference.",
+      "against": "Commenters doubt an exemption will hold up once productivity pressure kicks in.",
+      "agree": "When AI stands in for ethical judgment, someone still has to be accountable."
+    },
+    {
+      "type": "steal",
+      "title": "Ship a dark mode. Nearly half your visitors want one.",
+      "short": "Dark mode, for the 40%",
+      "source": "Hacker News",
+      "url": "https://zeli.app/digest/2026-11-03",
+      "stats": [
+        { "value": "40%", "label": "of page loads come from dark mode users" },
+        { "value": "10%", "label": "of pages actually support it" }
+      ],
+      "code": "@media (prefers-color-scheme: dark) {\n  :root {\n    --bg: #121212;\n    --text: #EDEDED;\n  }\n}",
+      "note": "Safari 27.3 beta now darkens pages on its own if you don't. Better to pick your own colors. (This site does it too: switch your phone to dark mode.)"
+    },
+    {
+      "type": "news",
+      "title": "Figma connectors now work on every plan, Starter included.",
+      "short": "Figma connectors on every plan",
+      "source": "The Only",
+      "url": "https://buttondown.com/theonly/archive/ai-is-learning-how-your-team-works/",
+      "body": "You can also create a Google Drive doc from inside Figma, handy for capturing design decisions or summing up a review.",
+      "why": "Tools that used to need a paid seat are now open to solo designers and students."
+    },
+    {
+      "type": "wildcard",
+      "title": "The best microscope photo of the year is a printer.",
+      "short": "Ink, frozen mid-air",
+      "source": "Nikon Small World",
+      "url": "https://zeli.app/ko/digest/2026-10-28",
+      "body": "Ole Bielfeldt, 25, took an inkjet printer apart and froze its ink droplets mid-air with a flash in a dark room. It beat 1,802 entries from 69 countries. No AI, no expensive kit.",
+      "why": "Curiosity and craft beat budget. A good reminder before you open your design tools today."
+    }
+  ]
+}
