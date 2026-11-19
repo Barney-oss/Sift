@@ -83,13 +83,27 @@ function decode(s) {
     .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
 }
 
-function clean(html, max = 400) {
-  const text = decode(String(html || '').replace(/<p>/gi, ' ').replace(/<[^>]+>/g, ' '))
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/\s+/g, ' ')
-    .replace(/\s+—\s+/g, ', ')
-    .trim();
-  return cut(text, max);
+function clean(html, max = 400, paras = false) {
+  let s = String(html || '');
+  if (paras) s = s.replace(/<\/?p[^>]*>/gi, '\n\n').replace(/<br\s*\/?>/gi, '\n');
+  let text = decode(s.replace(/<[^>]+>/g, ' ')).replace(/<[^>]+>/g, ' ');
+  text = paras
+    ? text.split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim()).filter(Boolean).join('\n\n')
+    : text.replace(/\s+/g, ' ').trim();
+  return cut(text.replace(/\s+—\s+/g, ', '), max);
+}
+
+// Markdown (Reddit posts, READMEs) to plain paragraphs.
+function unmark(md) {
+  return String(md || '')
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/<[^>]+>/g, '')
+    .replace(/^\s{0,3}#{1,6}\s*/gm, '')
+    .replace(/^\s*[-*+]\s+/gm, '• ')
+    .replace(/(\*\*|__|`)/g, '')
+    .replace(/^\s*>\s?/gm, '');
 }
 
 function cut(text, max) {
@@ -165,7 +179,7 @@ async function hackerNews() {
       author: h.author,
       score: h.points || 0,
       comments: h.num_comments || 0,
-      text: clean(h.story_text, 600),
+      text: clean(h.story_text, 3000, true),
       isShow: (h._tags || []).includes('show_hn')
     }));
 }
@@ -187,7 +201,7 @@ async function reddit() {
           author: p.author,
           score: p.score || 0,
           comments: p.num_comments || 0,
-          text: clean(p.selftext, 600),
+          text: clean(unmark(p.selftext), 3000, true),
           flair: p.link_flair_text || ''
         });
       }
@@ -313,13 +327,13 @@ async function commentsFor(c, n = 8) {
     if (c.kind === 'hn') {
       const item = await get(`https://hn.algolia.com/api/v1/items/${c.id}`);
       return (item.children || []).filter((x) => x.text && x.author)
-        .slice(0, n).map((x) => ({ text: clean(x.text, 600), author: x.author }));
+        .slice(0, n).map((x) => ({ text: clean(x.text, 700, true), author: x.author }));
     }
     if (c.kind === 'reddit') {
       const data = await get(`https://www.reddit.com/comments/${c.id}.json?sort=top&limit=${n}`);
       return (data[1].data.children || []).map((x) => x.data)
         .filter((x) => x.body && x.author && x.author !== 'AutoModerator' && !x.stickied)
-        .slice(0, n).map((x) => ({ text: clean(x.body, 600), author: x.author }));
+        .slice(0, n).map((x) => ({ text: clean(unmark(x.body), 700, true), author: x.author }));
     }
   } catch { /* fine */ }
   return [];
@@ -341,6 +355,28 @@ function goodQuote(comments, avoid = []) {
   const used = new Set(avoid);
   const c = comments.find((x) => !used.has(x.text) && x.text.length >= 50 && x.text.length <= 600 && !/^(this|nice|cool|great|wow)[.!]*$/i.test(x.text));
   return c ? { text: cut(c.text, 240), author: c.author } : null;
+}
+
+async function readmeIntro(repo) {
+  if (MOCK || !repo) return '';
+  try {
+    const headers = { Accept: 'application/vnd.github.raw' };
+    if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
+    const md = await get(`https://api.github.com/repos/${repo}/readme`, { json: false, headers });
+    const paras = unmark(md).split(/\n\s*\n/).map((p) => p.replace(/\s+/g, ' ').trim())
+      .filter((p) => p.length > 60 && !/^(install|npm |pip |brew |git clone|license|copyright)/i.test(p));
+    return cut(paras.slice(0, 3).join('\n\n'), 900);
+  } catch {
+    return '';
+  }
+}
+
+function conversation(comments, skip = []) {
+  const used = new Set(skip.map((x) => x.text));
+  return comments
+    .filter((x) => !used.has(x.text) && x.text.length >= 40 && !/^(this|nice|cool|great|wow|thanks)[.!]*$/i.test(x.text))
+    .slice(0, 6)
+    .map((x) => ({ text: cut(x.text, 600), author: x.author }));
 }
 
 function madeWith(c) {
@@ -413,7 +449,7 @@ function debateViews(comments) {
     return { x, v: hints - overlap * 4 };
   }).sort((a, b) => b.v - a.v)[0].x;
   const third = pool.find((x) => x !== first && x !== second);
-  return [first, second, third].map((x) => ({ text: cut(x.text, 220), author: x.author }));
+  return [first, second, third].map((x) => ({ text: cut(x.text, 500), author: x.author }));
 }
 
 // =====================================================================
@@ -449,46 +485,56 @@ function minutesFor(story) {
 }
 
 async function buildCard(c, lead) {
-  const [desc, comments] = await Promise.all([pageDescription(c.url), commentsFor(c)]);
-  const body = c.text || desc;
+  const [desc, comments, readme] = await Promise.all([
+    c.kind === 'feed' || !c.text ? pageDescription(c.url) : '',
+    commentsFor(c),
+    c.kind === 'github' ? readmeIntro(c.repo) : ''
+  ]);
+  const body = readme || c.text || desc;
   const story = {
     type: 'build',
     title: tidyTitle(c.title),
     byline: c.author || undefined,
-    body: cut(body, 320) || undefined,
-    made: madeWith({ ...c, text: `${c.text || ''} ${desc}` }),
-    quote: goodQuote(comments) || undefined,
+    body: cut(body, 3000) || undefined,
+    made: madeWith({ ...c, text: `${c.text || ''} ${desc} ${readme}` }),
+    discussion: conversation(comments),
+    discussionUrl: c.discussion,
     signals: signals(c)
   };
   if (c.kind === 'github') story.title = `${c.repo.split('/')[1]}: ${c.text}`.replace(/\.$/, '');
-  if (lead) story.dek = cut(desc || c.text || '', 110) || undefined;
+  if (lead) story.dek = cut((desc || c.text || readme || '').split('\n')[0], 110) || undefined;
   return story;
 }
 
 async function debateCard(c) {
-  const comments = await commentsFor(c, 12);
+  const comments = await commentsFor(c, 14);
   const views = debateViews(comments);
   if (!views) return null;
   const desc = c.text || (await pageDescription(c.url));
   return {
     type: 'debate',
     title: tidyTitle(c.title),
-    body: cut(desc, 280) || undefined,
+    body: cut(desc, 1500) || undefined,
     views,
+    discussion: conversation(comments, views).slice(0, 4),
+    discussionUrl: c.discussion,
     signals: signals(c),
-    url: c.discussion
+    url: c.url
   };
 }
 
 async function simpleCard(type, c) {
-  const desc = c.text || (await pageDescription(c.url));
+  const page = await pageDescription(c.url);
+  // Articles from other sites: their own summary, not the full piece (that would be republishing it).
+  const body = c.kind === 'feed' ? [page, c.text].filter(Boolean).filter((v, i, a) => a.indexOf(v) === i).join('\n\n') : (c.text || page);
   const comments = c.kind === 'hn' || c.kind === 'reddit' ? await commentsFor(c) : [];
   return {
     type,
     title: tidyTitle(c.title),
     byline: c.author || undefined,
-    body: cut(desc, 320) || undefined,
-    quote: goodQuote(comments) || undefined,
+    body: cut(body, c.kind === 'feed' ? 700 : 3000) || undefined,
+    discussion: conversation(comments),
+    discussionUrl: c.discussion,
     signals: signals(c)
   };
 }

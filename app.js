@@ -95,7 +95,7 @@
     return '<div class="story-head">' +
       '<span class="label label--accent">' + esc(KIND[st.type] || st.type) + (st.type === 'wildcard' ? ' · Outside tech' : '') + '</span>' +
       '<h1 class="headline">' + esc(st.title) + '</h1>' +
-      (st.byline || st.source ? '<span class="meta">' + esc([st.byline, st.source && 'via ' + st.source].filter(Boolean).join(' · ')) + '</span>' : '') +
+      (st.byline || st.source ? '<span class="meta">' + esc([st.byline, st.source && 'on ' + st.source].filter(Boolean).join(' · ')) + '</span>' : '') +
       '</div>';
   }
 
@@ -107,7 +107,7 @@
     if (!q || !q.text) return '';
     return '<figure class="panel ' + (cls || 'panel--tint') + '">' +
       '<span class="label label--plain">' + esc(label || 'What people said') + '</span>' +
-      '<blockquote><p>\u201C' + esc(q.text) + '\u201D</p></blockquote>' +
+      '<blockquote>' + paras('\u201C' + q.text + '\u201D') + '</blockquote>' +
       (q.author ? '<figcaption>' + esc(q.author) + '</figcaption>' : '') +
       '</figure>';
   }
@@ -127,21 +127,45 @@
       '</div>';
   }
 
+  function paras(text) {
+    return String(text || '').split(/\n\s*\n/).filter(Boolean)
+      .map(function (p) { return '<p>' + esc(p).replace(/\n/g, '<br>') + '</p>'; }).join('');
+  }
+
+  function conversation(st) {
+    var list = st.discussion || [];
+    if (!list.length) return st.quote ? quote(st.quote) : '';
+    return '<section class="section"><span class="label label--plain">What people said</span><ul class="comments">' +
+      list.map(function (c) {
+        return '<li>' + paras(c.text) + (c.author ? '<span class="meta">' + esc(c.author) + '</span>' : '') + '</li>';
+      }).join('') + '</ul></section>';
+  }
+
+  function credit(st) {
+    var src = safeUrl(st.url);
+    var talk = safeUrl(st.discussionUrl);
+    var bits = [];
+    if (src) bits.push('<a href="' + src + '" target="_blank" rel="noopener noreferrer">' + (st.source ? esc(st.source) : 'Source') + '</a>');
+    else if (st.source) bits.push(esc(st.source));
+    if (talk && talk !== src) bits.push('<a href="' + talk + '" target="_blank" rel="noopener noreferrer">Join the discussion</a>');
+    return bits.length ? '<p class="credit">From ' + bits.join(' · ') + '</p>' : '';
+  }
+
   function bodyFor(st) {
-    var html = st.body ? '<p class="body">' + esc(st.body) + '</p>' : '';
+    var html = st.body ? '<div class="body">' + paras(st.body) + '</div>' : '';
     if (st.type === 'build') {
       html += statPair(st.stat);
       if (st.made && st.made.length) {
         html += '<div class="section"><span class="label label--plain">How it was made</span><div class="chips">' +
           st.made.map(function (m) { return '<span class="chip">' + esc(m) + '</span>'; }).join('') + '</div></div>';
       }
-      html += quote(st.quote) + why(st);
+      html += why(st) + conversation(st);
     } else if (st.type === 'debate' && st.views && st.views.length) {
       var labels = ['One view', 'Another view', 'Also worth reading'];
       var looks = ['panel--solid', 'panel--outline', 'panel--tint'];
       html += '<div class="stack">' + st.views.slice(0, 3).map(function (v, k) {
         return quote(v, labels[k], looks[k]);
-      }).join('') + '</div>';
+      }).join('') + '</div>' + conversation(st);
     } else if (st.type === 'debate') {
       html += '<div class="stack">' +
         (st['for'] ? '<div class="panel panel--solid"><span class="label label--plain">The case for</span><p>' + esc(st['for']) + '</p></div>' : '') +
@@ -156,9 +180,9 @@
       }
       if (st.code) html += '<div class="section"><span class="label label--plain">The pattern</span><pre class="code"><code>' + esc(st.code) + '</code></pre></div>';
       if (st.note) html += '<p class="meta" style="margin:0;line-height:1.45">' + esc(st.note) + '</p>';
-      html += quote(st.quote) + why(st);
+      html += why(st) + conversation(st);
     } else {
-      html += quote(st.quote) + why(st);
+      html += why(st) + conversation(st);
     }
     return html + signals(st);
   }
@@ -171,11 +195,7 @@
     var next = i + 1 < s.length
       ? '<a class="btn btn--solid" href="#/s/' + (i + 2) + '">Next' + ICON.arrow + '</a>'
       : '<a class="btn btn--accent" href="#/done">Finish edition' + ICON.check + '</a>';
-    var src = safeUrl(st.url);
-    var original = src
-      ? '<a class="btn btn--outline" href="' + src + '" target="_blank" rel="noopener noreferrer">' + (st.type === 'debate' ? 'Read the thread' : 'Read original') + ICON.out + '</a>'
-      : '';
-    app.innerHTML = topbar(i, s.length) + head(st) + bodyFor(st) + '<div class="actions">' + original + next + '</div>';
+    app.innerHTML = topbar(i, s.length) + head(st) + bodyFor(st) + '<div class="actions actions--stack">' + credit(st) + next + '</div>';
     window.scrollTo(0, 0);
   }
 

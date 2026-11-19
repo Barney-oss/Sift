@@ -12,55 +12,85 @@
       "byline": "Josh Strange",
       "source": "Hacker News",
       "minutes": 2,
-      "url": "https://zeli.app/ja/digest/2026-11-09",
       "body": "Josh loved getting email from people who read his blog and comments. Lately it felt like most of it was selling, so he asked Claude to analyze everything since 2013. His theory: LLMs make it easy to write persuasive pitches tailored to someone's real comments.",
-      "stat": { "before": { "value": "20%", "label": "sales email in 2022" }, "after": { "value": "88%", "label": "sales email in 2026" } },
-      "made": ["Claude", "His own email archive", "13 years of data"],
+      "stat": {
+        "before": {
+          "value": "20%",
+          "label": "sales email in 2022"
+        },
+        "after": {
+          "value": "88%",
+          "label": "sales email in 2026"
+        }
+      },
+      "made": [
+        "Claude",
+        "His own email archive",
+        "13 years of data"
+      ],
       "why": "A small, personal use of Claude that turns a hunch into a number. You could run the same test on your own inbox tonight."
     },
     {
       "type": "build",
-      "title": "48 AI agents searched NASA lidar and may have found a pyramid.",
+      "title": "48 AI agents searched NASA lidar for lost Maya sites.",
       "short": "48 AI agents searched NASA lidar",
-      "source": "Hacker News",
-      "url": "https://zeli.app/digest/2026-11-11",
-      "body": "A non-archaeologist pointed 48 AI agents at public NASA lidar data covering about 1,200 km² of Mexican jungle. They flagged a hilltop with straight edges, a plaza and an 8 to 12 m pyramid.",
-      "made": ["48 AI agents", "Public NASA lidar data"],
-      "why": "Public data plus a swarm of agents let one curious person do a research team's job. That pattern will show up everywhere."
+      "source": "his blog",
+      "url": "https://pietromiotti.com/latest/maya-site/",
+      "body": "Pietro Miotti, a Google engineer and self-described non-archaeologist, turned public NASA lidar scans of about 1,200 km² of Mexican jungle into images. Then 48 AI agents went through them one by one with a written guide, looking for pyramids, platforms and plazas while ignoring natural hills and roads.\n\nThey flagged a hilltop with a plaza and an 8 to 12 m oval pyramid, and Mexico's INAH said no site was registered there. The whole thing, from idea to official reply, took under 72 hours.\n\nThe twist: the site had already been described in a 2025 archaeology paper the agents missed. Archaeologists pushed back on amateurs announcing AI \"discoveries.\"",
+      "made": [
+        "48 AI agents",
+        "Public NASA lidar data"
+      ],
+      "why": "A great build and a great cautionary tale in one. Agents are amazing at looking, and still need someone checking the homework.",
+      "byline": "Pietro Miotti",
+      "discussionUrl": "https://zeli.app/story/50452455"
     },
     {
       "type": "build",
       "title": "Blender's famously fast interface, set free.",
       "short": "Blender's interface, set free",
       "source": "Hacker News",
-      "url": "https://zeli.app/digest/2026-11-06",
-      "body": "BUI pulls Blender's fast, battery-friendly interface out of Blender and ships it as a small C runtime, with bindings for Python, Rust, JavaScript/React, C, C++ and Dear ImGui.",
-      "made": ["C runtime", "Python", "Rust", "JavaScript/React"],
+      "url": "https://zeli.app/story/50389333",
+      "body": "BUI pulls Blender's famously fast, battery-friendly interface out of Blender and ships it as a small C runtime. You can use it from Python, Rust, JavaScript/React, C, C++ and Dear ImGui.\n\nIt includes optional GPU rendering, only redraws what changed, and has an efficient image system. People spent decades polishing Blender's UI, and now anyone can build on it.",
+      "made": [
+        "C runtime",
+        "Python",
+        "Rust",
+        "JavaScript/React"
+      ],
       "why": "Interface designers rarely get to borrow a pro tool's UI engine. This makes dense, fast, desktop-grade UI available to anyone."
     },
     {
       "type": "debate",
       "title": "Should you be able to say no to AI at work?",
       "short": "Can you say no to AI at work?",
-      "source": "Hacker News",
-      "url": "https://zeli.app/ko/digest/2026-10-28",
-      "body": "A man in Kentucky became the first to win a religious exemption from using AI at his job, based on his humanist beliefs. Hacker News had a lot to say.",
+      "source": "Fortune",
+      "url": "https://fortune.com/2026/10/30/kentucky-administrator-ai-religious-exemption-title-vii-humanism/",
+      "body": "David Durman, a research administrator at the University of Kentucky, got a religious accommodation under Title VII so he doesn't have to personally use AI at work. He's a humanist, and says handing his thinking and decisions to AI would go against his beliefs.\n\nHe's believed to be the first humanist to get an AI exemption, though not the first person: a Unitarian Universalist software engineer got one earlier this year. On Hacker News, people dug into what it really means.",
       "for": "It sets a precedent: people can refuse AI on grounds of conscience, not just preference.",
       "against": "Commenters doubt an exemption will hold up once productivity pressure kicks in.",
-      "agree": "When AI stands in for ethical judgment, someone still has to be accountable."
+      "agree": "When AI stands in for ethical judgment, someone still has to be accountable.",
+      "discussionUrl": "https://zeli.app/story/50273396"
     },
     {
       "type": "steal",
       "title": "Ship a dark mode. Nearly half your visitors want one.",
       "short": "Dark mode, for the 40%",
-      "source": "Hacker News",
-      "url": "https://zeli.app/digest/2026-11-03",
+      "source": "9to5Mac",
+      "url": "https://9to5mac.com/2026/11/03/ios-27-3-and-macos-27-3-add-vertical-tabs-adaptive-dark-mode-and-more-to-safari/",
       "stats": [
-        { "value": "40%", "label": "of page loads come from dark mode users" },
-        { "value": "10%", "label": "of pages actually support it" }
+        {
+          "value": "40%",
+          "label": "of page loads come from dark mode users"
+        },
+        {
+          "value": "10%",
+          "label": "of pages actually support it"
+        }
       ],
       "code": "@media (prefers-color-scheme: dark) {\n  :root {\n    --bg: #121212;\n    --text: #EDEDED;\n  }\n}",
-      "note": "Safari 27.3 beta now darkens pages on its own if you don't. Better to pick your own colors. (This site does it too: switch your phone to dark mode.)"
+      "note": "Safari 27.3 beta now darkens pages on its own if you don't. Better to pick your own colors. (This site does it too: switch your phone to dark mode.)",
+      "body": "Safari 27.3 beta adds Adaptive Dark Mode: when someone's phone is in dark mode, Safari offers to repaint light-only websites dark on its own. Sites that declare their own dark colors are left alone.\n\nSo the choice is simple. Design your dark mode yourself, or let the browser guess."
     },
     {
       "type": "news",
@@ -75,9 +105,9 @@
       "type": "wildcard",
       "title": "The best microscope photo of the year is a printer.",
       "short": "Ink, frozen mid-air",
-      "source": "Nikon Small World",
-      "url": "https://zeli.app/ko/digest/2026-10-28",
-      "body": "Ole Bielfeldt, 25, took an inkjet printer apart and froze its ink droplets mid-air with a flash in a dark room. It beat 1,802 entries from 69 countries. No AI, no expensive kit.",
+      "source": "Science News",
+      "url": "https://www.sciencenews.org/article/nikon-small-world-contest-2026-photos",
+      "body": "Ole Bielfeldt, a 25-year-old design student in Cologne, Germany, won the 2026 Nikon Small World photomicrography competition with a microscope view of an inkjet printer laying ink onto paper. He beat 1,802 entries from 69 countries.\n\nHis first tries failed because the printhead moved too fast to stay in focus. So he built his own rig, worked in a dark room and used a flash as his shutter to freeze the droplets mid-air. He says he thought he'd need expensive equipment, and it turned out he already had everything.",
       "why": "Curiosity and craft beat budget. A good reminder before you open your design tools today."
     }
   ]
