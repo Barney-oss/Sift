@@ -84,6 +84,13 @@
       '</form>';
   }
 
+  // A short taste of a story for the home list.
+  function preview(st) {
+    var t = st.dek || st.body || (st.views && st.views[0] && st.views[0].text) || st.why || '';
+    t = String(t).split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
+    return t.length > 170 ? t.slice(0, 169).replace(/\s+\S*$/, '') + '…' : t;
+  }
+
   function progress(count, total, label) {
     var bars = '';
     for (var i = 0; i < total; i++) bars += '<span class="' + (i < count ? 'on' : '') + '"></span>';
@@ -98,10 +105,13 @@
     var rows = '';
     for (var i = 1; i < s.length; i++) {
       var isRead = read.indexOf(i) !== -1;
-      rows += '<a href="#/s/' + (i + 1) + '" class="' + (isRead ? 'read' : '') + '">' +
-        '<span class="label label--accent kind">' + esc(KIND[s[i].type] || s[i].type) + '</span>' +
-        '<span class="title">' + esc(s[i].short || s[i].title) + '</span>' +
-        (isRead ? '<span class="check" aria-label="Read">' + ICON.check + '</span>' : '') +
+      var st = s[i];
+      rows += '<a href="#/s/' + (i + 1) + '" class="story-row' + (isRead ? ' read' : '') + '">' +
+        '<span class="row-between"><span class="label label--accent">' + esc(KIND[st.type] || st.type) + '</span>' +
+          (isRead ? '<span class="check meta" aria-label="Read">' + ICON.check + '</span>' : '') + '</span>' +
+        '<span class="row-title">' + esc(st.title) + '</span>' +
+        (preview(st) ? '<span class="preview">' + esc(preview(st)) + '</span>' : '') +
+        '<span class="meta">' + esc([st.source, st.minutes ? st.minutes + ' min' : ''].filter(Boolean).join(' · ')) + '</span>' +
         '</a>';
     }
     var allRead = read.length >= s.length;
@@ -242,6 +252,10 @@
     var next = i + 1 < s.length
       ? '<a class="btn btn--solid" href="#/s/' + (i + 2) + '">Next' + ICON.arrow + '</a>'
       : '<a class="btn btn--accent" href="#/done">Finish edition' + ICON.check + '</a>';
+    var prev = i > 0
+      ? '<a class="btn btn--outline" href="#/s/' + i + '">' + ICON.back + 'Previous</a>'
+      : '<a class="btn btn--outline" href="#/">All stories</a>';
+    next = '<div class="pager">' + prev + next + '</div>';
     current = st;
     app.innerHTML = topbar(i, s.length, st) + head(st) + bodyFor(st) + ideaForm('An idea from this?') +
       '<div class="actions actions--stack">' + credit(st) + next + '</div>';
@@ -338,6 +352,25 @@
     else if (h === '#/done') renderDone();
     else renderToday();
   }
+
+  // Swipe left or right on a story to move between stories.
+  var touch = null;
+  app.addEventListener('touchstart', function (e) {
+    if (e.touches.length !== 1 || e.target.closest('textarea, pre, .chips')) { touch = null; return; }
+    touch = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  }, { passive: true });
+  app.addEventListener('touchend', function (e) {
+    if (!touch) return;
+    var m = (location.hash || '').match(/^#\/s\/(\d+)$/);
+    var dx = e.changedTouches[0].clientX - touch.x;
+    var dy = e.changedTouches[0].clientY - touch.y;
+    touch = null;
+    if (!m || Math.abs(dx) < 70 || Math.abs(dy) > 50) return;
+    var n = parseInt(m[1], 10) + (dx < 0 ? 1 : -1);
+    if (n < 1) location.hash = '#/';
+    else if (n > edition.stories.length) location.hash = '#/done';
+    else location.hash = '#/s/' + n;
+  }, { passive: true });
 
   // One listener for every button and form, so screens can re-render freely.
   app.addEventListener('click', function (e) {
