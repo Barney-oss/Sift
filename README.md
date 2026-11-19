@@ -1,6 +1,6 @@
 # Sift
 
-A short daily edition of what people are building and thinking in tech and design. Seven stories, then it ends.
+A short daily edition of what people are building and thinking in tech and design, with a focus on AI design tools and things people ship with Claude. Usually 6 to 12 cards, then it ends.
 
 Free to run: no AI, no API keys, no server bills.
 
@@ -8,7 +8,7 @@ Free to run: no AI, no API keys, no server bills.
 
 1. Every morning at 6:47 (Addis Ababa time), a GitHub Action runs `scripts/build-edition.mjs`.
 2. The script gathers fresh posts from Hacker News, Reddit, GitHub, Bluesky and a handful of design blogs.
-3. Simple rules rank them and pick 7: 3 builds, 1 debate, 1 "steal this", 1 news item and 1 wildcard.
+3. Simple rules rank them and pick up to 12 cards: things built with Claude, builds, debates, "steal this", news and one wildcard. Quiet days are shorter, busy days longer (see `SLOTS` in the script).
 4. Each card uses real words from real people: the maker's own description, the top comment, and for debates, three comments that disagree.
 5. The edition is saved to `editions/latest.json` (plus a dated copy) and committed.
 6. GitHub Pages serves the site, which reads `editions/latest.json`.
@@ -27,7 +27,10 @@ Optional: add `BSKY_HANDLE` and `BSKY_APP_PASSWORD` secrets (an app password fro
 Everything Sift likes and dislikes lives in the **TASTE** section at the top of `scripts/build-edition.mjs`:
 
 - `SUBREDDITS`, `RSS_FEEDS`, `BSKY_QUERIES`: where it looks.
+- `TOPIC`: your main topic (AI design tools). Matching stories get picked first.
+- `CLAUDE_BUILD`: how "Built with Claude" stories are spotted.
 - `BOOST_CLAUDE`, `BOOST_DESIGN`: topics that get a head start.
+- `SLOTS`, `MAX_CARDS`: how many of each card, and how good extra ones must be.
 - `BUILD_WORDS`, `STEAL_WORDS`, `NEWS_WORDS`, `WILD_WORDS`: how each card type is spotted.
 - `BLOCK`: words that get a post thrown out (politics, drama, crypto hype).
 

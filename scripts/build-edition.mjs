@@ -2,7 +2,8 @@
 //
 // 1. Gathers fresh posts from Hacker News, Reddit, GitHub, Bluesky and design blogs.
 // 2. Ranks them with simple, editable rules (see TASTE below).
-// 3. Picks 3 builds, 1 debate, 1 "steal this", 1 news item and 1 wildcard.
+// 3. Picks a flexible number of cards (up to 12): things shipped with Claude, builds, debates,
+//    "steal this", news and one wildcard. Quiet days are shorter, busy days longer.
 // 4. Adds real words from real people: the author's own description and top comments.
 // 5. Writes editions/latest.json and editions/YYYY-MM-DD.json.
 //
@@ -43,15 +44,15 @@ const RSS_FEEDS = [
   ['Colossal', 'https://www.thisiscolossal.com/feed/', 'wildcard'],
   ['Atlas Obscura', 'https://www.atlasobscura.com/feeds/latest', 'wildcard']
 ];
-const BSKY_QUERIES = ['claude design', 'figma ai', 'google stitch', 'vibe design', 'ai design tool'];
+const BSKY_QUERIES = ['built with claude', 'made with claude', 'claude design', 'figma ai', 'google stitch', 'vibe design'];
 
 const BOOST_CLAUDE = /\bclaude\b|anthropic|\bmcp\b/i;
 const BOOST_DESIGN = /\b(design|designer|ux|ui|figma|typograph|font|color|colour|interface|prototype|accessib|animation|css|layout|icon)/i;
-const BUILD_WORDS = /\b(i built|i made|we built|i created|made a|built a|built an|my side project|introducing|launch(ed|ing)? my)\b/i;
-const STEAL_WORDS = /\b(how to|how i|how we|guide|tips?|pattern|technique|lessons?|learned|prompt|tutorial|checklist|trick|ways to|why you should|best practice|cheat ?sheet|explained)\b/i;
+const BUILD_WORDS = /\b(i built|i made|i shipped|we built|we shipped|i created|made a|built a|built an|shipped (my|a|an)|my side project|introducing|launch(ed|ing)? my)\b/i;
+const STEAL_WORDS = /\b(how to|how i|how we|guide|tips (for|on|to)|\d+ tips|pattern|technique|lessons?|learned|prompt|tutorial|checklist|tricks? (for|to)|ways to|why you should|best practice|cheat ?sheet|explained)\b/i;
 const NEWS_WORDS = /\b(launch|launches|announce|announces|released?|releases|introduc|now (available|supports|lets)|update|rolls out|open[- ]sources?|acquir)/i;
 const NEWS_TOPICS = /\b(figma|apple|google|adobe|framer|canva|anthropic|claude|openai|browser|safari|chrome|firefox|css|design|github|android|ios|ai)\b/i;
-const WILD_WORDS = /\b(science|space|nasa|planet|art|artist|history|historic|ancient|archaeolog|nature|animal|bird|ocean|music|museum|photo|photograph|physics|biology|map|architecture|sculpture|painting|cooking|food|bridge|forest|volcano|telescope|microscope)/i;
+const WILD_WORDS = /\b(science|space|nasa|planets?|art|artists?|history|historic|ancient|archaeolog\w*|nature|animals?|birds?|ocean|music|museum|photos?|photograph\w*|physics|biology|maps?|architecture|sculpt\w*|painting|cooking|food|bridge|forest|volcano|telescope|microscop\w*)\b/i;
 const NOT_WILD = /\b(ai|llm|gpt|claude|startup|saas|api|javascript|python|rust)\b/i;
 const DEBATE_HINTS = /\b(disagree|but|however|not sure|on the other hand|i think|actually|wrong|problem|counter|instead|unless|depends)\b/gi;
 // Skip outrage, drama and hype.
@@ -430,22 +431,30 @@ function base(c) {
   return v;
 }
 
+const CLAUDE_BUILD = /\b(built|made|shipped|coded|wrote)( (it|this|an? [a-z]+))? (with|using|in) claude\b|\bclaude code\b|\bwith claude\b|\bvia claude\b|\bclaude[- ]built\b/i;
+function isClaudeBuild(c) {
+  return /built with claude|showcase/i.test(c.flair || '')
+    || (isBuild(c) && BOOST_CLAUDE.test(blob(c)))
+    || CLAUDE_BUILD.test(blob(c));
+}
+
 function isBuild(c) {
   return c.isShow || c.isBuild || BUILD_WORDS.test(blob(c)) || /showcase|project|i made/i.test(c.flair || '') || c.source === 'r/SideProject';
 }
 
-function pickBest(pool, used, test, scoreFn = base, perSource = 9) {
+// perSource limits how many picks in the same group (e.g. today's builds) come from one site.
+function pickBest(pool, used, test, scoreFn = base, perSource = 9, group = []) {
   const counts = {};
-  [...used].forEach((c) => (counts[c.source] = (counts[c.source] || 0) + 1));
+  group.forEach((c) => (counts[c.source] = (counts[c.source] || 0) + 1));
   return pool
     .filter((c) => !used.has(c) && test(c) && (counts[c.source] || 0) < perSource)
     .sort((a, b) => scoreFn(b) - scoreFn(a))[0];
 }
 
 // Try your topic first; fall back to anything good if today has nothing on it.
-function pickTopic(pool, used, test, scoreFn, perSource) {
-  return pickBest(pool, used, (c) => test(c) && TOPIC.test(blob(c)), scoreFn, perSource)
-    || pickBest(pool, used, test, scoreFn, perSource);
+function pickTopic(pool, used, test, scoreFn, perSource, group) {
+  return pickBest(pool, used, (c) => test(c) && TOPIC.test(blob(c)), scoreFn, perSource, group)
+    || pickBest(pool, used, test, scoreFn, perSource, group);
 }
 
 function words(t) {
@@ -597,52 +606,80 @@ async function main() {
 
   const used = new Set();
   const take = (c) => { if (c) used.add(c); return c; };
-  const picks = [];
 
-  // 1-3. Builds (no more than 2 from one source)
-  for (let i = 0; i < 3; i++) {
-    const c = take(pickTopic(pool, used, isBuild, base, 2));
-    if (c) picks.push(['build', c]);
+  // How many of each card Sift may show, and how good a story must be to earn the extra slots.
+  // The first card of a kind only needs to exist; extra ones need a score of at least `bar`.
+  const SLOTS = {
+    claude: { max: 3, bar: 0.8 },
+    build: { max: 3, bar: 1.0 },
+    debate: { max: 2 },
+    steal: { max: 2, bar: 1.2 },
+    news: { max: 2, bar: 1.3 },
+    wildcard: { max: 1 }
+  };
+  const MAX_CARDS = 12;
+
+  function fill(kind, test, scoreFn = base, perSource = 2, topicFirst = true) {
+    const out = [];
+    for (let i = 0; i < SLOTS[kind].max; i++) {
+      const c = topicFirst ? pickTopic(pool, used, test, scoreFn, perSource, out) : pickBest(pool, used, test, scoreFn, perSource, out);
+      if (!c || (i > 0 && scoreFn(c) < SLOTS[kind].bar)) break;
+      out.push(take(c));
+    }
+    return out;
   }
 
-  // The lead should be the richest story: prefer one with the maker's own words and a discussion.
-  const richness = (c) => base(c) + (c.kind === 'github' ? -0.3 : 0) + ((c.text || '').length > 60 ? 0.15 : 0) + (c.comments > 20 ? 0.15 : 0);
-  picks.sort((a, b) => richness(b[1]) - richness(a[1]));
+  // Shipped with Claude: real things people made using Claude
+  const claudeBuilt = fill('claude', (c) => isClaudeBuild(c), (c) => base(c) + (isBuild(c) || /built with claude|showcase/i.test(c.flair || '') ? 0.3 : 0), 2, false);
 
-  // 4. Debate: lots of comments relative to points, so people disagree
+  // Builds on your topic
+  const builds = fill('build', isBuild);
+
+  // The lead: the richest of all the builds
+  const richness = (c) => base(c) + (c.kind === 'github' ? -0.3 : 0) + ((c.text || '').length > 60 ? 0.15 : 0) + (c.comments > 20 ? 0.15 : 0);
+  const allBuilds = [...claudeBuilt.map((c) => ['claude', c]), ...builds.map((c) => ['build', c])];
+  const lead = allBuilds.sort((a, b) => richness(b[1]) - richness(a[1]))[0];
+
+  // Debates: lots of comments relative to points, so people disagree
   const debatable = pool
     .filter((c) => !used.has(c) && (c.kind === 'hn' || c.kind === 'reddit') && c.comments >= 40)
     .map((c) => ({ c, v: c.comments * Math.min(2, c.comments / Math.max(1, c.score)) * (TOPIC.test(blob(c)) ? 3 : 1) }))
     .sort((a, b) => b.v - a.v).map((x) => x.c)
-    .slice(0, 4);
-  let debate = null;
+    .slice(0, 6);
+  const debates = [];
   for (const c of debatable) {
-    debate = await debateCard(c);
-    if (debate) { used.add(c); debate.source = c.source; break; }
+    if (debates.length >= SLOTS.debate.max) break;
+    if (debates.length > 0 && !(TOPIC.test(blob(c)) && c.comments >= 100)) continue;
+    const d = await debateCard(c);
+    if (d) { used.add(c); d.source = c.source; debates.push(d); }
   }
 
-  // 5. Steal this
-  const steal = take(pickTopic(pool, used, (c) => c.role === 'steal' || STEAL_WORDS.test(c.title),
-    (c) => base(c) + (STEAL_WORDS.test(c.title) ? 0.4 : 0) + (c.role === 'steal' ? 0.2 : 0)));
-
-  // 6. Worth knowing
-  const news = take(pickTopic(pool, used, (c) => !isBuild(c) && (c.role === 'news' || (NEWS_WORDS.test(c.title) && NEWS_TOPICS.test(c.title)))));
-
-  // 7. Wildcard
-  const wild = take(pickBest(pool, used, (c) => c.role === 'wildcard' || (WILD_WORDS.test(c.title) && !NOT_WILD.test(c.title))));
+  const steals = fill('steal', (c) => c.role === 'steal' || STEAL_WORDS.test(c.title),
+    (c) => base(c) + (STEAL_WORDS.test(c.title) ? 0.4 : 0) + (c.role === 'steal' ? 0.2 : 0), 1);
+  const news = fill('news', (c) => !isBuild(c) && (c.role === 'news' || (NEWS_WORDS.test(c.title) && NEWS_TOPICS.test(c.title))), base, 1);
+  const wild = fill('wildcard', (c) => c.role === 'wildcard' || (WILD_WORDS.test(c.title) && !NOT_WILD.test(c.title)), (c) => base(c) + (c.role === 'wildcard' ? 0.3 : 0), 1, false);
 
   const stories = [];
-  for (let i = 0; i < picks.length; i++) {
-    const s = await buildCard(picks[i][1], i === 0);
-    s.source = picks[i][1].source; s.url = picks[i][1].url;
+  const addBuild = async (type, c, isLead) => {
+    const s = await buildCard(c, isLead);
+    s.type = type; s.source = c.source; s.url = c.url;
     stories.push(s);
+  };
+  if (lead) await addBuild(lead[0], lead[1], true);
+  for (const [type, c] of allBuilds) if (!lead || c !== lead[1]) await addBuild(type, c, false);
+  stories.push(...debates);
+  for (const [type, list] of [['steal', steals], ['news', news], ['wildcard', wild]]) {
+    for (const c of list) {
+      const s = await simpleCard(type, c);
+      s.source = c.source; s.url = c.url;
+      stories.push(s);
+    }
   }
-  if (debate) stories.push(debate);
-  for (const [type, c] of [['steal', steal], ['news', news], ['wildcard', wild]]) {
-    if (!c) continue;
-    const s = await simpleCard(type, c);
-    s.source = c.source; s.url = c.url;
-    stories.push(s);
+  // Keep the wildcard last even when trimming to MAX_CARDS
+  if (stories.length > MAX_CARDS) {
+    const w = stories.filter((x) => x.type === 'wildcard');
+    const rest = stories.filter((x) => x.type !== 'wildcard').slice(0, MAX_CARDS - w.length);
+    stories.length = 0; stories.push(...rest, ...w);
   }
 
   // Short list titles, reading time, tidy empties
@@ -651,7 +688,7 @@ async function main() {
     s.minutes = minutesFor(s);
     Object.keys(s).forEach((k) => (s[k] === undefined || s[k] === '' || (Array.isArray(s[k]) && !s[k].length)) && delete s[k]);
   }
-  if (stories.length < 5) throw new Error(`Only ${stories.length} stories today; keeping the previous edition.`);
+  if (stories.length < 4) throw new Error(`Only ${stories.length} stories today; keeping the previous edition.`);
 
   const last = await lastEdition();
   const edition = {

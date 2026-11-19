@@ -147,7 +147,7 @@ a:focus-visible, button:focus-visible, textarea:focus-visible {
   padding: 6px 0;
 }
 .list a:last-child { border-bottom: 1px solid var(--line); }
-.list .kind { width: 96px; flex-shrink: 0; }
+.list .kind { width: 104px; flex-shrink: 0; line-height: 1.3; }
 .list .title { flex: 1; font-size: 14px; font-weight: 500; line-height: 1.35; }
 .list a.read .title { color: var(--muted); }
 .check { color: var(--accent); flex-shrink: 0; }

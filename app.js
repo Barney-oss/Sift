@@ -5,6 +5,7 @@
   var edition = null;
 
   var KIND = {
+    claude: 'Built with Claude',
     build: 'Build',
     debate: 'Debate',
     steal: 'Steal this',
@@ -153,7 +154,7 @@
 
   function bodyFor(st) {
     var html = st.body ? '<div class="body">' + paras(st.body) + '</div>' : '';
-    if (st.type === 'build') {
+    if (st.type === 'build' || st.type === 'claude') {
       html += statPair(st.stat);
       if (st.made && st.made.length) {
         html += '<div class="section"><span class="label label--plain">How it was made</span><div class="chips">' +

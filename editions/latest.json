@@ -2,10 +2,10 @@
   "edition": 1,
   "date": "2026-11-19",
   "dateLabel": "Thursday, 19 Nov",
-  "minutes": 10,
+  "minutes": 14,
   "stories": [
     {
-      "type": "build",
+      "type": "claude",
       "title": "Impeccable teaches AI agents to have taste in design.",
       "short": "Impeccable: design skills for AI agents",
       "dek": "A free design vocabulary that stops AI-made interfaces from all looking the same.",
@@ -27,7 +27,40 @@
           "author": "Paul Bakaus, on Latent Space"
         }
       ],
-      "why": "If you design with Claude, this is a ready-made set of design opinions you can plug in today."
+      "why": "Proof that a good Claude skill can become a real product. If you design with Claude, you can plug it in today."
+    },
+    {
+      "type": "claude",
+      "title": "20 real things people built with Claude this year.",
+      "short": "20 things people built with Claude",
+      "minutes": 2,
+      "source": "João Queirós",
+      "url": "https://www.ai.joaoqueiros.com/blog/twenty-claude-builds-2026-games-hardware-agents",
+      "body": "A countdown of 20 Claude builds from 2026, with the claims checked against the original sources. A few highlights:\n\n• Dave Jones (EEVblog) used Claude to help reverse-engineer firmware for a 121GW multimeter, then tested it on a real meter.\n• Nicholas Carlini at Anthropic had 16 agents build a C compiler across nearly 2,000 sessions. The repo warns the code isn't validated.\n• Meng To has Claude run a tabletop adventure as game master for his kids.\n• Wataru Takasato had Claude write OpenSCAD for a 3D-printed shelf hook. The first print's holes came out too small.\n• Austin Lau at Anthropic built a Figma plugin and CSV workflow that turns human-written copy into ad variants.\n\nThe lesson the writer draws: the best builds give the agent a concrete job, let it see the result, and test it in the real world.",
+      "made": [
+        "Claude Code",
+        "Opus agents",
+        "OpenSCAD",
+        "Figma plugin"
+      ],
+      "why": "A menu of real, finished things, from silly to serious. Pick one as inspiration for your next weekend build."
+    },
+    {
+      "type": "claude",
+      "title": "48 AI agents searched NASA lidar for lost Maya sites.",
+      "short": "48 AI agents searched NASA lidar",
+      "minutes": 2,
+      "byline": "Pietro Miotti",
+      "source": "his blog",
+      "url": "https://pietromiotti.com/latest/maya-site/",
+      "discussionUrl": "https://zeli.app/story/50452455",
+      "body": "Pietro Miotti, a Google engineer and self-described non-archaeologist, turned public NASA lidar scans of about 1,200 km² of Mexican jungle into images. Then 48 agents, run on models including Claude, Gemini and GPT, went through them one by one with a written guide.\n\nThey flagged a hilltop with a plaza and an 8 to 12 m oval pyramid, and Mexico's INAH said no site was registered there. The whole thing took under 72 hours.\n\nThe twist: the site had already been described in a 2025 archaeology paper the agents missed while searching the literature.",
+      "made": [
+        "48 AI agents",
+        "Claude, Gemini, GPT",
+        "Public NASA lidar"
+      ],
+      "why": "Agents are amazing at looking, and still need someone checking the homework."
     },
     {
       "type": "build",
