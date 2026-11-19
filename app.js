@@ -3,6 +3,7 @@
 
   var app = document.getElementById('app');
   var edition = null;
+  var current = null; // the story on screen, for Save and ideas
 
   var KIND = {
     claude: 'Built with Claude',
@@ -35,6 +36,9 @@
     back: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>',
     check: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>',
     bigCheck: '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"/></svg>',
+    mark: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>',
+    marked: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4h12v17l-6-4-6 4z"/></svg>',
+    trash: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16"/><path d="M10 11v6M14 11v6"/><path d="M6 7l1 13h10l1-13"/><path d="M9 7V4h6v3"/></svg>',
     out: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg>'
   };
 
@@ -44,6 +48,40 @@
   function markRead(i) {
     var r = readSet();
     if (r.indexOf(i) === -1) { r.push(i); save(readKey(), r); }
+  }
+
+  // ---------- saved stories and ideas (kept in this browser) ----------
+  function savedList() { return store('sift-saved', []); }
+  function ideas() { return store('sift-sparks', []); }
+  function storyKey(st) { return st.url || st.title; }
+  function isSaved(st) {
+    var k = storyKey(st);
+    return savedList().some(function (x) { return storyKey(x.story) === k; });
+  }
+  function toggleSave(st) {
+    var list = savedList();
+    var k = storyKey(st);
+    var at = -1;
+    list.forEach(function (x, n) { if (storyKey(x.story) === k) at = n; });
+    if (at === -1) list.push({ story: st, date: edition.date, savedAt: Date.now() });
+    else list.splice(at, 1);
+    save('sift-saved', list);
+    return at === -1;
+  }
+  function addIdea(text, st) {
+    var all = ideas();
+    all.push({ text: text, date: edition.date, from: st ? st.title : undefined });
+    save('sift-sparks', all);
+  }
+  function savedCount() { return savedList().length + ideas().length; }
+
+  function ideaForm(label) {
+    return '<form class="idea-form" data-form="idea">' +
+      '<label for="idea-text" class="label label--plain">' + esc(label || 'Save an idea') + '</label>' +
+      '<textarea id="idea-text" rows="2" placeholder="Something this sparked, a thing to try, a note to self"></textarea>' +
+      '<button type="submit" class="btn btn--outline">' + ICON.mark + 'Save idea</button>' +
+      '<p class="idea-saved meta" hidden>' + ICON.check + ' Saved to your ideas</p>' +
+      '</form>';
   }
 
   function progress(count, total, label) {
@@ -68,7 +106,9 @@
     }
     var allRead = read.length >= s.length;
     app.innerHTML =
-      '<header class="masthead"><span class="wordmark">Sift</span><span class="meta" style="font-weight:500">' + esc(edition.dateLabel) + '</span></header>' +
+      '<header class="masthead"><span class="wordmark">Sift</span>' +
+        '<span class="masthead-right"><span class="meta" style="font-weight:500">' + esc(edition.dateLabel) + '</span>' +
+        '<a class="saved-link" href="#/saved" aria-label="Saved stories and ideas">' + ICON.mark + (savedCount() ? '<span>' + savedCount() + '</span>' : '') + '</a></span></header>' +
       '<div class="edition-info">' +
         '<div class="row-between"><span class="label label--plain">Edition ' + esc(String(edition.edition).padStart(2, '0')) + '</span>' +
         '<span class="meta">' + s.length + ' stories · about ' + esc(edition.minutes || 6) + ' min</span></div>' +
@@ -87,9 +127,15 @@
         : '<p class="footnote">No feed. When these are done, you\'re done.</p>');
   }
 
-  function topbar(i, total) {
+  function saveButton(st) {
+    var on = isSaved(st);
+    return '<button type="button" class="save-btn' + (on ? ' on' : '') + '" data-action="toggle-save" aria-pressed="' + on + '">' +
+      (on ? ICON.marked + 'Saved' : ICON.mark + 'Save') + '</button>';
+  }
+
+  function topbar(i, total, st) {
     return '<div class="topbar"><a class="back" href="#/">' + ICON.back + 'Today</a>' +
-      '<span class="meta">' + (i + 1) + ' of ' + total + '</span></div>';
+      '<span class="topbar-right"><span class="meta">' + (i + 1) + ' of ' + total + '</span>' + saveButton(st) + '</span></div>';
   }
 
   function head(st) {
@@ -196,7 +242,52 @@
     var next = i + 1 < s.length
       ? '<a class="btn btn--solid" href="#/s/' + (i + 2) + '">Next' + ICON.arrow + '</a>'
       : '<a class="btn btn--accent" href="#/done">Finish edition' + ICON.check + '</a>';
-    app.innerHTML = topbar(i, s.length) + head(st) + bodyFor(st) + '<div class="actions actions--stack">' + credit(st) + next + '</div>';
+    current = st;
+    app.innerHTML = topbar(i, s.length, st) + head(st) + bodyFor(st) + ideaForm('An idea from this?') +
+      '<div class="actions actions--stack">' + credit(st) + next + '</div>';
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- saved screen ----------
+  function renderSaved() {
+    current = null;
+    var list = savedList();
+    var all = ideas();
+    var ideaItems = all.map(function (x, idx) {
+      return '<li><p>' + esc(x.text) + '</p>' +
+        '<span class="row-between meta"><span>' + (x.from ? 'From: ' + esc(x.from) : esc(x.date || '')) + '</span>' +
+        '<button type="button" class="icon-btn" data-action="delete-idea" data-index="' + idx + '" aria-label="Delete idea">' + ICON.trash + '</button></span></li>';
+    }).reverse().join('');
+    var storyItems = list.map(function (x, idx) {
+      return '<li><a href="#/saved/' + idx + '">' +
+        '<span class="label label--accent">' + esc(KIND[x.story.type] || x.story.type) + '</span>' +
+        '<span class="saved-title">' + esc(x.story.title) + '</span>' +
+        '<span class="meta">' + esc(x.date || '') + (x.story.source ? ' · ' + esc(x.story.source) : '') + '</span></a></li>';
+    }).reverse().join('');
+    app.innerHTML =
+      '<div class="topbar"><a class="back" href="#/">' + ICON.back + 'Today</a><span></span></div>' +
+      '<h1 class="headline">Saved</h1>' +
+      ideaForm('Jot down an idea') +
+      '<section class="section"><div class="row-between"><span class="label label--plain">Ideas (' + all.length + ')</span>' +
+        (all.length ? '<button type="button" class="text-btn" data-action="copy-ideas">Copy all</button>' : '') + '</div>' +
+        (all.length ? '<ul class="comments saved-ideas">' + ideaItems + '</ul>' : '<p class="meta" style="margin:0">No ideas yet. Anything you jot down here or under a story lands in this list.</p>') +
+      '</section>' +
+      '<section class="section"><span class="label label--plain">Stories (' + list.length + ')</span>' +
+        (list.length ? '<ul class="saved-stories">' + storyItems + '</ul>' : '<p class="meta" style="margin:0">Tap Save on any story to keep it here after the edition changes.</p>') +
+      '</section>' +
+      '<p class="footnote">Saved items live in this browser on this device.</p>';
+    window.scrollTo(0, 0);
+  }
+
+  function renderSavedStory(k) {
+    var x = savedList()[k];
+    if (!x) { location.hash = '#/saved'; return; }
+    var st = x.story;
+    current = st;
+    app.innerHTML =
+      '<div class="topbar"><a class="back" href="#/saved">' + ICON.back + 'Saved</a><span class="topbar-right">' + saveButton(st) + '</span></div>' +
+      head(st) + bodyFor(st) + ideaForm('An idea from this?') +
+      '<div class="actions actions--stack">' + credit(st) + '<a class="btn btn--outline" href="#/saved">Back to saved</a></div>';
     window.scrollTo(0, 0);
   }
 
@@ -205,7 +296,7 @@
     var read = readSet();
     var sparks = store('sift-sparks', []);
     var list = sparks.length
-      ? '<div class="sparks"><span class="label label--plain">Your sparks</span><ul>' +
+      ? '<div class="sparks"><div class="row-between"><span class="label label--plain">Your ideas</span><a class="meta" href="#/saved">See all</a></div><ul>' +
         sparks.slice(-5).reverse().map(function (x) { return '<li>' + esc(x.text) + '</li>'; }).join('') + '</ul></div>'
       : '';
     app.innerHTML =
@@ -219,7 +310,7 @@
         '<span class="headline">What will you make with this?</span>' +
         '<label for="idea">One idea is enough</label>' +
         '<textarea id="idea" rows="3" placeholder="e.g. add a dark mode to my portfolio"></textarea>' +
-        '<button type="submit" class="btn btn--save">Save to Sparks</button>' +
+        '<button type="submit" class="btn btn--save">Save idea</button>' +
       '</form>' +
       list +
       '<div class="done-foot"><span class="meta">Next edition tomorrow at 7:00</span><a href="#/">Back to today\'s edition</a></div>';
@@ -228,9 +319,7 @@
       e.preventDefault();
       var t = document.getElementById('idea').value.trim();
       if (!t) { document.getElementById('idea').focus(); return; }
-      var all = store('sift-sparks', []);
-      all.push({ text: t, date: edition.date });
-      save('sift-sparks', all);
+      addIdea(t);
       renderDone();
       var form = document.getElementById('make');
       form.querySelector('button').outerHTML = '<div class="saved-note">' + ICON.check + 'Saved for later</div>';
@@ -242,10 +331,48 @@
     if (!edition) return;
     var h = location.hash || '#/';
     var m = h.match(/^#\/s\/(\d+)$/);
+    var sv = h.match(/^#\/saved\/(\d+)$/);
     if (m) renderStory(parseInt(m[1], 10) - 1);
+    else if (sv) renderSavedStory(parseInt(sv[1], 10));
+    else if (h === '#/saved') renderSaved();
     else if (h === '#/done') renderDone();
     else renderToday();
   }
+
+  // One listener for every button and form, so screens can re-render freely.
+  app.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-action]');
+    if (!b) return;
+    var a = b.getAttribute('data-action');
+    if (a === 'toggle-save' && current) {
+      var on = toggleSave(current);
+      b.outerHTML = saveButton(current);
+      if (!on && /^#\/saved\//.test(location.hash)) location.hash = '#/saved';
+    } else if (a === 'delete-idea') {
+      var all = ideas();
+      all.splice(parseInt(b.getAttribute('data-index'), 10), 1);
+      save('sift-sparks', all);
+      renderSaved();
+    } else if (a === 'copy-ideas') {
+      var text = ideas().map(function (x) { return '- ' + x.text + (x.from ? ' (from: ' + x.from + ')' : ''); }).join('\n');
+      try {
+        navigator.clipboard.writeText(text).then(function () { b.textContent = 'Copied'; }, function () { b.textContent = 'Copy failed'; });
+      } catch (err) { b.textContent = 'Copy failed'; }
+    }
+  });
+  app.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (f.getAttribute('data-form') !== 'idea') return;
+    e.preventDefault();
+    var box = f.querySelector('textarea');
+    var t = box.value.trim();
+    if (!t) { box.focus(); return; }
+    addIdea(t, current);
+    box.value = '';
+    if (location.hash === '#/saved') { renderSaved(); return; }
+    var note = f.querySelector('.idea-saved');
+    if (note) { note.hidden = false; setTimeout(function () { note.hidden = true; }, 2500); }
+  });
 
   fetch('editions/latest.json', { cache: 'no-store' })
     .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
