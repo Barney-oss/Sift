@@ -4,6 +4,7 @@
   var app = document.getElementById('app');
   var edition = null;
   var current = null; // the story on screen, for Save and ideas
+  var currentDate = null; // the edition that story came from
 
   var KIND = {
     claude: 'Built with Claude',
@@ -78,9 +79,12 @@
   // ---------- Send to Focus (Hasset's desktop app, opened through a focus:// link) ----------
   // Only on computers: Focus on the phone doesn't take these links yet.
   var onComputer = !/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent);
-  function focusHref(kind, text, st) {
+  var siftBase = location.origin + location.pathname.replace(/[^/]*$/, '');
+  function focusHref(kind, text, st, date) {
     var q = new URLSearchParams();
     q.set('kind', kind);
+    // Focus reads the whole story from this edition file, so the link stays short.
+    if (kind === 'story') { q.set('src', siftBase); q.set('ed', date || (edition && edition.date) || ''); }
     if (text) q.set('text', String(text).slice(0, 2000));
     if (st && st.title) q.set('title', st.title);
     if (st && st.url) q.set('url', st.url);
@@ -292,7 +296,7 @@
       ? '<a class="btn btn--outline" href="#/s/' + i + '">' + ICON.back + 'Previous</a>'
       : '<a class="btn btn--outline" href="#/">All stories</a>';
     next = '<div class="pager">' + prev + next + '</div>';
-    current = st;
+    current = st; currentDate = edition.date;
     app.innerHTML = topbar(i, s.length, st) + head(st) + bodyFor(st) + ideaForm('An idea from this?') +
       '<div class="actions actions--stack">' + credit(st) + next + '</div>';
     window.scrollTo(0, 0);
@@ -334,7 +338,7 @@
     var x = savedList()[k];
     if (!x) { location.hash = '#/saved'; return; }
     var st = x.story;
-    current = st;
+    current = st; currentDate = x.date;
     app.innerHTML =
       '<div class="topbar"><a class="back" href="#/saved">' + ICON.back + 'Saved</a><span class="topbar-right">' + saveButton(st) + '</span></div>' +
       head(st) + bodyFor(st) + ideaForm('An idea from this?') +
@@ -455,7 +459,7 @@
     if (a === 'toggle-save' && current) {
       var on = toggleSave(current);
       b.outerHTML = saveButton(current);
-      if (on && onComputer) openFocus(focusHref('story', storySummary(current), current));
+      if (on && onComputer) openFocus(focusHref('story', storySummary(current), current, currentDate));
       if (!on && /^#\/saved\//.test(location.hash)) location.hash = '#/saved';
     } else if (a === 'install' && installPrompt) {
       installPrompt.prompt();
