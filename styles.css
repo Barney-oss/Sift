@@ -333,3 +333,10 @@ pre.code {
 @media (display-mode: standalone) {
   .app { padding-top: calc(20px + env(safe-area-inset-top)); }
 }
+
+/* Send to Focus (computer only) */
+.idea-tools { display: inline-flex; align-items: center; gap: 4px; }
+a.text-btn { display: inline-flex; align-items: center; text-decoration: none; }
+.focus-send.sent { color: var(--muted); }
+.actions--stack .focus-send { align-self: center; }
+.idea-saved .focus-send { min-height: 0; margin-left: 6px; }

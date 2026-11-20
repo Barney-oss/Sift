@@ -70,10 +70,33 @@
   }
   function addIdea(text, st) {
     var all = ideas();
-    all.push({ text: text, date: edition.date, from: st ? st.title : undefined });
+    all.push({ text: text, date: edition.date, from: st ? st.title : undefined, fromUrl: st ? st.url : undefined });
     save('sift-sparks', all);
   }
   function savedCount() { return savedList().length + ideas().length; }
+
+  // ---------- Send to Focus (Hasset's desktop app, opened through a focus:// link) ----------
+  // Only on computers: Focus on the phone doesn't take these links yet.
+  var onComputer = !/android|iphone|ipad|ipod|mobile/i.test(navigator.userAgent);
+  function focusHref(kind, text, st) {
+    var q = new URLSearchParams();
+    q.set('kind', kind);
+    if (text) q.set('text', String(text).slice(0, 2000));
+    if (st && st.title) q.set('title', st.title);
+    if (st && st.url) q.set('url', st.url);
+    q.set('from', 'Sift');
+    return 'focus://add?' + q.toString();
+  }
+  function sendIdeaLink(x, idx) {
+    if (!onComputer) return '';
+    return '<a class="text-btn focus-send' + (x.sentAt ? ' sent' : '') + '" href="' + esc(focusHref('idea', x.text, x.from ? { title: x.from, url: x.fromUrl } : null)) + '"' +
+      (idx != null ? ' data-sent-idea="' + idx + '"' : '') + '>' + (x.sentAt ? 'Sent to Focus' : 'Send to Focus') + '</a>';
+  }
+  function sendStoryLink(st) {
+    if (!onComputer || !st) return '';
+    var summary = st.dek || (st.body ? String(st.body).split(/\n\s*\n/)[0] : '');
+    return '<a class="text-btn focus-send" href="' + esc(focusHref('story', summary, st)) + '">Send story to Focus</a>';
+  }
 
   function ideaForm(label) {
     return '<form class="idea-form" data-form="idea">' +
@@ -260,7 +283,7 @@
     next = '<div class="pager">' + prev + next + '</div>';
     current = st;
     app.innerHTML = topbar(i, s.length, st) + head(st) + bodyFor(st) + ideaForm('An idea from this?') +
-      '<div class="actions actions--stack">' + credit(st) + next + '</div>';
+      '<div class="actions actions--stack">' + sendStoryLink(st) + credit(st) + next + '</div>';
     window.scrollTo(0, 0);
   }
 
@@ -272,7 +295,8 @@
     var ideaItems = all.map(function (x, idx) {
       return '<li><p>' + esc(x.text) + '</p>' +
         '<span class="row-between meta"><span>' + (x.from ? 'From: ' + esc(x.from) : esc(x.date || '')) + '</span>' +
-        '<button type="button" class="icon-btn" data-action="delete-idea" data-index="' + idx + '" aria-label="Delete idea">' + ICON.trash + '</button></span></li>';
+        '<span class="idea-tools">' + sendIdeaLink(x, idx) +
+        '<button type="button" class="icon-btn" data-action="delete-idea" data-index="' + idx + '" aria-label="Delete idea">' + ICON.trash + '</button></span></span></li>';
     }).reverse().join('');
     var storyItems = list.map(function (x, idx) {
       return '<li><a href="#/saved/' + idx + '">' +
@@ -303,7 +327,7 @@
     app.innerHTML =
       '<div class="topbar"><a class="back" href="#/saved">' + ICON.back + 'Saved</a><span class="topbar-right">' + saveButton(st) + '</span></div>' +
       head(st) + bodyFor(st) + ideaForm('An idea from this?') +
-      '<div class="actions actions--stack">' + credit(st) + '<a class="btn btn--outline" href="#/saved">Back to saved</a></div>';
+      '<div class="actions actions--stack">' + sendStoryLink(st) + credit(st) + '<a class="btn btn--outline" href="#/saved">Back to saved</a></div>';
     window.scrollTo(0, 0);
   }
 
@@ -407,6 +431,13 @@
 
   // One listener for every button and form, so screens can re-render freely.
   app.addEventListener('click', function (e) {
+    var sent = e.target.closest('[data-sent-idea]');
+    if (sent) {
+      var list = ideas(); var k = parseInt(sent.getAttribute('data-sent-idea'), 10);
+      if (list[k]) { list[k].sentAt = Date.now(); save('sift-sparks', list); }
+      setTimeout(function () { sent.textContent = 'Sent to Focus'; sent.classList.add('sent'); }, 0);
+      return;
+    }
     var b = e.target.closest('[data-action]');
     if (!b) return;
     var a = b.getAttribute('data-action');
@@ -443,7 +474,13 @@
     box.value = '';
     if (location.hash === '#/saved') { renderSaved(); return; }
     var note = f.querySelector('.idea-saved');
-    if (note) { note.hidden = false; setTimeout(function () { note.hidden = true; }, 2500); }
+    if (note) {
+      var all = ideas();
+      note.innerHTML = ICON.check + ' Saved to your ideas' + (onComputer ? ' ' + sendIdeaLink(all[all.length - 1], all.length - 1) : '');
+      note.hidden = false;
+      clearTimeout(note._t);
+      note._t = setTimeout(function () { note.hidden = true; }, onComputer ? 12000 : 2500);
+    }
   });
 
   fetch('editions/latest.json', { cache: 'no-store' })
