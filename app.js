@@ -84,7 +84,8 @@
     var q = new URLSearchParams();
     q.set('kind', kind);
     // Focus reads the whole story from this edition file, so the link stays short.
-    if (kind === 'story') { q.set('src', siftBase); q.set('ed', date || (edition && edition.date) || ''); }
+    // Ideas from a story go into that story's page, so they carry the same details.
+    if (kind === 'story' || st) { q.set('src', siftBase); q.set('ed', date || (edition && edition.date) || ''); }
     if (text) q.set('text', String(text).slice(0, 2000));
     if (st && st.title) q.set('title', st.title);
     if (st && st.url) q.set('url', st.url);
@@ -94,7 +95,7 @@
   function sendIdeaLink(x, idx) {
     if (!onComputer) return '';
     if (x.sentAt) return '<span class="meta focus-send sent">In Focus</span>';
-    return '<a class="text-btn focus-send' + (x.sentAt ? ' sent' : '') + '" href="' + esc(focusHref('idea', x.text, x.from ? { title: x.from, url: x.fromUrl } : null)) + '"' +
+    return '<a class="text-btn focus-send' + (x.sentAt ? ' sent' : '') + '" href="' + esc(focusHref('idea', x.text, x.from ? { title: x.from, url: x.fromUrl } : null, x.date)) + '"' +
       (idx != null ? ' data-sent-idea="' + idx + '"' : '') + '>' + (x.sentAt ? 'Sent to Focus' : 'Send to Focus') + '</a>';
   }
   // Saving on a computer also sends it to Focus. Must run inside the click/submit, so Chrome allows it.
@@ -490,7 +491,7 @@
     box.value = '';
     if (onComputer) {
       var mine = ideas(); mine[mine.length - 1].sentAt = Date.now(); save('sift-sparks', mine);
-      openFocus(focusHref('idea', t, current));
+      openFocus(focusHref('idea', t, current, currentDate));
     }
     if (location.hash === '#/saved') { renderSaved(); return; }
     var note = f.querySelector('.idea-saved');
