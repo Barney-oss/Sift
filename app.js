@@ -89,6 +89,13 @@
     if (text) q.set('text', String(text).slice(0, 2000));
     if (st && st.title) q.set('title', st.title);
     if (st && st.url) q.set('url', st.url);
+    // The story itself goes along too, so Focus has it even if it can't read the edition file.
+    if (kind === 'story' && st) {
+      if (st.body) q.set('body', String(st.body).slice(0, 4000));
+      if (st.type) q.set('type', st.type);
+      if (st.source) q.set('source', st.source);
+      if (st.byline) q.set('by', st.byline);
+    }
     q.set('from', 'Sift');
     return 'focus://add?' + q.toString();
   }

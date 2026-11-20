@@ -2,7 +2,7 @@
 // - The app files are served from cache instantly and refreshed in the background.
 // - Today's edition is fetched fresh when online, and the last copy is shown when offline.
 // Bump VERSION when you want every phone to drop the old cache.
-const VERSION = 'sift-v5';
+const VERSION = 'sift-v6';
 const SHELL = [
   './',
   './index.html',
