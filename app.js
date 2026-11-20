@@ -134,7 +134,9 @@
       '<nav class="list" aria-label="In this edition"><span class="label label--plain">In this edition</span>' + rows + '</nav>' +
       (allRead
         ? '<a class="btn btn--accent" href="#/done">You\'re caught up' + ICON.check + '</a>'
-        : '<p class="footnote">No feed. When these are done, you\'re done.</p>');
+        : '<p class="footnote">No feed. When these are done, you\'re done.</p>') +
+      (navigator.onLine === false ? '<p class="footnote">You\'re offline. This is the last edition Sift saved.</p>' : '') +
+      installCard();
   }
 
   function saveButton(st) {
@@ -353,6 +355,37 @@
     else renderToday();
   }
 
+  // ---------- install as an app (PWA) ----------
+  var installPrompt = null;
+  var standalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+  var isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  window.addEventListener('beforeinstallprompt', function (e) {
+    e.preventDefault();
+    installPrompt = e;
+    if (edition && (location.hash || '#/') === '#/') renderToday();
+  });
+  window.addEventListener('appinstalled', function () { installPrompt = null; if (edition && (location.hash || '#/') === '#/') renderToday(); });
+
+  function installCard() {
+    if (standalone || store('sift-install-dismissed', false)) return '';
+    if (installPrompt) {
+      return '<div class="install"><div><strong>Add Sift to your home screen</strong><span class="meta">Opens like an app, works offline.</span></div>' +
+        '<div class="install-actions"><button type="button" class="btn btn--solid" data-action="install">Install</button>' +
+        '<button type="button" class="text-btn" data-action="dismiss-install">Not now</button></div></div>';
+    }
+    if (isIOS) {
+      return '<div class="install"><div><strong>Add Sift to your home screen</strong><span class="meta">In Safari, tap Share, then \u201CAdd to Home Screen\u201D.</span></div>' +
+        '<div class="install-actions"><button type="button" class="text-btn" data-action="dismiss-install">Got it</button></div></div>';
+    }
+    return '';
+  }
+
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function () {
+      navigator.serviceWorker.register('sw.js').catch(function () { /* fine: site still works */ });
+    });
+  }
+
   // Swipe left or right on a story to move between stories.
   var touch = null;
   app.addEventListener('touchstart', function (e) {
@@ -381,6 +414,12 @@
       var on = toggleSave(current);
       b.outerHTML = saveButton(current);
       if (!on && /^#\/saved\//.test(location.hash)) location.hash = '#/saved';
+    } else if (a === 'install' && installPrompt) {
+      installPrompt.prompt();
+      installPrompt.userChoice.then(function () { installPrompt = null; renderToday(); });
+    } else if (a === 'dismiss-install') {
+      save('sift-install-dismissed', true);
+      renderToday();
     } else if (a === 'delete-idea') {
       var all = ideas();
       all.splice(parseInt(b.getAttribute('data-index'), 10), 1);

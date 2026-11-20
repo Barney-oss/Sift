@@ -46,7 +46,13 @@ node scripts/build-edition.mjs             # build a real edition
 npx serve .                                # then open http://localhost:3000
 ```
 
-Read state and saved Sparks stay in your browser only.
+## Install it as an app
+
+Sift is a PWA. On Android (Chrome), tap **Install** on the home screen card or use the menu → *Install app*. On iPhone (Safari), tap Share → *Add to Home Screen*. Once installed it opens full screen, has its own icon, and the last edition stays readable offline.
+
+`sw.js` is the service worker: app files load instantly from cache and refresh in the background, editions are always fetched fresh when online. Bump `VERSION` in `sw.js` if you ever need every phone to drop its old cache.
+
+Read state, saved stories and ideas stay in your browser only.
 
 ## Later: add an AI editor
 

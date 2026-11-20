@@ -318,3 +318,18 @@ pre.code {
 .story-row .check { display: inline-flex; align-items: center; gap: 4px; color: var(--accent); }
 .pager { display: flex; gap: 10px; width: 100%; }
 .pager .btn { flex: 1; }
+
+/* Install card */
+.install {
+  display: flex; flex-direction: column; gap: 12px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px;
+}
+.install > div:first-child { display: flex; flex-direction: column; gap: 4px; }
+.install strong { font-size: 15px; }
+.install-actions { display: flex; align-items: center; gap: 16px; }
+.install-actions .btn { flex: none; }
+
+/* Installed app: respect the phone's notch and home bar */
+@media (display-mode: standalone) {
+  .app { padding-top: calc(20px + env(safe-area-inset-top)); }
+}
