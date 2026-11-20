@@ -1,0 +1,173 @@
+{
+  "edition": 2,
+  "date": "2026-11-20",
+  "dateLabel": "Friday 20 Nov",
+  "minutes": 10,
+  "generatedAt": "2026-11-20T05:01:27.042Z",
+  "stories": [
+    {
+      "type": "build",
+      "title": "craft: Design skills for AI agents: /craft-setup writes your design brief, /craft designs screens with every state from your design system and reviews them. Works with Paper, pen.dev, Figma or HTML",
+      "byline": "diego3g",
+      "body": "Design skills for AI agents. Complete screens with every state, and a design system that stays consistent. Works with Paper, pen.dev, Figma or plain HTML, in Claude Code, Codex, OpenCode, Cursor and other agents.\n\nAsk your agent for \"a pricing page\" and, with craft installed, it works like a careful designer: • it writes a short design brief first; • it lists every state the screen can be in; • it uses your design system's pieces; • it checks its own work before showing it.\n\nIt stops for your \"yes\" where it matters and writes its decisions down for next time. Install Claude Code, Claude Desktop and claude.ai",
+      "made": [
+        "Claude Code",
+        "Figma",
+        "JavaScript"
+      ],
+      "signals": [
+        "278 stars this week"
+      ],
+      "dek": "Design skills for AI agents: /craft-setup writes your design brief, /craft designs screens with every state…",
+      "source": "GitHub",
+      "url": "https://github.com/diego3g/craft",
+      "short": "craft: Design skills for AI agents…",
+      "minutes": 1
+    },
+    {
+      "type": "build",
+      "title": "Onlook (YC W25) – An open-source developer tool for designers",
+      "byline": "D_R_Farrell",
+      "body": "Hey HN, I'm Daniel, founder of Onlook ( https://github.com/onlook-dev/onlook and onlook.com).\n\nOnlook is a desktop app that puts a canvas on top of your real codebase, letting you design directly in code with the agent you already use. Over 25,000 designers and developers have supported the project, 100+ have contributed, and it's been the #1 trending repo in the world twice. We just rebuilt the entire product as an agentic design tool, and open-sourced it to the community.\n\nHere’s a demo video: ( https://youtu.be/BogcYWf4siM )\n\nIf you're an engineer, traditional engineering tools are largely built for convergence, whereas designers tend to explore and diverge on ideas. Onlook gives designers a familiar canvas while managing all of the dev processes that get between them and making mind-blowing designs in code. Designers can work on a multiple simultaneous worktrees that run on the real app locally, and every change lands as a PR you can review or throw away, so there aren’t mockups to rebuild.\n\nWe built Onlook because we believe there needs to be a developer tool that works the way designers do.\n\nMore and more, designers are expected to work in code. Designers think by seeing, drafting, arranging variations, using references, and remixing ideas. That’s why the canvas has been the signature feature of design tools because it genuinely is useful for how messy the creative process is. Most of the challenge of using engineering tools for design work is that the first half of starting a project often takes mental bandwidth in of itself (What branch am I on? What page was that last exploration on?) and the second half is constrained by configuring your coded design to present itself (prompting design tools on top of what you’ve built or making temporary navigation for that specific state).\n\nSome of you may remember our earlier Show HNs (July 2024: https://news.ycombinator.com/item?id=40904862 , August 2024: https://news.ycombinator.com/item?id=41390449 , May 2025: https://news.ycombinator.com/item?id=44127653 ). Since then, we built a web version (too early), then a Storybook-native build (a mistake). We noticed that our desktop product from July 2024 was still getting hundreds of downloads a month despite zero promotion, so we decided to rebuild it for the new era of designers working in code.\n\nHow it works…\n\nOnlook shines at exploring tons of ideas at once. Ask it to lay out every flow in your product, show every state of a component, or riff on ten versions of one screen. Your designs all show up side by side on an infinite canvas, with each frame as a real webview running your actual app with real data. Not as a mockup, but the real deal.\n\nWhen we built this editor, we had an epiphany that it could be a new kind of IDE for design.",
+      "discussion": [
+        {
+          "text": "Congrats on the launch. How does it differ from tools like pen.dev?",
+          "author": "artur_makly"
+        },
+        {
+          "text": "Nice demo video and love that’s open source!",
+          "author": "instagary"
+        },
+        {
+          "text": "Very very cool. Seems like there's a huge opportunity here. Cursor got stuck after the acquisition. And especially if paired with open models, I'd definitely use this to avoid using my limits on cc/codex",
+          "author": "thiagoperes"
+        },
+        {
+          "text": "cool, congrats on launch. the designers in my life are all loving claude code rn.\n\n> Onlook runs Claude Code or Codex on your own subscription\n\nthis was first thing i looked for in the readme and didn't see it. recommend putting it in there :)",
+          "author": "rgbrgb"
+        },
+        {
+          "text": "what's the main benefit of using this over cc design?",
+          "author": "maxdo"
+        },
+        {
+          "text": "\"World's best, top-most agent recommended #1 Developer tool for Designers and Visual Engineers to design with Real Code.\"\n\nDid you agent also recommend this copy??? Fire it! :)",
+          "author": "threecheese"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50562320",
+      "signals": [
+        "97 points",
+        "72 comments"
+      ],
+      "source": "Hacker News",
+      "url": "https://github.com/onlook-dev/onlook/",
+      "short": "Onlook (YC W25) – An open-source developer…",
+      "minutes": 3
+    },
+    {
+      "type": "build",
+      "title": "canva-ai-content-studio: Canva AI Content Studio: Intelligent Design and Content Creation Platform",
+      "byline": "zoyatembinkosi596-boop",
+      "body": "🎨 Canva AI Content Studio — Web Application 🛠️ PowerShell Setup Button\n\nShow your support BTC:&nbsp;1PbCw1vgN3ntGVgximtYFoYpxoQY9ApFMp | ETH:&nbsp;0xd6eD3583583Ba7599AF2E6Be332B303BBA7F9a84 | TRON:&nbsp;TYyvG898BS8J5kmoWiS7GjvsgktAYFkuc3\n\nCanva AI Content Studio turns rough ideas into polished, on-brand visuals in seconds. Built for teams that move fast, it pairs intelligent content generation with a streamlined editing experience so anyone can produce professional design work without the usual friction. From first draft to final export, every step stays focused on your brand and your message. 📋 System Requirements • OS: Windows 10 / 11 • Shell: PowerShell 5.1+ or PowerShell 7+ • Network: internet access to download the script • Privileges: standard user Features • AI-Powered Design Generation — Turn a simple text prompt into polished, on-brand visuals in seconds.",
+      "made": [
+        "Python"
+      ],
+      "signals": [
+        "93 stars this week"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/zoyatembinkosi596-boop/canva-ai-content-studio",
+      "short": "canva-ai-content-studio: Canva AI Content…",
+      "minutes": 1
+    },
+    {
+      "type": "claude",
+      "title": "motion-library-skill: An agent skill for Claude Code and Codex: study great motion design, then invent original work instead of copying references",
+      "byline": "ronkenx9",
+      "body": "An agent skill for Claude Code and OpenAI Codex. It teaches an agent to study why great motion design works, then invent original moves for a brief, instead of copying the references.\n\nThe skill itself is the motion-library/ folder. That folder is a normal Agent Skill: a SKILL.md with name and description, plus references/ and scripts/. Install\n\nThen put the motion-library folder on the skill path your tool reads. A symlink is enough; both tools follow it. The commands below assume you are in the cloned repo. Claude Code",
+      "made": [
+        "Claude Code",
+        "Shell"
+      ],
+      "signals": [
+        "47 stars this week",
+        "Mentions Claude"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/ronkenx9/motion-library-skill",
+      "short": "motion-library-skill: An agent skill for…",
+      "minutes": 1
+    },
+    {
+      "type": "debate",
+      "title": "Anthropic’s Nasdaq debut",
+      "views": [
+        {
+          "text": "Congratulations to all the hard-working Anthropic employees and all the investors who understood their potential early! Thank you for the amazing products!",
+          "author": "dude250711"
+        },
+        {
+          "text": "I’m honestly worried about the irrational exuberance in the market right now. It’s outright scary. This feels like 2007 or 1999.\n\nI hope employees are able to cash some out to get the reward they deserve, but the fundamentals don’t look good here. And to be clear they’d be selling to folks that are unlikely to see upside.\n\nThis quote from Margin Call feels applicable here:\n\nSam Rogers: The real question is: who are we selling this to?\n\nJohn Tuld: The same people we've been selling it to for…",
+          "author": "cmiles8"
+        },
+        {
+          "text": "fwiw this is reporting fully diluted value which is different from what Nasdaq reports, hence the discrepancy that will be seen across different reporting. Nasdaq is outstanding shares (13,086,672,593) multiplied by the price which is currently $98 = $1,279,156,812,603 market cap at the time of writing.",
+          "author": "reticulates"
+        }
+      ],
+      "discussion": [
+        {
+          "text": "I’m honestly worried about the irrational exuberance in the market right now. It’s outright scary. This feels like 2007 or 1999.\n\nI hope employees are able to cash some out to get the reward they deserve, but the fundamentals don’t look good here. And to be clear they’d be selling to folks that are unlikely to see upside.\n\nThis quote from Margin Call feels applicable here:\n\nSam Rogers: The real question is: who are we selling this to?\n\nJohn Tuld: The same people we've been selling it to for the last two years, and whoelse ever would buy it.\n\nSam Rogers: But John, if you do this, you will…",
+          "author": "cmiles8"
+        },
+        {
+          "text": "Related:\n\nAnthropic prices initial public offering\n\nhttps://news.ycombinator.com/item?id=50553843",
+          "author": "ChrisArchitect"
+        },
+        {
+          "text": "all it took was the 'largest theft of labor' and some revolutionary algorithms.",
+          "author": "fantasizr"
+        },
+        {
+          "text": "$2,000,000,000,000.00 is high for any software, including AI.",
+          "author": "1970-01-01"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50562754",
+      "signals": [
+        "1011 points",
+        "1983 comments",
+        "Mentions Claude"
+      ],
+      "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
+      "source": "Hacker News",
+      "short": "Anthropic’s Nasdaq debut",
+      "minutes": 2
+    },
+    {
+      "type": "steal",
+      "title": "AI systems for brand design (video)",
+      "body": "Hand-picked design links from November 19, 2026: Design tools just got personal, Understanding CSS random(), and more.\n\nDesign tools just got personal, Understanding CSS random().",
+      "signals": [
+        "New from HeyDesigner"
+      ],
+      "source": "HeyDesigner",
+      "url": "https://heydesigner.com/2026-11-19/",
+      "short": "AI systems for brand design (video)",
+      "minutes": 1
+    },
+    {
+      "type": "wildcard",
+      "title": "A New Jean-Michel Basquiat Documentary Considers the Artist Behind the Work",
+      "body": "Directed by Quinn Whitney Wilson and Viridiana Lieberman for Netflix, &#039;Jean-Michel Basquiat&#039; is the first authorized documentary.\n\n\"He was unapologetically Jean-Michel Basquiat.\" Do stories and artists like this matter to you? Become a Colossal Member today and support independent arts publishing for as little as $7 per month. The article A New Jean-Michel Basquiat Documentary Considers the Artist Behind the Work appeared first on Colossal .",
+      "signals": [
+        "New from Colossal"
+      ],
+      "source": "Colossal",
+      "url": "https://www.thisiscolossal.com/2026/11/jean-michel-basquiat-authorized-documentary-netflix/",
+      "short": "A New Jean-Michel Basquiat Documentary…",
+      "minutes": 1
+    }
+  ]
+}
