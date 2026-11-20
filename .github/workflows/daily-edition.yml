@@ -2,8 +2,12 @@ name: Daily edition
 
 on:
   schedule:
-    # 03:47 UTC = 6:47 in Addis Ababa, so the edition is ready by 7:00
+    # 03:47 UTC = 6:47 in Addis Ababa, so the edition is ready by 7:00.
+    # GitHub sometimes delays or skips scheduled runs, so two backups follow.
+    # A backup does nothing if today's edition already exists.
     - cron: '47 3 * * *'
+    - cron: '23 4 * * *'
+    - cron: '53 5 * * *'
   workflow_dispatch: {}
 
 permissions:
@@ -29,6 +33,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BSKY_HANDLE: ${{ secrets.BSKY_HANDLE }}
           BSKY_APP_PASSWORD: ${{ secrets.BSKY_APP_PASSWORD }}
+          # Running it by hand from the Actions tab always rebuilds today's edition.
+          FORCE: ${{ github.event_name == 'workflow_dispatch' && '1' || '' }}
         run: node scripts/build-edition.mjs
 
       - name: Publish it

@@ -571,6 +571,13 @@ async function main() {
   const dateLabel = new Intl.DateTimeFormat('en-GB', { timeZone: TZ, weekday: 'long', day: 'numeric', month: 'short' }).format(NOW);
   console.log(`Building Sift for ${today}`);
 
+  // Backup schedules run later in the morning; they stop here if today's edition already exists.
+  const already = await lastEdition();
+  if (already.date === today && !process.env.FORCE && !MOCK) {
+    console.log("Today's edition already exists. Nothing to do.");
+    return;
+  }
+
   let all;
   if (MOCK) {
     all = JSON.parse(await readFile(MOCK, 'utf8'));
