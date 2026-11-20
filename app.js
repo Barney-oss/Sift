@@ -89,8 +89,19 @@
   }
   function sendIdeaLink(x, idx) {
     if (!onComputer) return '';
+    if (x.sentAt) return '<span class="meta focus-send sent">In Focus</span>';
     return '<a class="text-btn focus-send' + (x.sentAt ? ' sent' : '') + '" href="' + esc(focusHref('idea', x.text, x.from ? { title: x.from, url: x.fromUrl } : null)) + '"' +
       (idx != null ? ' data-sent-idea="' + idx + '"' : '') + '>' + (x.sentAt ? 'Sent to Focus' : 'Send to Focus') + '</a>';
+  }
+  // Saving on a computer also sends it to Focus. Must run inside the click/submit, so Chrome allows it.
+  function openFocus(href) {
+    // A moment later, so the screen updates first. Chrome still counts it as part of the tap.
+    setTimeout(function () {
+      try { window.location.href = href; } catch (err) { /* Focus not installed: the save still counts */ }
+    }, 60);
+  }
+  function storySummary(st) {
+    return st.dek || (st.body ? String(st.body).split(/\n\s*\n/)[0] : '');
   }
   function sendStoryLink(st) {
     if (!onComputer || !st) return '';
@@ -283,7 +294,7 @@
     next = '<div class="pager">' + prev + next + '</div>';
     current = st;
     app.innerHTML = topbar(i, s.length, st) + head(st) + bodyFor(st) + ideaForm('An idea from this?') +
-      '<div class="actions actions--stack">' + sendStoryLink(st) + credit(st) + next + '</div>';
+      '<div class="actions actions--stack">' + credit(st) + next + '</div>';
     window.scrollTo(0, 0);
   }
 
@@ -327,7 +338,7 @@
     app.innerHTML =
       '<div class="topbar"><a class="back" href="#/saved">' + ICON.back + 'Saved</a><span class="topbar-right">' + saveButton(st) + '</span></div>' +
       head(st) + bodyFor(st) + ideaForm('An idea from this?') +
-      '<div class="actions actions--stack">' + sendStoryLink(st) + credit(st) + '<a class="btn btn--outline" href="#/saved">Back to saved</a></div>';
+      '<div class="actions actions--stack">' + credit(st) + '<a class="btn btn--outline" href="#/saved">Back to saved</a></div>';
     window.scrollTo(0, 0);
   }
 
@@ -444,6 +455,7 @@
     if (a === 'toggle-save' && current) {
       var on = toggleSave(current);
       b.outerHTML = saveButton(current);
+      if (on && onComputer) openFocus(focusHref('story', storySummary(current), current));
       if (!on && /^#\/saved\//.test(location.hash)) location.hash = '#/saved';
     } else if (a === 'install' && installPrompt) {
       installPrompt.prompt();
@@ -472,14 +484,17 @@
     if (!t) { box.focus(); return; }
     addIdea(t, current);
     box.value = '';
+    if (onComputer) {
+      var mine = ideas(); mine[mine.length - 1].sentAt = Date.now(); save('sift-sparks', mine);
+      openFocus(focusHref('idea', t, current));
+    }
     if (location.hash === '#/saved') { renderSaved(); return; }
     var note = f.querySelector('.idea-saved');
     if (note) {
-      var all = ideas();
-      note.innerHTML = ICON.check + ' Saved to your ideas' + (onComputer ? ' ' + sendIdeaLink(all[all.length - 1], all.length - 1) : '');
+      note.innerHTML = ICON.check + (onComputer ? ' Saved and sent to Focus' : ' Saved to your ideas');
       note.hidden = false;
       clearTimeout(note._t);
-      note._t = setTimeout(function () { note.hidden = true; }, onComputer ? 12000 : 2500);
+      note._t = setTimeout(function () { note.hidden = true; }, 2500);
     }
   });
 
