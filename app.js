@@ -327,7 +327,7 @@
         '<button type="submit" class="btn btn--save">Save idea</button>' +
       '</form>' +
       list +
-      '<div class="done-foot"><span class="meta">Next edition tomorrow at 7:00</span><a href="#/">Back to today\'s edition</a></div>';
+      '<div class="done-foot"><span class="meta">Next edition tomorrow at 5:00</span><a href="#/">Back to today\'s edition</a></div>';
 
     document.getElementById('make').addEventListener('submit', function (e) {
       e.preventDefault();

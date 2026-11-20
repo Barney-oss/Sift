@@ -6,7 +6,7 @@ Free to run: no AI, no API keys, no server bills.
 
 ## How it works
 
-1. Every morning at 6:47 (Addis Ababa time), a GitHub Action runs `scripts/build-edition.mjs`.
+1. Every morning at 4:47 (Addis Ababa time), with backup runs at 5:23 and 6:53 in case GitHub skips one, a GitHub Action runs `scripts/build-edition.mjs`.
 2. The script gathers fresh posts from Hacker News, Reddit, GitHub, Bluesky and a handful of design blogs.
 3. Simple rules rank them and pick up to 12 cards: things built with Claude, builds, debates, "steal this", news and one wildcard. Quiet days are shorter, busy days longer (see `SLOTS` in the script).
 4. Each card uses real words from real people: the maker's own description, the top comment, and for debates, three comments that disagree.
