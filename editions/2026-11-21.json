@@ -1,0 +1,116 @@
+{
+  "edition": 3,
+  "date": "2026-11-21",
+  "dateLabel": "Saturday 21 Nov",
+  "minutes": 7,
+  "generatedAt": "2026-11-21T08:50:21.475Z",
+  "stories": [
+    {
+      "type": "build",
+      "title": "EggLab: Local AI image generation and editing for Windows - a design agent for PhotoCraft powered by Qwen-Image-2.1 (no ComfyUI, no Python, no cloud)",
+      "byline": "YanNyeinHtet",
+      "body": "Local AI image generation and editing for Windows. A floating egg opens a design agent for PhotoCraft — chat, generate, edit layers, and place results straight onto the canvas.\n\nEverything runs on your own GPU: Qwen-Image-2.1 on stable-diffusion.cpp. No ComfyUI, no Python, no cloud rendering. What it can do • Chat with a design agent that knows PhotoCraft: layers, masks, text, exports. • Generate images (quality 40-step or turbo 8-step LoRA) at up to 2048 px. • Edit images — reference photos, multi-reference compositions, transparent cut-outs. • Place results on the PhotoCraft canvas as layers, or export flat/layered files. • Local-first — models and renders stay on your disk; only chat text goes to the model provider you pick.",
+      "made": [
+        "Python",
+        "JavaScript"
+      ],
+      "signals": [
+        "69 stars this week"
+      ],
+      "dek": "Local AI image generation and editing for Windows - a design agent for PhotoCraft powered by Qwen-Image-2.1…",
+      "source": "GitHub",
+      "url": "https://github.com/YanNyeinHtet/EggLab",
+      "short": "EggLab: Local AI image generation and editing…",
+      "minutes": 1
+    },
+    {
+      "type": "claude",
+      "title": "rounds: A local canvas of everything your Claude Code sessions make",
+      "byline": "krispuckett",
+      "body": "I run a lot of Claude Code sessions at once and kept losing track of what each one made. Now it all lands in one place, and I can leave notes on it. Try it\n\nThe demo is six of my public projects and the real notes I left on them. It runs in its own folder and doesn't touch your setup. What it does\n\nScreens, pages and pushes from every session, sorted by project.",
+      "made": [
+        "Claude Code",
+        "JavaScript"
+      ],
+      "signals": [
+        "35 stars this week",
+        "Mentions Claude"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/krispuckett/rounds",
+      "short": "rounds: A local canvas of everything your…",
+      "minutes": 1
+    },
+    {
+      "type": "debate",
+      "title": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
+      "body": "Related: Hurried Announcement: Alessandro Masullo GRH - https://news.ycombinator.com/item?id=50579568",
+      "views": [
+        {
+          "text": "Insane if true! Would also be great for Alpoge after being scooped by OpenAI on Navier Stokes...\n\nEdit: just saw the Lean code is included in the footnote. Considering the author's reputation, I think it's fair to remove the qualifications from the post title, by the standards of today, it's proven.",
+          "author": "jrflo"
+        },
+        {
+          "text": "> It is natural to feel that this is an end, in my case a loss of a principal guiding light, but what I saw during the course of progress so amazed me that I believe it is one dawn across science of something far greater.\n\n> Claude and I have had a great time together with such breadth in recent months, but this time Claude far outpaced me near the finish line. No, Claude flew, and danced, and sparkled near that finish line.",
+          "author": "jackschultz"
+        },
+        {
+          "text": "> The argument is incredibly long at the moment, and while its formalization is finished and it is routine to produce a huge, unreadable document containing sufficient detail, in my view of my path I have just taken a step. I intend to do my best to understand and impart understanding of this argument and its certain simplifications, to speak about it, to write it properly.\n\nOkay, I am anxious whether this holds true or not, but he claims that the formalization is finished.\n\nWhy not just…",
+          "author": "yewenjie"
+        }
+      ],
+      "discussion": [
+        {
+          "text": "> The argument is incredibly long at the moment, and while its formalization is finished and it is routine to produce a huge, unreadable document containing sufficient detail, in my view of my path I have just taken a step. I intend to do my best to understand and impart understanding of this argument and its certain simplifications, to speak about it, to write it properly.\n\nOkay, I am anxious whether this holds true or not, but he claims that the formalization is finished.\n\nWhy not just release the formalization in the meantime?\n\nThis is probably the biggest day in math in recent…",
+          "author": "yewenjie"
+        },
+        {
+          "text": "This is Levent Alpöge ( https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge ), a supremely qualified mathematician and one of the best in the world at guiding AI towards new discoveries in mathematics.\n\nIf he says he has Riemann, well then, he has Riemann.",
+          "author": "xianshou"
+        },
+        {
+          "text": "It's not a random Anthropic employee. It's claimed by Levent Alpöge. The guy is on fire and already has like 3 or 4 very interesting verified result this year. I've showing for months his wikipedia page to my coworkers in the math department in my university.",
+          "author": "gus_massa"
+        },
+        {
+          "text": "Woah, if this proves to be correct it'd be massive, for maths, computer science...and AI too, I guess!\n\nThe worry I have right now is this though:\n\n> The argument is incredibly long at the moment, and while its formalization is finished and it is routine to produce a huge, unreadable document containing sufficient detail, in my view of my path I have just taken a step.\n\nthis feels like we're moving away from the old world of 'science', where we could actually read an experiment, understand its steps, and, with enough time, possibly reproduce it.\n\nAnd we're back in the world of 'magic' and…",
+          "author": "puff_pastry"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50574968",
+      "signals": [
+        "2578 points",
+        "1783 comments"
+      ],
+      "url": "https://alpo.ge/remark.pdf",
+      "source": "Hacker News",
+      "short": "Levent Alpöge claims proof of the Generalized…",
+      "minutes": 3
+    },
+    {
+      "type": "steal",
+      "title": "Quoting Levent Alpöge",
+      "body": "I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis. In fact, the method easily extends much further, resolving the so-called Generalized Riemann Hypothesis, and I …\n\nI believe I have, working with Claude, discovered a proof of the Riemann Hypothesis. In fact, the method easily extends much further, resolving the so-called Generalized Riemann Hypothesis, and I expect, with more time, the Extended Riemann Hypothesis too. Claude and I have also formalized the arguments without assumptions.",
+      "signals": [
+        "New from Simon Willison",
+        "Mentions Claude"
+      ],
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/20/levent-alpoge/",
+      "short": "Quoting Levent Alpöge",
+      "minutes": 1
+    },
+    {
+      "type": "wildcard",
+      "title": "Shrine of the Most Blessed Sacrement in Hanceville, Alabama",
+      "body": "Roman Catholic church and monastery with extraordinary architecture designed to resemble a 13th-century Italian Franciscan church, particularly the Basilica of Saint Francis of Assisi.\n\nExtraordinary architecture designed to resemble a 13th-century Italian Franciscan church, particularly the Basilica of Saint Francis of Assisi. Marble floors, gold ornamentation, stained glass, and soaring ceilings. The Spanish religious-art workshop Talleres de Arte Granda, founded in Madrid in 1891, designed and furnished the church's interior. It was founded by Mother Angelica, the founder of EWTN, and opened in 1999. Three donors provided all of the funds needed for construction and completion.",
+      "signals": [
+        "New from Atlas Obscura"
+      ],
+      "source": "Atlas Obscura",
+      "url": "https://www.atlasobscura.com/places/shrine-of-the-most-blessed-sacrement",
+      "short": "Shrine of the Most Blessed Sacrement in…",
+      "minutes": 1
+    }
+  ]
+}

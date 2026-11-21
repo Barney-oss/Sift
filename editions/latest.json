@@ -1,172 +1,115 @@
 {
-  "edition": 2,
-  "date": "2026-11-20",
-  "dateLabel": "Friday 20 Nov",
-  "minutes": 10,
-  "generatedAt": "2026-11-20T05:01:27.042Z",
+  "edition": 3,
+  "date": "2026-11-21",
+  "dateLabel": "Saturday 21 Nov",
+  "minutes": 7,
+  "generatedAt": "2026-11-21T08:50:21.475Z",
   "stories": [
     {
       "type": "build",
-      "title": "craft: Design skills for AI agents: /craft-setup writes your design brief, /craft designs screens with every state from your design system and reviews them. Works with Paper, pen.dev, Figma or HTML",
-      "byline": "diego3g",
-      "body": "Design skills for AI agents. Complete screens with every state, and a design system that stays consistent. Works with Paper, pen.dev, Figma or plain HTML, in Claude Code, Codex, OpenCode, Cursor and other agents.\n\nAsk your agent for \"a pricing page\" and, with craft installed, it works like a careful designer: • it writes a short design brief first; • it lists every state the screen can be in; • it uses your design system's pieces; • it checks its own work before showing it.\n\nIt stops for your \"yes\" where it matters and writes its decisions down for next time. Install Claude Code, Claude Desktop and claude.ai",
+      "title": "EggLab: Local AI image generation and editing for Windows - a design agent for PhotoCraft powered by Qwen-Image-2.1 (no ComfyUI, no Python, no cloud)",
+      "byline": "YanNyeinHtet",
+      "body": "Local AI image generation and editing for Windows. A floating egg opens a design agent for PhotoCraft — chat, generate, edit layers, and place results straight onto the canvas.\n\nEverything runs on your own GPU: Qwen-Image-2.1 on stable-diffusion.cpp. No ComfyUI, no Python, no cloud rendering. What it can do • Chat with a design agent that knows PhotoCraft: layers, masks, text, exports. • Generate images (quality 40-step or turbo 8-step LoRA) at up to 2048 px. • Edit images — reference photos, multi-reference compositions, transparent cut-outs. • Place results on the PhotoCraft canvas as layers, or export flat/layered files. • Local-first — models and renders stay on your disk; only chat text goes to the model provider you pick.",
       "made": [
-        "Claude Code",
-        "Figma",
+        "Python",
         "JavaScript"
       ],
       "signals": [
-        "278 stars this week"
+        "69 stars this week"
       ],
-      "dek": "Design skills for AI agents: /craft-setup writes your design brief, /craft designs screens with every state…",
+      "dek": "Local AI image generation and editing for Windows - a design agent for PhotoCraft powered by Qwen-Image-2.1…",
       "source": "GitHub",
-      "url": "https://github.com/diego3g/craft",
-      "short": "craft: Design skills for AI agents…",
-      "minutes": 1
-    },
-    {
-      "type": "build",
-      "title": "Onlook (YC W25) – An open-source developer tool for designers",
-      "byline": "D_R_Farrell",
-      "body": "Hey HN, I'm Daniel, founder of Onlook ( https://github.com/onlook-dev/onlook and onlook.com).\n\nOnlook is a desktop app that puts a canvas on top of your real codebase, letting you design directly in code with the agent you already use. Over 25,000 designers and developers have supported the project, 100+ have contributed, and it's been the #1 trending repo in the world twice. We just rebuilt the entire product as an agentic design tool, and open-sourced it to the community.\n\nHere’s a demo video: ( https://youtu.be/BogcYWf4siM )\n\nIf you're an engineer, traditional engineering tools are largely built for convergence, whereas designers tend to explore and diverge on ideas. Onlook gives designers a familiar canvas while managing all of the dev processes that get between them and making mind-blowing designs in code. Designers can work on a multiple simultaneous worktrees that run on the real app locally, and every change lands as a PR you can review or throw away, so there aren’t mockups to rebuild.\n\nWe built Onlook because we believe there needs to be a developer tool that works the way designers do.\n\nMore and more, designers are expected to work in code. Designers think by seeing, drafting, arranging variations, using references, and remixing ideas. That’s why the canvas has been the signature feature of design tools because it genuinely is useful for how messy the creative process is. Most of the challenge of using engineering tools for design work is that the first half of starting a project often takes mental bandwidth in of itself (What branch am I on? What page was that last exploration on?) and the second half is constrained by configuring your coded design to present itself (prompting design tools on top of what you’ve built or making temporary navigation for that specific state).\n\nSome of you may remember our earlier Show HNs (July 2024: https://news.ycombinator.com/item?id=40904862 , August 2024: https://news.ycombinator.com/item?id=41390449 , May 2025: https://news.ycombinator.com/item?id=44127653 ). Since then, we built a web version (too early), then a Storybook-native build (a mistake). We noticed that our desktop product from July 2024 was still getting hundreds of downloads a month despite zero promotion, so we decided to rebuild it for the new era of designers working in code.\n\nHow it works…\n\nOnlook shines at exploring tons of ideas at once. Ask it to lay out every flow in your product, show every state of a component, or riff on ten versions of one screen. Your designs all show up side by side on an infinite canvas, with each frame as a real webview running your actual app with real data. Not as a mockup, but the real deal.\n\nWhen we built this editor, we had an epiphany that it could be a new kind of IDE for design.",
-      "discussion": [
-        {
-          "text": "Congrats on the launch. How does it differ from tools like pen.dev?",
-          "author": "artur_makly"
-        },
-        {
-          "text": "Nice demo video and love that’s open source!",
-          "author": "instagary"
-        },
-        {
-          "text": "Very very cool. Seems like there's a huge opportunity here. Cursor got stuck after the acquisition. And especially if paired with open models, I'd definitely use this to avoid using my limits on cc/codex",
-          "author": "thiagoperes"
-        },
-        {
-          "text": "cool, congrats on launch. the designers in my life are all loving claude code rn.\n\n> Onlook runs Claude Code or Codex on your own subscription\n\nthis was first thing i looked for in the readme and didn't see it. recommend putting it in there :)",
-          "author": "rgbrgb"
-        },
-        {
-          "text": "what's the main benefit of using this over cc design?",
-          "author": "maxdo"
-        },
-        {
-          "text": "\"World's best, top-most agent recommended #1 Developer tool for Designers and Visual Engineers to design with Real Code.\"\n\nDid you agent also recommend this copy??? Fire it! :)",
-          "author": "threecheese"
-        }
-      ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50562320",
-      "signals": [
-        "97 points",
-        "72 comments"
-      ],
-      "source": "Hacker News",
-      "url": "https://github.com/onlook-dev/onlook/",
-      "short": "Onlook (YC W25) – An open-source developer…",
-      "minutes": 3
-    },
-    {
-      "type": "build",
-      "title": "canva-ai-content-studio: Canva AI Content Studio: Intelligent Design and Content Creation Platform",
-      "byline": "zoyatembinkosi596-boop",
-      "body": "🎨 Canva AI Content Studio — Web Application 🛠️ PowerShell Setup Button\n\nShow your support BTC:&nbsp;1PbCw1vgN3ntGVgximtYFoYpxoQY9ApFMp | ETH:&nbsp;0xd6eD3583583Ba7599AF2E6Be332B303BBA7F9a84 | TRON:&nbsp;TYyvG898BS8J5kmoWiS7GjvsgktAYFkuc3\n\nCanva AI Content Studio turns rough ideas into polished, on-brand visuals in seconds. Built for teams that move fast, it pairs intelligent content generation with a streamlined editing experience so anyone can produce professional design work without the usual friction. From first draft to final export, every step stays focused on your brand and your message. 📋 System Requirements • OS: Windows 10 / 11 • Shell: PowerShell 5.1+ or PowerShell 7+ • Network: internet access to download the script • Privileges: standard user Features • AI-Powered Design Generation — Turn a simple text prompt into polished, on-brand visuals in seconds.",
-      "made": [
-        "Python"
-      ],
-      "signals": [
-        "93 stars this week"
-      ],
-      "source": "GitHub",
-      "url": "https://github.com/zoyatembinkosi596-boop/canva-ai-content-studio",
-      "short": "canva-ai-content-studio: Canva AI Content…",
+      "url": "https://github.com/YanNyeinHtet/EggLab",
+      "short": "EggLab: Local AI image generation and editing…",
       "minutes": 1
     },
     {
       "type": "claude",
-      "title": "motion-library-skill: An agent skill for Claude Code and Codex: study great motion design, then invent original work instead of copying references",
-      "byline": "ronkenx9",
-      "body": "An agent skill for Claude Code and OpenAI Codex. It teaches an agent to study why great motion design works, then invent original moves for a brief, instead of copying the references.\n\nThe skill itself is the motion-library/ folder. That folder is a normal Agent Skill: a SKILL.md with name and description, plus references/ and scripts/. Install\n\nThen put the motion-library folder on the skill path your tool reads. A symlink is enough; both tools follow it. The commands below assume you are in the cloned repo. Claude Code",
+      "title": "rounds: A local canvas of everything your Claude Code sessions make",
+      "byline": "krispuckett",
+      "body": "I run a lot of Claude Code sessions at once and kept losing track of what each one made. Now it all lands in one place, and I can leave notes on it. Try it\n\nThe demo is six of my public projects and the real notes I left on them. It runs in its own folder and doesn't touch your setup. What it does\n\nScreens, pages and pushes from every session, sorted by project.",
       "made": [
         "Claude Code",
-        "Shell"
+        "JavaScript"
       ],
       "signals": [
-        "47 stars this week",
+        "35 stars this week",
         "Mentions Claude"
       ],
       "source": "GitHub",
-      "url": "https://github.com/ronkenx9/motion-library-skill",
-      "short": "motion-library-skill: An agent skill for…",
+      "url": "https://github.com/krispuckett/rounds",
+      "short": "rounds: A local canvas of everything your…",
       "minutes": 1
     },
     {
       "type": "debate",
-      "title": "Anthropic’s Nasdaq debut",
+      "title": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
+      "body": "Related: Hurried Announcement: Alessandro Masullo GRH - https://news.ycombinator.com/item?id=50579568",
       "views": [
         {
-          "text": "Congratulations to all the hard-working Anthropic employees and all the investors who understood their potential early! Thank you for the amazing products!",
-          "author": "dude250711"
+          "text": "Insane if true! Would also be great for Alpoge after being scooped by OpenAI on Navier Stokes...\n\nEdit: just saw the Lean code is included in the footnote. Considering the author's reputation, I think it's fair to remove the qualifications from the post title, by the standards of today, it's proven.",
+          "author": "jrflo"
         },
         {
-          "text": "I’m honestly worried about the irrational exuberance in the market right now. It’s outright scary. This feels like 2007 or 1999.\n\nI hope employees are able to cash some out to get the reward they deserve, but the fundamentals don’t look good here. And to be clear they’d be selling to folks that are unlikely to see upside.\n\nThis quote from Margin Call feels applicable here:\n\nSam Rogers: The real question is: who are we selling this to?\n\nJohn Tuld: The same people we've been selling it to for…",
-          "author": "cmiles8"
+          "text": "> It is natural to feel that this is an end, in my case a loss of a principal guiding light, but what I saw during the course of progress so amazed me that I believe it is one dawn across science of something far greater.\n\n> Claude and I have had a great time together with such breadth in recent months, but this time Claude far outpaced me near the finish line. No, Claude flew, and danced, and sparkled near that finish line.",
+          "author": "jackschultz"
         },
         {
-          "text": "fwiw this is reporting fully diluted value which is different from what Nasdaq reports, hence the discrepancy that will be seen across different reporting. Nasdaq is outstanding shares (13,086,672,593) multiplied by the price which is currently $98 = $1,279,156,812,603 market cap at the time of writing.",
-          "author": "reticulates"
+          "text": "> The argument is incredibly long at the moment, and while its formalization is finished and it is routine to produce a huge, unreadable document containing sufficient detail, in my view of my path I have just taken a step. I intend to do my best to understand and impart understanding of this argument and its certain simplifications, to speak about it, to write it properly.\n\nOkay, I am anxious whether this holds true or not, but he claims that the formalization is finished.\n\nWhy not just…",
+          "author": "yewenjie"
         }
       ],
       "discussion": [
         {
-          "text": "I’m honestly worried about the irrational exuberance in the market right now. It’s outright scary. This feels like 2007 or 1999.\n\nI hope employees are able to cash some out to get the reward they deserve, but the fundamentals don’t look good here. And to be clear they’d be selling to folks that are unlikely to see upside.\n\nThis quote from Margin Call feels applicable here:\n\nSam Rogers: The real question is: who are we selling this to?\n\nJohn Tuld: The same people we've been selling it to for the last two years, and whoelse ever would buy it.\n\nSam Rogers: But John, if you do this, you will…",
-          "author": "cmiles8"
+          "text": "> The argument is incredibly long at the moment, and while its formalization is finished and it is routine to produce a huge, unreadable document containing sufficient detail, in my view of my path I have just taken a step. I intend to do my best to understand and impart understanding of this argument and its certain simplifications, to speak about it, to write it properly.\n\nOkay, I am anxious whether this holds true or not, but he claims that the formalization is finished.\n\nWhy not just release the formalization in the meantime?\n\nThis is probably the biggest day in math in recent…",
+          "author": "yewenjie"
         },
         {
-          "text": "Related:\n\nAnthropic prices initial public offering\n\nhttps://news.ycombinator.com/item?id=50553843",
-          "author": "ChrisArchitect"
+          "text": "This is Levent Alpöge ( https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge ), a supremely qualified mathematician and one of the best in the world at guiding AI towards new discoveries in mathematics.\n\nIf he says he has Riemann, well then, he has Riemann.",
+          "author": "xianshou"
         },
         {
-          "text": "all it took was the 'largest theft of labor' and some revolutionary algorithms.",
-          "author": "fantasizr"
+          "text": "It's not a random Anthropic employee. It's claimed by Levent Alpöge. The guy is on fire and already has like 3 or 4 very interesting verified result this year. I've showing for months his wikipedia page to my coworkers in the math department in my university.",
+          "author": "gus_massa"
         },
         {
-          "text": "$2,000,000,000,000.00 is high for any software, including AI.",
-          "author": "1970-01-01"
+          "text": "Woah, if this proves to be correct it'd be massive, for maths, computer science...and AI too, I guess!\n\nThe worry I have right now is this though:\n\n> The argument is incredibly long at the moment, and while its formalization is finished and it is routine to produce a huge, unreadable document containing sufficient detail, in my view of my path I have just taken a step.\n\nthis feels like we're moving away from the old world of 'science', where we could actually read an experiment, understand its steps, and, with enough time, possibly reproduce it.\n\nAnd we're back in the world of 'magic' and…",
+          "author": "puff_pastry"
         }
       ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50562754",
+      "discussionUrl": "https://news.ycombinator.com/item?id=50574968",
       "signals": [
-        "1011 points",
-        "1983 comments",
-        "Mentions Claude"
+        "2578 points",
+        "1783 comments"
       ],
-      "url": "https://www.reuters.com/business/finance/anthropics-historic-debut-put-ais-promise-peril-wall-st-test-2026-11-19/",
+      "url": "https://alpo.ge/remark.pdf",
       "source": "Hacker News",
-      "short": "Anthropic’s Nasdaq debut",
-      "minutes": 2
+      "short": "Levent Alpöge claims proof of the Generalized…",
+      "minutes": 3
     },
     {
       "type": "steal",
-      "title": "AI systems for brand design (video)",
-      "body": "Hand-picked design links from November 19, 2026: Design tools just got personal, Understanding CSS random(), and more.\n\nDesign tools just got personal, Understanding CSS random().",
+      "title": "Quoting Levent Alpöge",
+      "body": "I believe I have, working with Claude, discovered a proof of the Riemann Hypothesis. In fact, the method easily extends much further, resolving the so-called Generalized Riemann Hypothesis, and I …\n\nI believe I have, working with Claude, discovered a proof of the Riemann Hypothesis. In fact, the method easily extends much further, resolving the so-called Generalized Riemann Hypothesis, and I expect, with more time, the Extended Riemann Hypothesis too. Claude and I have also formalized the arguments without assumptions.",
       "signals": [
-        "New from HeyDesigner"
+        "New from Simon Willison",
+        "Mentions Claude"
       ],
-      "source": "HeyDesigner",
-      "url": "https://heydesigner.com/2026-11-19/",
-      "short": "AI systems for brand design (video)",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/20/levent-alpoge/",
+      "short": "Quoting Levent Alpöge",
       "minutes": 1
     },
     {
       "type": "wildcard",
-      "title": "A New Jean-Michel Basquiat Documentary Considers the Artist Behind the Work",
-      "body": "Directed by Quinn Whitney Wilson and Viridiana Lieberman for Netflix, &#039;Jean-Michel Basquiat&#039; is the first authorized documentary.\n\n\"He was unapologetically Jean-Michel Basquiat.\" Do stories and artists like this matter to you? Become a Colossal Member today and support independent arts publishing for as little as $7 per month. The article A New Jean-Michel Basquiat Documentary Considers the Artist Behind the Work appeared first on Colossal .",
+      "title": "Shrine of the Most Blessed Sacrement in Hanceville, Alabama",
+      "body": "Roman Catholic church and monastery with extraordinary architecture designed to resemble a 13th-century Italian Franciscan church, particularly the Basilica of Saint Francis of Assisi.\n\nExtraordinary architecture designed to resemble a 13th-century Italian Franciscan church, particularly the Basilica of Saint Francis of Assisi. Marble floors, gold ornamentation, stained glass, and soaring ceilings. The Spanish religious-art workshop Talleres de Arte Granda, founded in Madrid in 1891, designed and furnished the church's interior. It was founded by Mother Angelica, the founder of EWTN, and opened in 1999. Three donors provided all of the funds needed for construction and completion.",
       "signals": [
-        "New from Colossal"
+        "New from Atlas Obscura"
       ],
-      "source": "Colossal",
-      "url": "https://www.thisiscolossal.com/2026/11/jean-michel-basquiat-authorized-documentary-netflix/",
-      "short": "A New Jean-Michel Basquiat Documentary…",
+      "source": "Atlas Obscura",
+      "url": "https://www.atlasobscura.com/places/shrine-of-the-most-blessed-sacrement",
+      "short": "Shrine of the Most Blessed Sacrement in…",
       "minutes": 1
     }
   ]
