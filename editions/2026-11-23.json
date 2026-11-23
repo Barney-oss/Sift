@@ -1,0 +1,167 @@
+{
+  "edition": 5,
+  "date": "2026-11-23",
+  "dateLabel": "Monday 23 Nov",
+  "minutes": 8,
+  "generatedAt": "2026-11-23T09:51:45.381Z",
+  "stories": [
+    {
+      "type": "build",
+      "title": "crm: Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM",
+      "byline": "SAIoden",
+      "body": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.\n\nThe agent · Stack · Quick start · Configuration · Deploying · Contributing\n\nMost CRMs are a database with a form in front of it. The AI ones bolt a chat box onto the side of that form. Both leave the actual work — finding out what is true, and writing it down — to a human who has better things to do.",
+      "made": [
+        "TypeScript"
+      ],
+      "signals": [
+        "50 stars this week"
+      ],
+      "dek": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.",
+      "source": "GitHub",
+      "url": "https://github.com/SAIoden/crm",
+      "short": "crm: Comp AI CRM is an open source, CRM…",
+      "minutes": 1
+    },
+    {
+      "type": "debate",
+      "title": "The Mythology of Conscious AI",
+      "body": "Why consciousness is more likely a property of life than of computation and why creating conscious, or even conscious-seeming AI, is a bad idea.",
+      "views": [
+        {
+          "text": "Consciousness in others isn’t something we prove. It is something we grant and we should be very careful about whom or what we grant it to.",
+          "author": "andsoitis"
+        },
+        {
+          "text": "The biggest flaw in this piece is claiming Turing machines cannot exceed the Halting Problem and then reaching for alternative models of computation (in electromagnetic field interactions, in biology, attractors, etc.)... none of which presumably have the power to solve the Halting problem either. Ergo, he is inside \"Turing world\" without realizing it, while decrying the \"poverty\" of the Universal Turing Machine.\n\nErgo, more philosophers should retake undergrad theoretical CS before writing…",
+          "author": "calf"
+        },
+        {
+          "text": "how dare he tell us we cannot make a computer out of cheese\n\npersonally I think conscious AI will be unavoidable because there will be benefits to consciousness. evolution probably selected conscious entities for some fitness reason",
+          "author": "bionhoward"
+        }
+      ],
+      "discussion": [
+        {
+          "text": "> Why consciousness is more likely a property of life than of computation\n\nThis is a false dichotomy and the first branch is clearly false, since most life (bacteria and insects, by mass, numbers, or species) isn't conscious.\n\nAnd neither \"life\" nor \"consciousness\" are scientific terms with fixed definitions. If we encountered something that was clearly conscious in our judgment, we would likely expand the definition life in whatever way we needed to in order to encompass it.\n\nAnil Seth has made the arguments in TFA many times and they have been rebutted many times.",
+          "author": "jibalt"
+        },
+        {
+          "text": "If you are interested in consciousness, and also interested in going beyond the usual philosophical approach, you might like our book Journey of the Mind https://www.goodreads.com/en/book/show/60500189-journey-of-t...\n\nOne thing that is implicit, which I now think we really should have expanded on in the book, is that consciousness is fundamentally an engineering problem.",
+          "author": "ChaitanyaSai"
+        },
+        {
+          "text": "Consciousness might not necessarily emerge when there is enough computation, but we also don't know that it doesn't emerge. We really know almost nothing about consciousness. It's possible that the question of why the presence of consciousness is correlated with certain kinds of material organization is in principle not accessible to scientific investigation. We don't even know that it is so correlated in general, we just know that for example people report being conscious when they are not asleep and not drugged in certain ways, and report having had no experience of consciousness during…",
+          "author": "hax0ron3"
+        },
+        {
+          "text": "It’s a silly debate when we don’t even know what consciousness is, let alone the circumstances for its occurrence. Or am I missing something?",
+          "author": "talon8635"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50595537",
+      "signals": [
+        "175 points",
+        "510 comments"
+      ],
+      "url": "https://www.noemamag.com/the-mythology-of-conscious-ai/",
+      "source": "Hacker News",
+      "short": "The Mythology of Conscious AI",
+      "minutes": 2
+    },
+    {
+      "type": "steal",
+      "title": "The Birds of GTA 6: A Field Guide to Vice City and Leonida's Wildlife",
+      "byline": "gaws",
+      "body": "Inside the hunt to catalog the birds of GTA 6. Explore a field guide to Leonida&#039;s species, how the birdwatching mechanics play, and how accurate Rockstar&#039;s wildlife really is.",
+      "discussion": [
+        {
+          "text": "I like to imagine that Rockstar was able to pay an ornithologist from Cornell to help them with their birds.",
+          "author": "bob1029"
+        },
+        {
+          "text": "The game appears to be mostly story/character focused rather than sandbox focused, despite the insane attention to detail on traditional sandbox elements (for context, I've already completed the main campaign). In a lot of ways it feels like two disjoint teams worked to create the final product and the story/character team won out. Not sure if that's ultimately the root cause of the stated inconsistencies, but it could be a contributing factor.",
+          "author": "aliasxneo"
+        },
+        {
+          "text": "This is some crazy shit, not getting me much into GTA6 hype but fun to read people do that.\n\nI’m still so much into games I can complete over a weekend and then go to another when I have next free weekend ( which is unfortunately not every weekend anymore )",
+          "author": "hollowonepl"
+        },
+        {
+          "text": "> In fact, I found a number of avian inaccuracies in just my first few hours of playtime. Certain species like Whooping Crane and Red-cockaded Woodpecker are common throughout the map, despite being endangered and threatened, respectively, in real life.\n\nThis is because the world of GTA is just better managed and nicer than real life, obviously.",
+          "author": "saagarjha"
+        },
+        {
+          "text": "Looked it up and the game has (Florida) scrub jays, the only avian species endemic to the state.\n\nI was lucky enough to witness some IRL along the Ocala section of the Florida Trail. Behaviorally, they seem to have a bit of that corvid cleverness.",
+          "author": "semolino"
+        },
+        {
+          "text": "In case you didn't know, \"GTA\" in the title is \"Grand Theft Auto,\" a popular series of video games based around automobile theft and birdwatching. Saved you a click. Sorry if you were expecting an article about the Greater Toronto Area.",
+          "author": "hackyhacky"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50602843",
+      "signals": [
+        "496 points",
+        "250 comments"
+      ],
+      "source": "Hacker News",
+      "url": "https://www.audubon.org/magazine/birds-of-gta-6-field-guide-vice-city-wildlife",
+      "short": "The Birds of GTA 6: A Field Guide to Vice City…",
+      "minutes": 2
+    },
+    {
+      "type": "steal",
+      "title": "Select Styling Specimens",
+      "body": "Select Styling Specimens\n\nTool: Select Styling Specimens I got frustrated at how HTML &lt;select&gt; boxes default to looking different in different browsers, and are (I think) quite ugly in Chrome: So I had Claude Fable 5.2 build me this page showing all of the ways they can be styled: Build an HTML page that shows all of the ways a select box can be styled, I plan to take screenshots in every desktop and mobile browser After some experimentation I've decided my favorite CSS for select boxes is this: select { appearance : none ; color : # 1f2933 ; padding : 0.5 em 2.25 em 0.5 em 0.75 em ; border : 1 px solid #…",
+      "signals": [
+        "New from Simon Willison",
+        "Mentions Claude"
+      ],
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/22/select-styling/",
+      "short": "Select Styling Specimens",
+      "minutes": 1
+    },
+    {
+      "type": "wildcard",
+      "title": "Progress map for the Lean formalization of Alessandro Masullo's manuscript",
+      "byline": "Qision",
+      "body": "Try out Artifacts created by Claude users",
+      "discussion": [
+        {
+          "text": "I guess the next step is we get a human to understand the solution ?",
+          "author": "taimurshasan"
+        },
+        {
+          "text": "Alongside the front page post on P=NP, the public nature of a dashboard like this gives me a sort of optimism. Seeing this type of thing start to happen in public forums rather than just behind the closed doors of the big labs is exciting.\n\nI mentioned in that thread, it feels like there is a twitch-plays-Pokémon moment to look forward to in something like this where we can all enjoy cheering on agents from the sidelines toward new discoveries\n\nIt’s cool to have two such posts in one Sunday, I think we are near a new chapter in open science",
+          "author": "baoooooooooooo"
+        },
+        {
+          "text": "Is there someone educated on the matter that can share some lights on what is happening here?",
+          "author": "vitaminCPP"
+        },
+        {
+          "text": "Just a reminder not to take the progress bar here as an indication that the proof is largely correct, as it takes only one hole for the entire thing to come crashing down.\n\nJudging by other commentary so far, my understanding is that there is a major hole in this proof, which would not surprise me given that the machinery involved feels far less like a major leap (to me anyway) than the route for the Alpoge proof. The asymptotic-order theta lifting in that proof feels like a genuine step forward for other mathematical disciplines.",
+          "author": "hodgehog11"
+        },
+        {
+          "text": "Feels a little bit like when Twitch played Pokemon, only it's about solving RH. More like this, please. Maybe pick a cancer and do that next.",
+          "author": "Mizza"
+        },
+        {
+          "text": "How come Anthropic can’t train a model that doesn’t make me want to jump off a building when I read the writing, considering what they’re capable of with math.",
+          "author": "techpression"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50605045",
+      "signals": [
+        "233 points",
+        "171 comments"
+      ],
+      "source": "Hacker News",
+      "url": "https://claude.ai/artifact/CtQyX8qfYAF822bgHJHHE3",
+      "short": "Progress map for the Lean formalization of…",
+      "minutes": 2
+    }
+  ]
+}
