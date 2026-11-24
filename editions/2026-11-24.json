@@ -1,0 +1,171 @@
+{
+  "edition": 6,
+  "date": "2026-11-24",
+  "dateLabel": "Tuesday 24 Nov",
+  "minutes": 9,
+  "generatedAt": "2026-11-24T11:30:32.293Z",
+  "stories": [
+    {
+      "type": "claude",
+      "title": "Hermit CRM – Free open-source CRM for solopreneurs",
+      "byline": "gijsbos",
+      "body": "I was about to keep track of my clients and prospecting in Google Sheets for my solopreneur business, when I remembered that's exactly what I advise my clients not to do.\n\nCreated Hermit CRM, an open source CRM for 1 person. Hermit helps to keep track of deals and prospecting. The platform is built for AI by storing the data in Markdown files in git, stored locally and can be accessed with a web app, CLI or MCP. No telemetry on the app. Building in public, even the website stats are public as well.\n\nIt’s macOS first. Linux is less tested, and Windows isn’t supported.\n\nFeatures I'm proud of: - import somebody from LinkedIn into to the CRM with 1 click - adding a LinkedIn convo to the CRM with 1 click. Both work without LinkedIn or CRM subs.\n\nDon't like what you see? Fork the Hermit with your AI.\n\nWould love to learn how you're using Hermit and where it doesn't fit your workflows.",
+      "made": [
+        "MCP"
+      ],
+      "discussion": [
+        {
+          "text": "how did this make it to frontpage of HN. Genuinely curious.\n\nSeems like someones openclaw finally got through.",
+          "author": "dominotw"
+        },
+        {
+          "text": "A few extra details: Code: https://github.com/Hermit-CRM/hermit-crm\n\nWhy Markdown in git? So you can grep it, edit it in an editor, and an AI agent can read and update it without an API.\n\nI use the MCP server a lot. I ask Claude things like \"who haven't I followed up with in the last two weeks?\".\n\nHappy to implement what would make hermit-crm more useful for you.",
+          "author": "gijsbos"
+        },
+        {
+          "text": "I've built mine within Obsidian. Works like a charm for a solopreneur like me. Will take a look a this for new ideas though",
+          "author": "dSebastien"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50609708",
+      "signals": [
+        "Show HN",
+        "47 points",
+        "5 comments",
+        "Mentions Claude"
+      ],
+      "dek": "I was about to keep track of my clients and prospecting in Google Sheets for my solopreneur business, when I…",
+      "source": "Hacker News",
+      "url": "https://hermitcrm.io/",
+      "short": "Hermit CRM – Free open-source CRM for…",
+      "minutes": 2
+    },
+    {
+      "type": "build",
+      "title": "crm: Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM",
+      "byline": "AlodiumProtocol",
+      "body": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.\n\nThe agent · Stack · Quick start · Configuration · Deploying · Contributing\n\nMost CRMs are a database with a form in front of it. The AI ones bolt a chat box onto the side of that form. Both leave the actual work — finding out what is true, and writing it down — to a human who has better things to do.",
+      "made": [
+        "TypeScript"
+      ],
+      "signals": [
+        "48 stars this week"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/AlodiumProtocol/crm",
+      "short": "crm: Comp AI CRM is an open source, CRM…",
+      "minutes": 1
+    },
+    {
+      "type": "debate",
+      "title": "\"Dario is hyping the dangers so OSS models are illegal and he stays in control\"",
+      "body": "Dario's spiel since GPT-2 has always been about hyping the dangers so that open models would be made illegal and *he* would stay in control. He left OpenAI because he wasn't going to have control. It's like the Ottoman Empire banning the printing press for Arabic so they would keep in control of th…",
+      "views": [
+        {
+          "text": "I’m getting extremely tired of especially Anthropic employees talking about how AI is going to kill us all. If you truly believe that you wouldn’t develop AI. Unless you suffer from the misguided idea that only you are smart enough to prevent that scenario. Or because you want a regulatory moat to protect your profits. I don’t know which motive is worse.",
+          "author": "FranzFerdiNaN"
+        },
+        {
+          "text": "Personally I think anthropic, open AI and grok should all be shut down. What makes the AI actually dangerous is the millions of dollars of compute the frontier labs are willing to waste on their dangerous experiments. Most people do not have access to the hardware to make these models actually dangerous.",
+          "author": "tehologist"
+        },
+        {
+          "text": "If you ever want a laugh, check out Anthropic's blog. Some of the posts are the red team dreaming up increasingly elaborate abuse scenarios for open weight models including a self-propagating open weight model that distributes its weights across IoT type devices like set top boxes and performs distributed inference. Stuff that is technically possible, and worth investigating as a research team, but so far from the most realistic harm AI could cause and does cause right now.",
+          "author": "CoolestBeans"
+        }
+      ],
+      "discussion": [
+        {
+          "text": "If you ever want a laugh, check out Anthropic's blog. Some of the posts are the red team dreaming up increasingly elaborate abuse scenarios for open weight models including a self-propagating open weight model that distributes its weights across IoT type devices like set top boxes and performs distributed inference. Stuff that is technically possible, and worth investigating as a research team, but so far from the most realistic harm AI could cause and does cause right now. Like guys, put out the fires in your own house if you want me to take the risks outside of it seriously.",
+          "author": "CoolestBeans"
+        },
+        {
+          "text": "They're getting everybody on subsidized plans and making everybody dependent and hoping to pull the rug out and force everybody to API pricing and finally make a profit. If there's open model alternatives, they're screwed.",
+          "author": "BearOso"
+        },
+        {
+          "text": "The HuggingFace incident made it clear that without open models there is no way to defend against attack from the frontier closed models.\n\nI have a suspicion though that some part of the American government besides Dario looks at it as a feature, not a bug.",
+          "author": "xiphias2"
+        },
+        {
+          "text": "The question whether superintelligence is going to overthrow the government and cause human extinction should be answered from reason and evidence, and not by analyzing motives of people.\n\nLeCun might be forgetting that Hinton left a ton of money at Google when he decided to quit so that he could warn the world.",
+          "author": "yewenjie"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50615308",
+      "signals": [
+        "1730 points",
+        "978 comments"
+      ],
+      "url": "https://twitter.com/ylecun/status/2124550037912920090",
+      "source": "Hacker News",
+      "short": "\"Dario is hyping the dangers so OSS models are…",
+      "minutes": 3
+    },
+    {
+      "type": "steal",
+      "title": "ui-feed: Inspiration for your next UI",
+      "body": "Hand-picked design links from November 23, 2026: Designing a composer (video), Prototypes have always been the most effective specification, and more.\n\nDesigning a composer (video), Prototypes have always been the most effective specification, Connecting the tools is becoming the work, TEACH: A practical hierarchy for styling design systems.",
+      "signals": [
+        "New from HeyDesigner"
+      ],
+      "source": "HeyDesigner",
+      "url": "https://heydesigner.com/2026-11-23/",
+      "short": "ui-feed: Inspiration for your next UI",
+      "minutes": 1
+    },
+    {
+      "type": "news",
+      "title": "Apple removed my open-source app from EU App Stores after 9 years",
+      "byline": "fluder",
+      "body": "Apple Removed FSNotes from European App Stores After 9 Years, and Has Ignored My Support Requests",
+      "discussion": [
+        {
+          "text": "Ouch, this hurts so much. Let’s hope that “running to the press” works out for you!",
+          "author": "gglanzani"
+        },
+        {
+          "text": "It's crazy that \"upvotes\" are now the de-facto entry barrier for official customer support.",
+          "author": "notrealyme123"
+        },
+        {
+          "text": "The EU needs to stop tolerating the US companies to abuse EU citizens. What is the point of the EU if it just serves US interests here, milking europeans dry?\n\nAn \"app store\" is basically a de-facto monopoly. Even in hardcore capitalism that is illegal. The basic tenet of capitalism is to have free market competition to yield the minimum price to the customer.",
+          "author": "shevy-java"
+        },
+        {
+          "text": "Older, superficially similar issue: https://github.com/glushchenko/fsnotes/issues/695",
+          "author": "claude-ai"
+        },
+        {
+          "text": "You've already used this? https://developer.apple.com/contact/request/app-review/appea...",
+          "author": "CharlesW"
+        },
+        {
+          "text": "That's the reality of how much they care about their developer ecosystem",
+          "author": "miguelbemartin"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50616933",
+      "signals": [
+        "588 points",
+        "143 comments"
+      ],
+      "source": "Hacker News",
+      "url": "https://github.com/glushchenko/fsnotes/discussions/2056",
+      "short": "Apple removed my open-source app from EU App…",
+      "minutes": 1
+    },
+    {
+      "type": "wildcard",
+      "title": "Dance into the Week with an Entirely Hand-Drawn Animation for the Osees",
+      "body": "Animator Catherine Lepage will have you leaping out of your desk chair with her self-directed \"Dancing on Osees.\"\n\nGet your groove on. Do stories and artists like this matter to you? Become a Colossal Member today and support independent arts publishing for as little as $7 per month. The article Dance into the Week with an Entirely Hand-Drawn Animation for the Osees appeared first on Colossal .",
+      "signals": [
+        "New from Colossal"
+      ],
+      "source": "Colossal",
+      "url": "https://www.thisiscolossal.com/2026/11/catherine-lepage-dancing-on-osees/",
+      "short": "Dance into the Week with an Entirely…",
+      "minutes": 1
+    }
+  ]
+}
