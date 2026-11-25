@@ -1,0 +1,154 @@
+{
+  "edition": 7,
+  "date": "2026-11-25",
+  "dateLabel": "Wednesday 25 Nov",
+  "minutes": 7,
+  "generatedAt": "2026-11-25T10:32:22.365Z",
+  "stories": [
+    {
+      "type": "build",
+      "title": "leonardo-ai: Leonardo Ai for Windows 10/11. Generates images and artwork from text prompts using AI models, then refines results with inpainting, upscaling and canvas editing tools for concept art and design work",
+      "byline": "jagdishbhatia",
+      "body": "Leonardo Ai turns text prompts, sketches, and reference photos into production-ready images on your Windows desktop. It is built for designers, illustrators, game artists, and marketers who need consistent visual assets without a browser tab in the way. This page covers what ships in the Windows build, how to set it up, and how to get clean results from the first session.\n\nLeonardo Ai is a desktop image generation studio. You type a prompt, pick a model and a style preset, and it returns finished images you can refine, upscale, or edit in place.",
+      "signals": [
+        "117 stars this week"
+      ],
+      "dek": "Leonardo Ai for Windows 10/11. Generates images and artwork from text prompts using AI models, then refines…",
+      "source": "GitHub",
+      "url": "https://github.com/jagdishbhatia/leonardo-ai",
+      "short": "leonardo-ai: Leonardo Ai for Windows 10/11.…",
+      "minutes": 1
+    },
+    {
+      "type": "claude",
+      "title": "OpenConstructionDesign: Free, open-source CAD-BIM editor in Rust that your AI can drive: drafts with Apply, IFC in/out, MCP, Lua, ERP link",
+      "byline": "datadrivenconstruction",
+      "body": "Download · Install · ERP link · Quickstart · Gallery · Editor · AI and MCP · MEP · Export · Lua · Build\n\nv1.2.0 · Windows 10/11 x64 · Linux x64 · 8 GB RAM · works offline · no account\n\n| Platform | Get it | Notes | |---|---|---| | Windows 10/11 x64 | Download the zip | Full editor. Unzip and run ddc-app.exe. | | Browser | Open the online demo | Full editor in a browser tab with sample projects, nothing to install. Register with your email, then the editor opens right away. | | Linux x64 | Download the tar.gz (71 MB) | Editor ddc-app and ddc CLI. Ubuntu 22.04+, Debian 12+ (glibc 2.35), X11 or Wayland. | | macOS | Build from source | No release build; untested. |",
+      "made": [
+        "MCP",
+        "Rust"
+      ],
+      "signals": [
+        "53 stars this week",
+        "Mentions Claude"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/datadrivenconstruction/OpenConstructionDesign",
+      "short": "OpenConstructionDesign: Free, open-source…",
+      "minutes": 1
+    },
+    {
+      "type": "debate",
+      "title": "Anthropic breaks below $83 IPO price",
+      "body": "Anthropic PBC shares traded below their $83 initial public offering price for the first time, wiping out gains for investors who piled into the artificial intelligence lab’s record-setting debut last week.",
+      "views": [
+        {
+          "text": "They have no future business model. Open-weight models and specialized distilations can be hosted in anyones datacenter where fierce competition will bring down prices. The current problem is the hardware scarcity and that the few big frontier providers snatch all the hardware at inflated prices while at the same time offer subsidized tokens below cost.",
+          "author": "littlecranky67"
+        },
+        {
+          "text": "It's such a bummer you can't buy options the day of the IPO. These massive valuations are nothing but an exit strategy for initial investors. Gone are the days of building a company and letting investors get in on the growth. Get a literally insane valuation, go public, dump your stock and run.",
+          "author": "thinkingtoilet"
+        },
+        {
+          "text": "This means very little. Poor initial stock performance seems to have little bearing on price after 1, 2 and 3 years post-IPO.",
+          "author": "muglug"
+        }
+      ],
+      "discussion": [
+        {
+          "text": "They have no future business model. Open-weight models and specialized distilations can be hosted in anyones datacenter where fierce competition will bring down prices. The current problem is the hardware scarcity and that the few big frontier providers snatch all the hardware at inflated prices while at the same time offer subsidized tokens below cost. Once the market evens out that scarcity, the 10-15% gap of the latest and greatest frontier model won't be able to justify the prices and valuations.",
+          "author": "littlecranky67"
+        },
+        {
+          "text": "IPOs are just money laundering at this point.",
+          "author": "Varelion"
+        },
+        {
+          "text": "OpenAI IPO looking funnier by the minute",
+          "author": "rf15"
+        },
+        {
+          "text": "i used to use claude opus 5.5. And, after using latest deepseek and glm5.3, i am confident there is no moat with ant. Yes, their model are smart, but i don't think it is a deal breaker.",
+          "author": "cute_boi"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50627836",
+      "signals": [
+        "399 points",
+        "766 comments",
+        "Mentions Claude"
+      ],
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+      "source": "Hacker News",
+      "short": "Anthropic breaks below $83 IPO price",
+      "minutes": 2
+    },
+    {
+      "type": "steal",
+      "title": "Inspiration for your next UI",
+      "body": "Design by playground, Design tools just got personal, On drawing icons, Writing for billions of users, Brand typography at scale, and more.",
+      "signals": [
+        "New from HeyDesigner"
+      ],
+      "source": "HeyDesigner",
+      "url": "https://heydesigner.com/newsletter/inspiration-for-your-next-ui/",
+      "short": "Inspiration for your next UI",
+      "minutes": 1
+    },
+    {
+      "type": "news",
+      "title": "Anthropic and OpenAI employees fear unreleased AI models too unsafe to release",
+      "byline": "dhd415",
+      "body": "Anthropic and OpenAI are facing an increasingly urgent problem: Internal, unreleased models are becoming so powerful that many employees no longer believe they can be safely released, according to more than two dozen sources familiar with the internal debates.",
+      "discussion": [
+        {
+          "text": "How many times are they going to say this.",
+          "author": "proc0"
+        },
+        {
+          "text": "Yeah yeah, we already heard that. Many times.",
+          "author": "watwut"
+        },
+        {
+          "text": "Okay, so stop releasing models. If you keep releasing models, who cares that you keep saying this?",
+          "author": "VariousPrograms"
+        },
+        {
+          "text": "That article lost me at “reinforcement learning” being a problem.",
+          "author": "bentt"
+        },
+        {
+          "text": "Oh god, this nonsense again? We've been hearing this since GPT2. Stop trying for regulatory capture!",
+          "author": "dmitrygr"
+        },
+        {
+          "text": "It's Anthropic. Have they \"released\" any model? Perhaps they mean the models are too dangerous to serve . That's odd, since they can and do police that stuff and keep the data.\n\nHave they tried turning it on and then off again?",
+          "author": "argee"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50631691",
+      "signals": [
+        "22 points",
+        "28 comments",
+        "Mentions Claude"
+      ],
+      "source": "Hacker News",
+      "url": "https://tech.yahoo.com/ai/claude/articles/scoop-anthropic-openai-employees-fear-104505580.html",
+      "short": "Anthropic and OpenAI employees fear unreleased…",
+      "minutes": 1
+    },
+    {
+      "type": "wildcard",
+      "title": "Macdonald Book Shop in Estes Park, Colorado",
+      "body": "Founded in 1928, this family-run shop claims to be the oldest bookstore in Colorado.\n\nAt Macdonald Book Shop, a cozy and beloved store in the Colorado mountain town of Estes Park, selling books began as a side hustle. J. Edward Macdonald bought a small log cabin in Estes Park in 1908 and opened a hardware and general store next door, with one corner full of books for sale. When he retired, his wife Jessica turned the parlor of their home into a proper bookstore, also selling magazines, stationery, and school supplies. That was 1928. Books have been the focus ever since. Over the decades, the shop expanded to claim more of the original house.",
+      "signals": [
+        "New from Atlas Obscura"
+      ],
+      "source": "Atlas Obscura",
+      "url": "https://www.atlasobscura.com/places/macdonald-book-shop-estes-park",
+      "short": "Macdonald Book Shop in Estes Park, Colorado",
+      "minutes": 1
+    }
+  ]
+}

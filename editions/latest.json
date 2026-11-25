@@ -1,170 +1,153 @@
 {
-  "edition": 6,
-  "date": "2026-11-24",
-  "dateLabel": "Tuesday 24 Nov",
-  "minutes": 9,
-  "generatedAt": "2026-11-24T11:30:32.293Z",
+  "edition": 7,
+  "date": "2026-11-25",
+  "dateLabel": "Wednesday 25 Nov",
+  "minutes": 7,
+  "generatedAt": "2026-11-25T10:32:22.365Z",
   "stories": [
     {
-      "type": "claude",
-      "title": "Hermit CRM – Free open-source CRM for solopreneurs",
-      "byline": "gijsbos",
-      "body": "I was about to keep track of my clients and prospecting in Google Sheets for my solopreneur business, when I remembered that's exactly what I advise my clients not to do.\n\nCreated Hermit CRM, an open source CRM for 1 person. Hermit helps to keep track of deals and prospecting. The platform is built for AI by storing the data in Markdown files in git, stored locally and can be accessed with a web app, CLI or MCP. No telemetry on the app. Building in public, even the website stats are public as well.\n\nIt’s macOS first. Linux is less tested, and Windows isn’t supported.\n\nFeatures I'm proud of: - import somebody from LinkedIn into to the CRM with 1 click - adding a LinkedIn convo to the CRM with 1 click. Both work without LinkedIn or CRM subs.\n\nDon't like what you see? Fork the Hermit with your AI.\n\nWould love to learn how you're using Hermit and where it doesn't fit your workflows.",
-      "made": [
-        "MCP"
-      ],
-      "discussion": [
-        {
-          "text": "how did this make it to frontpage of HN. Genuinely curious.\n\nSeems like someones openclaw finally got through.",
-          "author": "dominotw"
-        },
-        {
-          "text": "A few extra details: Code: https://github.com/Hermit-CRM/hermit-crm\n\nWhy Markdown in git? So you can grep it, edit it in an editor, and an AI agent can read and update it without an API.\n\nI use the MCP server a lot. I ask Claude things like \"who haven't I followed up with in the last two weeks?\".\n\nHappy to implement what would make hermit-crm more useful for you.",
-          "author": "gijsbos"
-        },
-        {
-          "text": "I've built mine within Obsidian. Works like a charm for a solopreneur like me. Will take a look a this for new ideas though",
-          "author": "dSebastien"
-        }
-      ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50609708",
+      "type": "build",
+      "title": "leonardo-ai: Leonardo Ai for Windows 10/11. Generates images and artwork from text prompts using AI models, then refines results with inpainting, upscaling and canvas editing tools for concept art and design work",
+      "byline": "jagdishbhatia",
+      "body": "Leonardo Ai turns text prompts, sketches, and reference photos into production-ready images on your Windows desktop. It is built for designers, illustrators, game artists, and marketers who need consistent visual assets without a browser tab in the way. This page covers what ships in the Windows build, how to set it up, and how to get clean results from the first session.\n\nLeonardo Ai is a desktop image generation studio. You type a prompt, pick a model and a style preset, and it returns finished images you can refine, upscale, or edit in place.",
       "signals": [
-        "Show HN",
-        "47 points",
-        "5 comments",
-        "Mentions Claude"
+        "117 stars this week"
       ],
-      "dek": "I was about to keep track of my clients and prospecting in Google Sheets for my solopreneur business, when I…",
-      "source": "Hacker News",
-      "url": "https://hermitcrm.io/",
-      "short": "Hermit CRM – Free open-source CRM for…",
-      "minutes": 2
+      "dek": "Leonardo Ai for Windows 10/11. Generates images and artwork from text prompts using AI models, then refines…",
+      "source": "GitHub",
+      "url": "https://github.com/jagdishbhatia/leonardo-ai",
+      "short": "leonardo-ai: Leonardo Ai for Windows 10/11.…",
+      "minutes": 1
     },
     {
-      "type": "build",
-      "title": "crm: Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM",
-      "byline": "AlodiumProtocol",
-      "body": "Comp AI CRM is an open source, CRM designed for AI agents. Agentic-first CRM.\n\nThe agent · Stack · Quick start · Configuration · Deploying · Contributing\n\nMost CRMs are a database with a form in front of it. The AI ones bolt a chat box onto the side of that form. Both leave the actual work — finding out what is true, and writing it down — to a human who has better things to do.",
+      "type": "claude",
+      "title": "OpenConstructionDesign: Free, open-source CAD-BIM editor in Rust that your AI can drive: drafts with Apply, IFC in/out, MCP, Lua, ERP link",
+      "byline": "datadrivenconstruction",
+      "body": "Download · Install · ERP link · Quickstart · Gallery · Editor · AI and MCP · MEP · Export · Lua · Build\n\nv1.2.0 · Windows 10/11 x64 · Linux x64 · 8 GB RAM · works offline · no account\n\n| Platform | Get it | Notes | |---|---|---| | Windows 10/11 x64 | Download the zip | Full editor. Unzip and run ddc-app.exe. | | Browser | Open the online demo | Full editor in a browser tab with sample projects, nothing to install. Register with your email, then the editor opens right away. | | Linux x64 | Download the tar.gz (71 MB) | Editor ddc-app and ddc CLI. Ubuntu 22.04+, Debian 12+ (glibc 2.35), X11 or Wayland. | | macOS | Build from source | No release build; untested. |",
       "made": [
-        "TypeScript"
+        "MCP",
+        "Rust"
       ],
       "signals": [
-        "48 stars this week"
+        "53 stars this week",
+        "Mentions Claude"
       ],
       "source": "GitHub",
-      "url": "https://github.com/AlodiumProtocol/crm",
-      "short": "crm: Comp AI CRM is an open source, CRM…",
+      "url": "https://github.com/datadrivenconstruction/OpenConstructionDesign",
+      "short": "OpenConstructionDesign: Free, open-source…",
       "minutes": 1
     },
     {
       "type": "debate",
-      "title": "\"Dario is hyping the dangers so OSS models are illegal and he stays in control\"",
-      "body": "Dario's spiel since GPT-2 has always been about hyping the dangers so that open models would be made illegal and *he* would stay in control. He left OpenAI because he wasn't going to have control. It's like the Ottoman Empire banning the printing press for Arabic so they would keep in control of th…",
+      "title": "Anthropic breaks below $83 IPO price",
+      "body": "Anthropic PBC shares traded below their $83 initial public offering price for the first time, wiping out gains for investors who piled into the artificial intelligence lab’s record-setting debut last week.",
       "views": [
         {
-          "text": "I’m getting extremely tired of especially Anthropic employees talking about how AI is going to kill us all. If you truly believe that you wouldn’t develop AI. Unless you suffer from the misguided idea that only you are smart enough to prevent that scenario. Or because you want a regulatory moat to protect your profits. I don’t know which motive is worse.",
-          "author": "FranzFerdiNaN"
+          "text": "They have no future business model. Open-weight models and specialized distilations can be hosted in anyones datacenter where fierce competition will bring down prices. The current problem is the hardware scarcity and that the few big frontier providers snatch all the hardware at inflated prices while at the same time offer subsidized tokens below cost.",
+          "author": "littlecranky67"
         },
         {
-          "text": "Personally I think anthropic, open AI and grok should all be shut down. What makes the AI actually dangerous is the millions of dollars of compute the frontier labs are willing to waste on their dangerous experiments. Most people do not have access to the hardware to make these models actually dangerous.",
-          "author": "tehologist"
+          "text": "It's such a bummer you can't buy options the day of the IPO. These massive valuations are nothing but an exit strategy for initial investors. Gone are the days of building a company and letting investors get in on the growth. Get a literally insane valuation, go public, dump your stock and run.",
+          "author": "thinkingtoilet"
         },
         {
-          "text": "If you ever want a laugh, check out Anthropic's blog. Some of the posts are the red team dreaming up increasingly elaborate abuse scenarios for open weight models including a self-propagating open weight model that distributes its weights across IoT type devices like set top boxes and performs distributed inference. Stuff that is technically possible, and worth investigating as a research team, but so far from the most realistic harm AI could cause and does cause right now.",
-          "author": "CoolestBeans"
+          "text": "This means very little. Poor initial stock performance seems to have little bearing on price after 1, 2 and 3 years post-IPO.",
+          "author": "muglug"
         }
       ],
       "discussion": [
         {
-          "text": "If you ever want a laugh, check out Anthropic's blog. Some of the posts are the red team dreaming up increasingly elaborate abuse scenarios for open weight models including a self-propagating open weight model that distributes its weights across IoT type devices like set top boxes and performs distributed inference. Stuff that is technically possible, and worth investigating as a research team, but so far from the most realistic harm AI could cause and does cause right now. Like guys, put out the fires in your own house if you want me to take the risks outside of it seriously.",
-          "author": "CoolestBeans"
+          "text": "They have no future business model. Open-weight models and specialized distilations can be hosted in anyones datacenter where fierce competition will bring down prices. The current problem is the hardware scarcity and that the few big frontier providers snatch all the hardware at inflated prices while at the same time offer subsidized tokens below cost. Once the market evens out that scarcity, the 10-15% gap of the latest and greatest frontier model won't be able to justify the prices and valuations.",
+          "author": "littlecranky67"
         },
         {
-          "text": "They're getting everybody on subsidized plans and making everybody dependent and hoping to pull the rug out and force everybody to API pricing and finally make a profit. If there's open model alternatives, they're screwed.",
-          "author": "BearOso"
+          "text": "IPOs are just money laundering at this point.",
+          "author": "Varelion"
         },
         {
-          "text": "The HuggingFace incident made it clear that without open models there is no way to defend against attack from the frontier closed models.\n\nI have a suspicion though that some part of the American government besides Dario looks at it as a feature, not a bug.",
-          "author": "xiphias2"
+          "text": "OpenAI IPO looking funnier by the minute",
+          "author": "rf15"
         },
         {
-          "text": "The question whether superintelligence is going to overthrow the government and cause human extinction should be answered from reason and evidence, and not by analyzing motives of people.\n\nLeCun might be forgetting that Hinton left a ton of money at Google when he decided to quit so that he could warn the world.",
-          "author": "yewenjie"
+          "text": "i used to use claude opus 5.5. And, after using latest deepseek and glm5.3, i am confident there is no moat with ant. Yes, their model are smart, but i don't think it is a deal breaker.",
+          "author": "cute_boi"
         }
       ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50615308",
+      "discussionUrl": "https://news.ycombinator.com/item?id=50627836",
       "signals": [
-        "1730 points",
-        "978 comments"
+        "399 points",
+        "766 comments",
+        "Mentions Claude"
       ],
-      "url": "https://twitter.com/ylecun/status/2124550037912920090",
+      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
       "source": "Hacker News",
-      "short": "\"Dario is hyping the dangers so OSS models are…",
-      "minutes": 3
+      "short": "Anthropic breaks below $83 IPO price",
+      "minutes": 2
     },
     {
       "type": "steal",
-      "title": "ui-feed: Inspiration for your next UI",
-      "body": "Hand-picked design links from November 23, 2026: Designing a composer (video), Prototypes have always been the most effective specification, and more.\n\nDesigning a composer (video), Prototypes have always been the most effective specification, Connecting the tools is becoming the work, TEACH: A practical hierarchy for styling design systems.",
+      "title": "Inspiration for your next UI",
+      "body": "Design by playground, Design tools just got personal, On drawing icons, Writing for billions of users, Brand typography at scale, and more.",
       "signals": [
         "New from HeyDesigner"
       ],
       "source": "HeyDesigner",
-      "url": "https://heydesigner.com/2026-11-23/",
-      "short": "ui-feed: Inspiration for your next UI",
+      "url": "https://heydesigner.com/newsletter/inspiration-for-your-next-ui/",
+      "short": "Inspiration for your next UI",
       "minutes": 1
     },
     {
       "type": "news",
-      "title": "Apple removed my open-source app from EU App Stores after 9 years",
-      "byline": "fluder",
-      "body": "Apple Removed FSNotes from European App Stores After 9 Years, and Has Ignored My Support Requests",
+      "title": "Anthropic and OpenAI employees fear unreleased AI models too unsafe to release",
+      "byline": "dhd415",
+      "body": "Anthropic and OpenAI are facing an increasingly urgent problem: Internal, unreleased models are becoming so powerful that many employees no longer believe they can be safely released, according to more than two dozen sources familiar with the internal debates.",
       "discussion": [
         {
-          "text": "Ouch, this hurts so much. Let’s hope that “running to the press” works out for you!",
-          "author": "gglanzani"
+          "text": "How many times are they going to say this.",
+          "author": "proc0"
         },
         {
-          "text": "It's crazy that \"upvotes\" are now the de-facto entry barrier for official customer support.",
-          "author": "notrealyme123"
+          "text": "Yeah yeah, we already heard that. Many times.",
+          "author": "watwut"
         },
         {
-          "text": "The EU needs to stop tolerating the US companies to abuse EU citizens. What is the point of the EU if it just serves US interests here, milking europeans dry?\n\nAn \"app store\" is basically a de-facto monopoly. Even in hardcore capitalism that is illegal. The basic tenet of capitalism is to have free market competition to yield the minimum price to the customer.",
-          "author": "shevy-java"
+          "text": "Okay, so stop releasing models. If you keep releasing models, who cares that you keep saying this?",
+          "author": "VariousPrograms"
         },
         {
-          "text": "Older, superficially similar issue: https://github.com/glushchenko/fsnotes/issues/695",
-          "author": "claude-ai"
+          "text": "That article lost me at “reinforcement learning” being a problem.",
+          "author": "bentt"
         },
         {
-          "text": "You've already used this? https://developer.apple.com/contact/request/app-review/appea...",
-          "author": "CharlesW"
+          "text": "Oh god, this nonsense again? We've been hearing this since GPT2. Stop trying for regulatory capture!",
+          "author": "dmitrygr"
         },
         {
-          "text": "That's the reality of how much they care about their developer ecosystem",
-          "author": "miguelbemartin"
+          "text": "It's Anthropic. Have they \"released\" any model? Perhaps they mean the models are too dangerous to serve . That's odd, since they can and do police that stuff and keep the data.\n\nHave they tried turning it on and then off again?",
+          "author": "argee"
         }
       ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50616933",
+      "discussionUrl": "https://news.ycombinator.com/item?id=50631691",
       "signals": [
-        "588 points",
-        "143 comments"
+        "22 points",
+        "28 comments",
+        "Mentions Claude"
       ],
       "source": "Hacker News",
-      "url": "https://github.com/glushchenko/fsnotes/discussions/2056",
-      "short": "Apple removed my open-source app from EU App…",
+      "url": "https://tech.yahoo.com/ai/claude/articles/scoop-anthropic-openai-employees-fear-104505580.html",
+      "short": "Anthropic and OpenAI employees fear unreleased…",
       "minutes": 1
     },
     {
       "type": "wildcard",
-      "title": "Dance into the Week with an Entirely Hand-Drawn Animation for the Osees",
-      "body": "Animator Catherine Lepage will have you leaping out of your desk chair with her self-directed \"Dancing on Osees.\"\n\nGet your groove on. Do stories and artists like this matter to you? Become a Colossal Member today and support independent arts publishing for as little as $7 per month. The article Dance into the Week with an Entirely Hand-Drawn Animation for the Osees appeared first on Colossal .",
+      "title": "Macdonald Book Shop in Estes Park, Colorado",
+      "body": "Founded in 1928, this family-run shop claims to be the oldest bookstore in Colorado.\n\nAt Macdonald Book Shop, a cozy and beloved store in the Colorado mountain town of Estes Park, selling books began as a side hustle. J. Edward Macdonald bought a small log cabin in Estes Park in 1908 and opened a hardware and general store next door, with one corner full of books for sale. When he retired, his wife Jessica turned the parlor of their home into a proper bookstore, also selling magazines, stationery, and school supplies. That was 1928. Books have been the focus ever since. Over the decades, the shop expanded to claim more of the original house.",
       "signals": [
-        "New from Colossal"
+        "New from Atlas Obscura"
       ],
-      "source": "Colossal",
-      "url": "https://www.thisiscolossal.com/2026/11/catherine-lepage-dancing-on-osees/",
-      "short": "Dance into the Week with an Entirely…",
+      "source": "Atlas Obscura",
+      "url": "https://www.atlasobscura.com/places/macdonald-book-shop-estes-park",
+      "short": "Macdonald Book Shop in Estes Park, Colorado",
       "minutes": 1
     }
   ]
