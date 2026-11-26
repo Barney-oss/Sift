@@ -1,0 +1,186 @@
+{
+  "edition": 8,
+  "date": "2026-11-26",
+  "dateLabel": "Thursday 26 Nov",
+  "minutes": 8,
+  "generatedAt": "2026-11-26T10:04:11.347Z",
+  "stories": [
+    {
+      "type": "claude",
+      "title": "frontend-design-skill: Free frontend design skill for Claude Code, Codex and Cursor: designs your UI on a UX Pilot canvas, then builds it in your code",
+      "byline": "uxpilot-ai",
+      "body": "A free agent skill that designs your UI before your agent builds it. It sends a short brief from your codebase to UX Pilot, which designs real screens on a canvas you can open and edit. Your agent then builds the screens you pick in your own stack, with your components and tokens. It works in Claude Code, Codex, Cursor and any agent that supports skills and MCP. Install\n\nOr copy the skills/ui-design folder into your agent's skills folder (for Claude Code, ~/.claude/skills/).\n\nRun /mcp in Claude Code and sign in. In Cursor and other agents, add the MCP server https://mcp.uxpilot.net/mcp and sign in. If you skip this, the skill walks you through it. A free UX Pilot account is enough to start. What it does • Reads your project first: product, audience, routes, colors, fonts and copy, so the brief uses your real content.",
+      "made": [
+        "Claude Code",
+        "MCP"
+      ],
+      "signals": [
+        "188 stars this week",
+        "Mentions Claude"
+      ],
+      "dek": "Free frontend design skill for Claude Code, Codex and Cursor: designs your UI on a UX Pilot canvas, then…",
+      "source": "GitHub",
+      "url": "https://github.com/uxpilot-ai/frontend-design-skill",
+      "short": "frontend-design-skill: Free frontend design…",
+      "minutes": 1
+    },
+    {
+      "type": "claude",
+      "title": "pocket-design-mcp: Free MCP server with icons, fonts, images, components, design tokens, easings, contrast checks, SVG tools and patterns for coding agents",
+      "byline": "jasonmello",
+      "body": "A free MCP server that gives your coding agent (Claude Code, Claude Desktop, Cursor...) a designer's toolbox: icons from 280 sets, fonts, images, components, design tokens, easings, contrast checks, SVG tools and background patterns. You ask (\"put a Lucide house icon in the header\", \"make tokens from #4f46e5\", \"give this card a softer shadow\") and the agent finds it and drops it into your code.\n\nClaude Desktop (claude_desktop_config.json) or Cursor (.cursor/mcp.json):\n\nOptional: add \"env\": { \"PIXABAY_API_KEY\": \"your_key\" } to search Pixabay too (free key at https://pixabay.com/api/docs/). Tools",
+      "made": [
+        "Claude Code",
+        "MCP",
+        "TypeScript"
+      ],
+      "signals": [
+        "25 stars this week",
+        "Mentions Claude"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/jasonmello/pocket-design-mcp",
+      "short": "pocket-design-mcp: Free MCP server with icons…",
+      "minutes": 1
+    },
+    {
+      "type": "build",
+      "title": "ai-sql-generator: AI SQL generator: natural language to optimized queries, schema design. | ai sql generator windows tool utility | Portable x64 prebuilt for Windows",
+      "byline": "QosoviHu9",
+      "body": "AI SQL Generator — AI SQL Generator — AI SQL generator: natural language to queries. (Portable x64 Build, JSON Configuration)\n\nAI SQL Generator — AI SQL Generator — AI SQL generator: natural language to queries. (Portable x64 Build, JSON Configuration): AI SQL generator: natural language to queries. Native 64-bit portable build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.\n\n[](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../stargazers)",
+      "made": [
+        "C++"
+      ],
+      "signals": [
+        "57 stars this week"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/QosoviHu9/ai-sql-generator",
+      "short": "ai-sql-generator: AI SQL generator: natural…",
+      "minutes": 1
+    },
+    {
+      "type": "debate",
+      "title": "Holy shit holy shit holy shit holy shit: The magnitude of what’s now happening",
+      "body": "See also The matrix multiplication exponent is nine fourths [pdf] - https://news.ycombinator.com/item?id=50637220",
+      "views": [
+        {
+          "text": "See also the discussion at https://news.ycombinator.com/item?id=50637220",
+          "author": "Kotlopou"
+        },
+        {
+          "text": "Obviously it'll take a decade, but people will probably sort these solutions into \"neat parlor trick\" and \"wow, that's a productive solution to a real problem\".\n\nStill a question how the sorting hat goes, but I'm still going to sit this out waiting for some kind of application of these things.\n\nI still feel this is like watching a robot complete one of those simpley compelx metal puzzles.",
+          "author": "cyanydeez"
+        },
+        {
+          "text": "How many minds have been lost (to the sanitarium) on P vs NP? Thanks to AI/Curry-Howard from here on out we'll soon keep our brightest minds safe from the abyss.",
+          "author": "blurbleblurble"
+        }
+      ],
+      "discussion": [
+        {
+          "text": "> Along the way to so many lower bounds that we wondered whether ever we’d live to see, there will also, of course, be further shocking upper bounds: that is, ultimate barriers to lower bounds, also known as “algorithms.” And yes, some of those algorithms will break currently deployed cryptosystems.\n\n> Because people have been hounding me about it: yes, I’m virtually certain, from multiple reliable sources, that the AI labs are now sitting on one or more bombshells in that area.",
+          "author": "yewenjie"
+        },
+        {
+          "text": "\"I do not wish to be responsible for spreading unverified rumors.\"\n\nTitles blog post \"HOLY SHIT HOLY SHIT HOLY SHIT HOLY SHIT\"",
+          "author": "SoftTalker"
+        },
+        {
+          "text": "God, I have been reading slop all day. It is refreshing to read a well-crafted piece of prose.",
+          "author": "Darksinian"
+        },
+        {
+          "text": "Pretty much unrelated, but I don't understand why make the article's title linkable, to the same article.",
+          "author": "worldsavior"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50646108",
+      "signals": [
+        "1543 points",
+        "1347 comments"
+      ],
+      "url": "https://scottaaronson.blog/?p=10379",
+      "source": "Hacker News",
+      "short": "Holy shit holy shit holy shit holy shit: The…",
+      "minutes": 1
+    },
+    {
+      "type": "steal",
+      "title": "High fidelity, low definition",
+      "body": "Hand-picked design links from November 25, 2026: A guide to today’s AI design tools, Allo, your friendly neighborhood font, Button sounds, and more.\n\nA guide to today’s AI design tools, Allo, your friendly neighborhood font, Button sounds.",
+      "signals": [
+        "New from HeyDesigner"
+      ],
+      "source": "HeyDesigner",
+      "url": "https://heydesigner.com/2026-11-25/",
+      "short": "High fidelity, low definition",
+      "minutes": 1
+    },
+    {
+      "type": "steal",
+      "title": "Quoting Scott Aaronson",
+      "body": "It’s now obvious that we’ll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we’d previously only glimpsed …\n\nIt’s now obvious that we’ll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we’d previously only glimpsed through fog. Picture van Leeuwenhoek first training a microscope on pondwater, or Galileo first training his telescope on the stars. That might give you some idea of how our resolution into the complexity-theoretic universe, and the whole universe of mathematical truth beyond it, has now improved.",
+      "signals": [
+        "New from Simon Willison"
+      ],
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/25/scott-aaronson/",
+      "short": "Quoting Scott Aaronson",
+      "minutes": 1
+    },
+    {
+      "type": "news",
+      "title": "Google releases Cogentic papers on integer factorization, discrete logs and more",
+      "byline": "rgwohlbold",
+      "body": "Google Research. Contribute to google-research/google-research development by creating an account on GitHub.",
+      "discussion": [
+        {
+          "text": "Cogentic appears to be a specialized harness for existing LLMs to collaborate together to solve mathematical conjectures, using a central orchestrator and a shared database of intermediate proofs.\n\nAnd with just that, using Gemini 4 Argon, they have already obtained a number of interesting results? Math is going through its own version of the industrial revolution.",
+          "author": "david-gpu"
+        },
+        {
+          "text": "The proof reduces monochromatic rectangle density via Gaussian hyperplane rounding and box-constrained biasing to refuting the existence of biased Kullback–Leibler-stable sign matrices S ∈ −1, 1^(X×Y) of rank at most r + 1 above R_0 := ⌈e^(4×10^6)⌉ (Theorem 3.1).\n\nAh yes, of course, I have often wondered about that.",
+          "author": "fwlr"
+        },
+        {
+          "text": "Looks like Google has joined the race to publish.",
+          "author": "iamanatom"
+        },
+        {
+          "text": "Context: \"Cogentic: Multi-Agent Orchestration for Automated Proof Discovery\" (2026)\n\nhttps://arxiv.org/abs/2609.40324",
+          "author": "schleck8"
+        },
+        {
+          "text": "Are we going to see factorization on classical computers with this?\n\nAny opinions on the possibility of a novel algorithm to allow large int factorization, and will post quantum algorithms also help protect against these?",
+          "author": "roomey"
+        },
+        {
+          "text": "Students doing their Ph.Ds in Math and Computer Scientists on more theory-related thesis are having a tough time. You never know if your thesis is going to be the next OpenAI/Anthropic and now Google trophy paper.",
+          "author": "edumucelli"
+        }
+      ],
+      "discussionUrl": "https://news.ycombinator.com/item?id=50642086",
+      "signals": [
+        "494 points",
+        "356 comments"
+      ],
+      "source": "Hacker News",
+      "url": "https://github.com/google-research/google-research/tree/master/cogentic_research_papers",
+      "short": "Google releases Cogentic papers on integer…",
+      "minutes": 1
+    },
+    {
+      "type": "wildcard",
+      "title": "A Sculptural Playground in Shanghai Is Designed for Human-Powered Play",
+      "body": "\"Catching Feelings\" is one of 36 projects in the ninth edition of the Jing&#039;an International Sculpture Project.\n\nJump onto Wade and Leta's sculptural design in Shanghai. Do stories and artists like this matter to you? Become a Colossal Member today and support independent arts publishing for as little as $7 per month. The article A Sculptural Playground in Shanghai Is Designed for Human-Powered Play appeared first on Colossal .",
+      "signals": [
+        "New from Colossal"
+      ],
+      "source": "Colossal",
+      "url": "https://www.thisiscolossal.com/2026/11/wade-leta-catching-feelings-shanghai/",
+      "short": "A Sculptural Playground in Shanghai Is…",
+      "minutes": 1
+    }
+  ]
+}

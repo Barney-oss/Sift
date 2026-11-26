@@ -1,153 +1,185 @@
 {
-  "edition": 7,
-  "date": "2026-11-25",
-  "dateLabel": "Wednesday 25 Nov",
-  "minutes": 7,
-  "generatedAt": "2026-11-25T10:32:22.365Z",
+  "edition": 8,
+  "date": "2026-11-26",
+  "dateLabel": "Thursday 26 Nov",
+  "minutes": 8,
+  "generatedAt": "2026-11-26T10:04:11.347Z",
   "stories": [
     {
-      "type": "build",
-      "title": "leonardo-ai: Leonardo Ai for Windows 10/11. Generates images and artwork from text prompts using AI models, then refines results with inpainting, upscaling and canvas editing tools for concept art and design work",
-      "byline": "jagdishbhatia",
-      "body": "Leonardo Ai turns text prompts, sketches, and reference photos into production-ready images on your Windows desktop. It is built for designers, illustrators, game artists, and marketers who need consistent visual assets without a browser tab in the way. This page covers what ships in the Windows build, how to set it up, and how to get clean results from the first session.\n\nLeonardo Ai is a desktop image generation studio. You type a prompt, pick a model and a style preset, and it returns finished images you can refine, upscale, or edit in place.",
-      "signals": [
-        "117 stars this week"
+      "type": "claude",
+      "title": "frontend-design-skill: Free frontend design skill for Claude Code, Codex and Cursor: designs your UI on a UX Pilot canvas, then builds it in your code",
+      "byline": "uxpilot-ai",
+      "body": "A free agent skill that designs your UI before your agent builds it. It sends a short brief from your codebase to UX Pilot, which designs real screens on a canvas you can open and edit. Your agent then builds the screens you pick in your own stack, with your components and tokens. It works in Claude Code, Codex, Cursor and any agent that supports skills and MCP. Install\n\nOr copy the skills/ui-design folder into your agent's skills folder (for Claude Code, ~/.claude/skills/).\n\nRun /mcp in Claude Code and sign in. In Cursor and other agents, add the MCP server https://mcp.uxpilot.net/mcp and sign in. If you skip this, the skill walks you through it. A free UX Pilot account is enough to start. What it does • Reads your project first: product, audience, routes, colors, fonts and copy, so the brief uses your real content.",
+      "made": [
+        "Claude Code",
+        "MCP"
       ],
-      "dek": "Leonardo Ai for Windows 10/11. Generates images and artwork from text prompts using AI models, then refines…",
+      "signals": [
+        "188 stars this week",
+        "Mentions Claude"
+      ],
+      "dek": "Free frontend design skill for Claude Code, Codex and Cursor: designs your UI on a UX Pilot canvas, then…",
       "source": "GitHub",
-      "url": "https://github.com/jagdishbhatia/leonardo-ai",
-      "short": "leonardo-ai: Leonardo Ai for Windows 10/11.…",
+      "url": "https://github.com/uxpilot-ai/frontend-design-skill",
+      "short": "frontend-design-skill: Free frontend design…",
       "minutes": 1
     },
     {
       "type": "claude",
-      "title": "OpenConstructionDesign: Free, open-source CAD-BIM editor in Rust that your AI can drive: drafts with Apply, IFC in/out, MCP, Lua, ERP link",
-      "byline": "datadrivenconstruction",
-      "body": "Download · Install · ERP link · Quickstart · Gallery · Editor · AI and MCP · MEP · Export · Lua · Build\n\nv1.2.0 · Windows 10/11 x64 · Linux x64 · 8 GB RAM · works offline · no account\n\n| Platform | Get it | Notes | |---|---|---| | Windows 10/11 x64 | Download the zip | Full editor. Unzip and run ddc-app.exe. | | Browser | Open the online demo | Full editor in a browser tab with sample projects, nothing to install. Register with your email, then the editor opens right away. | | Linux x64 | Download the tar.gz (71 MB) | Editor ddc-app and ddc CLI. Ubuntu 22.04+, Debian 12+ (glibc 2.35), X11 or Wayland. | | macOS | Build from source | No release build; untested. |",
+      "title": "pocket-design-mcp: Free MCP server with icons, fonts, images, components, design tokens, easings, contrast checks, SVG tools and patterns for coding agents",
+      "byline": "jasonmello",
+      "body": "A free MCP server that gives your coding agent (Claude Code, Claude Desktop, Cursor...) a designer's toolbox: icons from 280 sets, fonts, images, components, design tokens, easings, contrast checks, SVG tools and background patterns. You ask (\"put a Lucide house icon in the header\", \"make tokens from #4f46e5\", \"give this card a softer shadow\") and the agent finds it and drops it into your code.\n\nClaude Desktop (claude_desktop_config.json) or Cursor (.cursor/mcp.json):\n\nOptional: add \"env\": { \"PIXABAY_API_KEY\": \"your_key\" } to search Pixabay too (free key at https://pixabay.com/api/docs/). Tools",
       "made": [
+        "Claude Code",
         "MCP",
-        "Rust"
+        "TypeScript"
       ],
       "signals": [
-        "53 stars this week",
+        "25 stars this week",
         "Mentions Claude"
       ],
       "source": "GitHub",
-      "url": "https://github.com/datadrivenconstruction/OpenConstructionDesign",
-      "short": "OpenConstructionDesign: Free, open-source…",
+      "url": "https://github.com/jasonmello/pocket-design-mcp",
+      "short": "pocket-design-mcp: Free MCP server with icons…",
+      "minutes": 1
+    },
+    {
+      "type": "build",
+      "title": "ai-sql-generator: AI SQL generator: natural language to optimized queries, schema design. | ai sql generator windows tool utility | Portable x64 prebuilt for Windows",
+      "byline": "QosoviHu9",
+      "body": "AI SQL Generator — AI SQL Generator — AI SQL generator: natural language to queries. (Portable x64 Build, JSON Configuration)\n\nAI SQL Generator — AI SQL Generator — AI SQL generator: natural language to queries. (Portable x64 Build, JSON Configuration): AI SQL generator: natural language to queries. Native 64-bit portable build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.\n\n[](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../stargazers)",
+      "made": [
+        "C++"
+      ],
+      "signals": [
+        "57 stars this week"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/QosoviHu9/ai-sql-generator",
+      "short": "ai-sql-generator: AI SQL generator: natural…",
       "minutes": 1
     },
     {
       "type": "debate",
-      "title": "Anthropic breaks below $83 IPO price",
-      "body": "Anthropic PBC shares traded below their $83 initial public offering price for the first time, wiping out gains for investors who piled into the artificial intelligence lab’s record-setting debut last week.",
+      "title": "Holy shit holy shit holy shit holy shit: The magnitude of what’s now happening",
+      "body": "See also The matrix multiplication exponent is nine fourths [pdf] - https://news.ycombinator.com/item?id=50637220",
       "views": [
         {
-          "text": "They have no future business model. Open-weight models and specialized distilations can be hosted in anyones datacenter where fierce competition will bring down prices. The current problem is the hardware scarcity and that the few big frontier providers snatch all the hardware at inflated prices while at the same time offer subsidized tokens below cost.",
-          "author": "littlecranky67"
+          "text": "See also the discussion at https://news.ycombinator.com/item?id=50637220",
+          "author": "Kotlopou"
         },
         {
-          "text": "It's such a bummer you can't buy options the day of the IPO. These massive valuations are nothing but an exit strategy for initial investors. Gone are the days of building a company and letting investors get in on the growth. Get a literally insane valuation, go public, dump your stock and run.",
-          "author": "thinkingtoilet"
+          "text": "Obviously it'll take a decade, but people will probably sort these solutions into \"neat parlor trick\" and \"wow, that's a productive solution to a real problem\".\n\nStill a question how the sorting hat goes, but I'm still going to sit this out waiting for some kind of application of these things.\n\nI still feel this is like watching a robot complete one of those simpley compelx metal puzzles.",
+          "author": "cyanydeez"
         },
         {
-          "text": "This means very little. Poor initial stock performance seems to have little bearing on price after 1, 2 and 3 years post-IPO.",
-          "author": "muglug"
+          "text": "How many minds have been lost (to the sanitarium) on P vs NP? Thanks to AI/Curry-Howard from here on out we'll soon keep our brightest minds safe from the abyss.",
+          "author": "blurbleblurble"
         }
       ],
       "discussion": [
         {
-          "text": "They have no future business model. Open-weight models and specialized distilations can be hosted in anyones datacenter where fierce competition will bring down prices. The current problem is the hardware scarcity and that the few big frontier providers snatch all the hardware at inflated prices while at the same time offer subsidized tokens below cost. Once the market evens out that scarcity, the 10-15% gap of the latest and greatest frontier model won't be able to justify the prices and valuations.",
-          "author": "littlecranky67"
+          "text": "> Along the way to so many lower bounds that we wondered whether ever we’d live to see, there will also, of course, be further shocking upper bounds: that is, ultimate barriers to lower bounds, also known as “algorithms.” And yes, some of those algorithms will break currently deployed cryptosystems.\n\n> Because people have been hounding me about it: yes, I’m virtually certain, from multiple reliable sources, that the AI labs are now sitting on one or more bombshells in that area.",
+          "author": "yewenjie"
         },
         {
-          "text": "IPOs are just money laundering at this point.",
-          "author": "Varelion"
+          "text": "\"I do not wish to be responsible for spreading unverified rumors.\"\n\nTitles blog post \"HOLY SHIT HOLY SHIT HOLY SHIT HOLY SHIT\"",
+          "author": "SoftTalker"
         },
         {
-          "text": "OpenAI IPO looking funnier by the minute",
-          "author": "rf15"
+          "text": "God, I have been reading slop all day. It is refreshing to read a well-crafted piece of prose.",
+          "author": "Darksinian"
         },
         {
-          "text": "i used to use claude opus 5.5. And, after using latest deepseek and glm5.3, i am confident there is no moat with ant. Yes, their model are smart, but i don't think it is a deal breaker.",
-          "author": "cute_boi"
+          "text": "Pretty much unrelated, but I don't understand why make the article's title linkable, to the same article.",
+          "author": "worldsavior"
         }
       ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50627836",
+      "discussionUrl": "https://news.ycombinator.com/item?id=50646108",
       "signals": [
-        "399 points",
-        "766 comments",
-        "Mentions Claude"
+        "1543 points",
+        "1347 comments"
       ],
-      "url": "https://www.bloomberg.com/news/articles/2026-11-24/anthropic-breaks-below-83-ipo-price-in-premarket-trading",
+      "url": "https://scottaaronson.blog/?p=10379",
       "source": "Hacker News",
-      "short": "Anthropic breaks below $83 IPO price",
-      "minutes": 2
+      "short": "Holy shit holy shit holy shit holy shit: The…",
+      "minutes": 1
     },
     {
       "type": "steal",
-      "title": "Inspiration for your next UI",
-      "body": "Design by playground, Design tools just got personal, On drawing icons, Writing for billions of users, Brand typography at scale, and more.",
+      "title": "High fidelity, low definition",
+      "body": "Hand-picked design links from November 25, 2026: A guide to today’s AI design tools, Allo, your friendly neighborhood font, Button sounds, and more.\n\nA guide to today’s AI design tools, Allo, your friendly neighborhood font, Button sounds.",
       "signals": [
         "New from HeyDesigner"
       ],
       "source": "HeyDesigner",
-      "url": "https://heydesigner.com/newsletter/inspiration-for-your-next-ui/",
-      "short": "Inspiration for your next UI",
+      "url": "https://heydesigner.com/2026-11-25/",
+      "short": "High fidelity, low definition",
+      "minutes": 1
+    },
+    {
+      "type": "steal",
+      "title": "Quoting Scott Aaronson",
+      "body": "It’s now obvious that we’ll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we’d previously only glimpsed …\n\nIt’s now obvious that we’ll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we’d previously only glimpsed through fog. Picture van Leeuwenhoek first training a microscope on pondwater, or Galileo first training his telescope on the stars. That might give you some idea of how our resolution into the complexity-theoretic universe, and the whole universe of mathematical truth beyond it, has now improved.",
+      "signals": [
+        "New from Simon Willison"
+      ],
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/25/scott-aaronson/",
+      "short": "Quoting Scott Aaronson",
       "minutes": 1
     },
     {
       "type": "news",
-      "title": "Anthropic and OpenAI employees fear unreleased AI models too unsafe to release",
-      "byline": "dhd415",
-      "body": "Anthropic and OpenAI are facing an increasingly urgent problem: Internal, unreleased models are becoming so powerful that many employees no longer believe they can be safely released, according to more than two dozen sources familiar with the internal debates.",
+      "title": "Google releases Cogentic papers on integer factorization, discrete logs and more",
+      "byline": "rgwohlbold",
+      "body": "Google Research. Contribute to google-research/google-research development by creating an account on GitHub.",
       "discussion": [
         {
-          "text": "How many times are they going to say this.",
-          "author": "proc0"
+          "text": "Cogentic appears to be a specialized harness for existing LLMs to collaborate together to solve mathematical conjectures, using a central orchestrator and a shared database of intermediate proofs.\n\nAnd with just that, using Gemini 4 Argon, they have already obtained a number of interesting results? Math is going through its own version of the industrial revolution.",
+          "author": "david-gpu"
         },
         {
-          "text": "Yeah yeah, we already heard that. Many times.",
-          "author": "watwut"
+          "text": "The proof reduces monochromatic rectangle density via Gaussian hyperplane rounding and box-constrained biasing to refuting the existence of biased Kullback–Leibler-stable sign matrices S ∈ −1, 1^(X×Y) of rank at most r + 1 above R_0 := ⌈e^(4×10^6)⌉ (Theorem 3.1).\n\nAh yes, of course, I have often wondered about that.",
+          "author": "fwlr"
         },
         {
-          "text": "Okay, so stop releasing models. If you keep releasing models, who cares that you keep saying this?",
-          "author": "VariousPrograms"
+          "text": "Looks like Google has joined the race to publish.",
+          "author": "iamanatom"
         },
         {
-          "text": "That article lost me at “reinforcement learning” being a problem.",
-          "author": "bentt"
+          "text": "Context: \"Cogentic: Multi-Agent Orchestration for Automated Proof Discovery\" (2026)\n\nhttps://arxiv.org/abs/2609.40324",
+          "author": "schleck8"
         },
         {
-          "text": "Oh god, this nonsense again? We've been hearing this since GPT2. Stop trying for regulatory capture!",
-          "author": "dmitrygr"
+          "text": "Are we going to see factorization on classical computers with this?\n\nAny opinions on the possibility of a novel algorithm to allow large int factorization, and will post quantum algorithms also help protect against these?",
+          "author": "roomey"
         },
         {
-          "text": "It's Anthropic. Have they \"released\" any model? Perhaps they mean the models are too dangerous to serve . That's odd, since they can and do police that stuff and keep the data.\n\nHave they tried turning it on and then off again?",
-          "author": "argee"
+          "text": "Students doing their Ph.Ds in Math and Computer Scientists on more theory-related thesis are having a tough time. You never know if your thesis is going to be the next OpenAI/Anthropic and now Google trophy paper.",
+          "author": "edumucelli"
         }
       ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50631691",
+      "discussionUrl": "https://news.ycombinator.com/item?id=50642086",
       "signals": [
-        "22 points",
-        "28 comments",
-        "Mentions Claude"
+        "494 points",
+        "356 comments"
       ],
       "source": "Hacker News",
-      "url": "https://tech.yahoo.com/ai/claude/articles/scoop-anthropic-openai-employees-fear-104505580.html",
-      "short": "Anthropic and OpenAI employees fear unreleased…",
+      "url": "https://github.com/google-research/google-research/tree/master/cogentic_research_papers",
+      "short": "Google releases Cogentic papers on integer…",
       "minutes": 1
     },
     {
       "type": "wildcard",
-      "title": "Macdonald Book Shop in Estes Park, Colorado",
-      "body": "Founded in 1928, this family-run shop claims to be the oldest bookstore in Colorado.\n\nAt Macdonald Book Shop, a cozy and beloved store in the Colorado mountain town of Estes Park, selling books began as a side hustle. J. Edward Macdonald bought a small log cabin in Estes Park in 1908 and opened a hardware and general store next door, with one corner full of books for sale. When he retired, his wife Jessica turned the parlor of their home into a proper bookstore, also selling magazines, stationery, and school supplies. That was 1928. Books have been the focus ever since. Over the decades, the shop expanded to claim more of the original house.",
+      "title": "A Sculptural Playground in Shanghai Is Designed for Human-Powered Play",
+      "body": "\"Catching Feelings\" is one of 36 projects in the ninth edition of the Jing&#039;an International Sculpture Project.\n\nJump onto Wade and Leta's sculptural design in Shanghai. Do stories and artists like this matter to you? Become a Colossal Member today and support independent arts publishing for as little as $7 per month. The article A Sculptural Playground in Shanghai Is Designed for Human-Powered Play appeared first on Colossal .",
       "signals": [
-        "New from Atlas Obscura"
+        "New from Colossal"
       ],
-      "source": "Atlas Obscura",
-      "url": "https://www.atlasobscura.com/places/macdonald-book-shop-estes-park",
-      "short": "Macdonald Book Shop in Estes Park, Colorado",
+      "source": "Colossal",
+      "url": "https://www.thisiscolossal.com/2026/11/wade-leta-catching-feelings-shanghai/",
+      "short": "A Sculptural Playground in Shanghai Is…",
       "minutes": 1
     }
   ]
