@@ -1,185 +1,112 @@
 {
-  "edition": 8,
-  "date": "2026-11-26",
-  "dateLabel": "Thursday 26 Nov",
-  "minutes": 8,
-  "generatedAt": "2026-11-26T10:04:11.347Z",
+  "edition": 9,
+  "date": "2026-11-27",
+  "dateLabel": "Friday 27 Nov",
+  "minutes": 6,
+  "generatedAt": "2026-11-27T10:10:21.706Z",
   "stories": [
     {
-      "type": "claude",
-      "title": "frontend-design-skill: Free frontend design skill for Claude Code, Codex and Cursor: designs your UI on a UX Pilot canvas, then builds it in your code",
-      "byline": "uxpilot-ai",
-      "body": "A free agent skill that designs your UI before your agent builds it. It sends a short brief from your codebase to UX Pilot, which designs real screens on a canvas you can open and edit. Your agent then builds the screens you pick in your own stack, with your components and tokens. It works in Claude Code, Codex, Cursor and any agent that supports skills and MCP. Install\n\nOr copy the skills/ui-design folder into your agent's skills folder (for Claude Code, ~/.claude/skills/).\n\nRun /mcp in Claude Code and sign in. In Cursor and other agents, add the MCP server https://mcp.uxpilot.net/mcp and sign in. If you skip this, the skill walks you through it. A free UX Pilot account is enough to start. What it does • Reads your project first: product, audience, routes, colors, fonts and copy, so the brief uses your real content.",
-      "made": [
-        "Claude Code",
-        "MCP"
-      ],
-      "signals": [
-        "188 stars this week",
-        "Mentions Claude"
-      ],
-      "dek": "Free frontend design skill for Claude Code, Codex and Cursor: designs your UI on a UX Pilot canvas, then…",
-      "source": "GitHub",
-      "url": "https://github.com/uxpilot-ai/frontend-design-skill",
-      "short": "frontend-design-skill: Free frontend design…",
-      "minutes": 1
-    },
-    {
-      "type": "claude",
-      "title": "pocket-design-mcp: Free MCP server with icons, fonts, images, components, design tokens, easings, contrast checks, SVG tools and patterns for coding agents",
-      "byline": "jasonmello",
-      "body": "A free MCP server that gives your coding agent (Claude Code, Claude Desktop, Cursor...) a designer's toolbox: icons from 280 sets, fonts, images, components, design tokens, easings, contrast checks, SVG tools and background patterns. You ask (\"put a Lucide house icon in the header\", \"make tokens from #4f46e5\", \"give this card a softer shadow\") and the agent finds it and drops it into your code.\n\nClaude Desktop (claude_desktop_config.json) or Cursor (.cursor/mcp.json):\n\nOptional: add \"env\": { \"PIXABAY_API_KEY\": \"your_key\" } to search Pixabay too (free key at https://pixabay.com/api/docs/). Tools",
-      "made": [
-        "Claude Code",
-        "MCP",
-        "TypeScript"
-      ],
-      "signals": [
-        "25 stars this week",
-        "Mentions Claude"
-      ],
-      "source": "GitHub",
-      "url": "https://github.com/jasonmello/pocket-design-mcp",
-      "short": "pocket-design-mcp: Free MCP server with icons…",
-      "minutes": 1
-    },
-    {
       "type": "build",
-      "title": "ai-sql-generator: AI SQL generator: natural language to optimized queries, schema design. | ai sql generator windows tool utility | Portable x64 prebuilt for Windows",
-      "byline": "QosoviHu9",
-      "body": "AI SQL Generator — AI SQL Generator — AI SQL generator: natural language to queries. (Portable x64 Build, JSON Configuration)\n\nAI SQL Generator — AI SQL Generator — AI SQL generator: natural language to queries. (Portable x64 Build, JSON Configuration): AI SQL generator: natural language to queries. Native 64-bit portable build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.\n\n[](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../releases/download/v0.1.0/ai-sql-generator-v0.1.0-win64.zip) [](../../stargazers)",
+      "title": "generate-icons: Agent skill that draws an original icon library matching your design system (React, Vue, Svelte, React Native, SVG)",
+      "byline": "sergiobanhos",
+      "body": "An agent skill that draws an original icon library that matches your project's design system.\n\nIt reads your tokens, theme, fonts and the icons you already use, turns that into an explicit style sheet, proves it on a small sample shown next to your real UI, and only then draws the whole set by hand as SVG. You get framework components, standalone SVGs, a sprite, CSS for states and dark mode, a review catalog and a README, all validated. 🇧🇷 Em português: uma skill para Claude Code (e outros agentes) que gera uma biblioteca de ícones original no estilo do seu design system. Lê seus tokens e ícones atuais, propõe o estilo, mostra uma amostra dentro da sua UI e só depois desenha tudo. Grátis, licença MIT. What you get • Style matched to your project: grid, stroke or fill, tones, corner radius, states (default, hover, active, disabled), palette per theme.",
       "made": [
-        "C++"
+        "Claude Code",
+        "React",
+        "Svelte",
+        "Vue"
       ],
       "signals": [
-        "57 stars this week"
+        "128 stars this week"
       ],
+      "dek": "Agent skill that draws an original icon library matching your design system (React, Vue, Svelte, React…",
       "source": "GitHub",
-      "url": "https://github.com/QosoviHu9/ai-sql-generator",
-      "short": "ai-sql-generator: AI SQL generator: natural…",
+      "url": "https://github.com/sergiobanhos/generate-icons",
+      "short": "generate-icons: Agent skill that draws an…",
       "minutes": 1
     },
     {
       "type": "debate",
-      "title": "Holy shit holy shit holy shit holy shit: The magnitude of what’s now happening",
-      "body": "See also The matrix multiplication exponent is nine fourths [pdf] - https://news.ycombinator.com/item?id=50637220",
+      "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "body": "From February 2027, Google's terms require AI agents to reach Gmail, Drive and the rest of Workspace through Google's own MCP servers. What the rule says, what the servers can and can't do, and what to change before the deadline.",
       "views": [
         {
-          "text": "See also the discussion at https://news.ycombinator.com/item?id=50637220",
-          "author": "Kotlopou"
+          "text": "a bunch of people are about to face the pain of losing their Google account",
+          "author": "wittyusername"
         },
         {
-          "text": "Obviously it'll take a decade, but people will probably sort these solutions into \"neat parlor trick\" and \"wow, that's a productive solution to a real problem\".\n\nStill a question how the sorting hat goes, but I'm still going to sit this out waiting for some kind of application of these things.\n\nI still feel this is like watching a robot complete one of those simpley compelx metal puzzles.",
-          "author": "cyanydeez"
+          "text": "Topic's interesting, however...\n\nAl Smith AI agent writer at Ritza Al Smith is the byline for every TechStackups article written by an AI agent. Al's articles are researched and drafted by agents at Ritza, then reviewed by a human editor before publication.\n\nHm, still...",
+          "author": "imrehg"
         },
         {
-          "text": "How many minds have been lost (to the sanitarium) on P vs NP? Thanks to AI/Curry-Howard from here on out we'll soon keep our brightest minds safe from the abyss.",
-          "author": "blurbleblurble"
+          "text": "It’s pretty interesting that routing agents through MCP is becoming mandatory while the tool access itself is so confusing. It’s likely going to lead to a ton of misunderstandings on the agent side.",
+          "author": "roccoliiva"
         }
       ],
       "discussion": [
         {
-          "text": "> Along the way to so many lower bounds that we wondered whether ever we’d live to see, there will also, of course, be further shocking upper bounds: that is, ultimate barriers to lower bounds, also known as “algorithms.” And yes, some of those algorithms will break currently deployed cryptosystems.\n\n> Because people have been hounding me about it: yes, I’m virtually certain, from multiple reliable sources, that the AI labs are now sitting on one or more bombshells in that area.",
-          "author": "yewenjie"
+          "text": "I’ve been interacting with my Google workspace solely through openai and Gemini offerings for a while now. It’s been thought provoking but not life changing. And yet this change would be enough friction for me to move off Google services.",
+          "author": "Den_VR"
         },
         {
-          "text": "\"I do not wish to be responsible for spreading unverified rumors.\"\n\nTitles blog post \"HOLY SHIT HOLY SHIT HOLY SHIT HOLY SHIT\"",
-          "author": "SoftTalker"
+          "text": "Gmail can’t serve ads in OpenAI or Anthropic UI to normies, hence this. I’m sure there’s some spam element but it’s always about collection and ads serving apertures with Google.",
+          "author": "sklargh"
         },
         {
-          "text": "God, I have been reading slop all day. It is refreshing to read a well-crafted piece of prose.",
-          "author": "Darksinian"
+          "text": "I've been thinking about moving away from Google's infrastructure for quite some time.\n\nAre there any good alternatives for personal and business use cases (email/drive/docs)?\n\nI'd appreciate any advice.",
+          "author": "k9294"
         },
         {
-          "text": "Pretty much unrelated, but I don't understand why make the article's title linkable, to the same article.",
-          "author": "worldsavior"
+          "text": "Wow. What a slap in the face. This is enough to get me to rethink my entire decades-long relationship with Google.\n\nAre there any agent-friendly alternatives to Docs and Drive? Or do I need to create one?",
+          "author": "mattmight"
         }
       ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50646108",
+      "discussionUrl": "https://news.ycombinator.com/item?id=50653477",
       "signals": [
-        "1543 points",
-        "1347 comments"
+        "331 points",
+        "298 comments",
+        "Mentions Claude"
       ],
-      "url": "https://scottaaronson.blog/?p=10379",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
       "source": "Hacker News",
-      "short": "Holy shit holy shit holy shit holy shit: The…",
-      "minutes": 1
+      "short": "Google Will Make AI Agents Use Its MCP…",
+      "minutes": 2
     },
     {
       "type": "steal",
-      "title": "High fidelity, low definition",
-      "body": "Hand-picked design links from November 25, 2026: A guide to today’s AI design tools, Allo, your friendly neighborhood font, Button sounds, and more.\n\nA guide to today’s AI design tools, Allo, your friendly neighborhood font, Button sounds.",
+      "title": "Quoting Jack Despain Zhou",
+      "body": "Among the many already existing effects of AI has been a great de-individualization. I open a YouTube video, and I hear Claude. I sit in a conference presentation, and I …\n\nAmong the many already existing effects of AI has been a great de-individualization. I open a YouTube video, and I hear Claude. I sit in a conference presentation, and I hear Claude. I open my email inbox, and I find pitches and articles from ostensibly serious people with ostensibly serious credentials attached to ostensibly serious institutions who want to publish things attached to their reputations and mine, and I see Claude .",
       "signals": [
-        "New from HeyDesigner"
-      ],
-      "source": "HeyDesigner",
-      "url": "https://heydesigner.com/2026-11-25/",
-      "short": "High fidelity, low definition",
-      "minutes": 1
-    },
-    {
-      "type": "steal",
-      "title": "Quoting Scott Aaronson",
-      "body": "It’s now obvious that we’ll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we’d previously only glimpsed …\n\nIt’s now obvious that we’ll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we’d previously only glimpsed through fog. Picture van Leeuwenhoek first training a microscope on pondwater, or Galileo first training his telescope on the stars. That might give you some idea of how our resolution into the complexity-theoretic universe, and the whole universe of mathematical truth beyond it, has now improved.",
-      "signals": [
-        "New from Simon Willison"
+        "New from Simon Willison",
+        "Mentions Claude"
       ],
       "source": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Nov/25/scott-aaronson/",
-      "short": "Quoting Scott Aaronson",
+      "url": "https://simonwillison.net/2026/Nov/26/jack-despain-zhou/",
+      "short": "Quoting Jack Despain Zhou",
       "minutes": 1
     },
     {
       "type": "news",
-      "title": "Google releases Cogentic papers on integer factorization, discrete logs and more",
-      "byline": "rgwohlbold",
-      "body": "Google Research. Contribute to google-research/google-research development by creating an account on GitHub.",
-      "discussion": [
-        {
-          "text": "Cogentic appears to be a specialized harness for existing LLMs to collaborate together to solve mathematical conjectures, using a central orchestrator and a shared database of intermediate proofs.\n\nAnd with just that, using Gemini 4 Argon, they have already obtained a number of interesting results? Math is going through its own version of the industrial revolution.",
-          "author": "david-gpu"
-        },
-        {
-          "text": "The proof reduces monochromatic rectangle density via Gaussian hyperplane rounding and box-constrained biasing to refuting the existence of biased Kullback–Leibler-stable sign matrices S ∈ −1, 1^(X×Y) of rank at most r + 1 above R_0 := ⌈e^(4×10^6)⌉ (Theorem 3.1).\n\nAh yes, of course, I have often wondered about that.",
-          "author": "fwlr"
-        },
-        {
-          "text": "Looks like Google has joined the race to publish.",
-          "author": "iamanatom"
-        },
-        {
-          "text": "Context: \"Cogentic: Multi-Agent Orchestration for Automated Proof Discovery\" (2026)\n\nhttps://arxiv.org/abs/2609.40324",
-          "author": "schleck8"
-        },
-        {
-          "text": "Are we going to see factorization on classical computers with this?\n\nAny opinions on the possibility of a novel algorithm to allow large int factorization, and will post quantum algorithms also help protect against these?",
-          "author": "roomey"
-        },
-        {
-          "text": "Students doing their Ph.Ds in Math and Computer Scientists on more theory-related thesis are having a tough time. You never know if your thesis is going to be the next OpenAI/Anthropic and now Google trophy paper.",
-          "author": "edumucelli"
-        }
-      ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50642086",
+      "title": "The New York Times warns photographers not to update Photoshop over AI features",
+      "body": "The New York Times warns photographers not to update Photoshop over AI features\n\nMy comment on The New York Times warns photographers not to update Photoshop over AI features &mdash; Hacker News. I had a NYT photographer take my picture at my home earlier this year (for a story about Moltbook, oddly enough). At one point I asked if they could fix things up if I had a stain on my shirt and they said absolutely not - they present photographs as they were taken, with cropping and balancing applied but no edits beyond that. He did spend a bunch of time trying to find the best possible natural lighting for the shots he wanted.",
       "signals": [
-        "494 points",
-        "356 comments"
+        "New from Simon Willison"
       ],
-      "source": "Hacker News",
-      "url": "https://github.com/google-research/google-research/tree/master/cogentic_research_papers",
-      "short": "Google releases Cogentic papers on integer…",
+      "source": "Simon Willison",
+      "url": "https://simonwillison.net/2026/Nov/26/hn-50651685/",
+      "short": "The New York Times warns photographers not to…",
       "minutes": 1
     },
     {
       "type": "wildcard",
-      "title": "A Sculptural Playground in Shanghai Is Designed for Human-Powered Play",
-      "body": "\"Catching Feelings\" is one of 36 projects in the ninth edition of the Jing&#039;an International Sculpture Project.\n\nJump onto Wade and Leta's sculptural design in Shanghai. Do stories and artists like this matter to you? Become a Colossal Member today and support independent arts publishing for as little as $7 per month. The article A Sculptural Playground in Shanghai Is Designed for Human-Powered Play appeared first on Colossal .",
+      "title": "The Hidden Spiegeltent in Chicago, Illinois",
+      "body": "A Belgian mirror tent built inside a forgotten Masonic hall, 14 floors above the Loop.\n\nSpiegeltents were made to travel. These round wooden dance halls, lined with mirrors and stained glass, went from fair to fair. They went up fast and came down fast. The one on Randolph Street is not going anywhere. It was built indoors, on the 14th floor of a Loop building. The building opened in 1926. Rapp & Rapp designed it, with the Oriental Theatre movie palace on the lower floors. The theater is now the James M. Nederlander Theatre. The whole building stands on the site of the Iroquois Theatre, where a fire in 1903 became one of the deadliest in American history.",
       "signals": [
-        "New from Colossal"
+        "New from Atlas Obscura"
       ],
-      "source": "Colossal",
-      "url": "https://www.thisiscolossal.com/2026/11/wade-leta-catching-feelings-shanghai/",
-      "short": "A Sculptural Playground in Shanghai Is…",
+      "source": "Atlas Obscura",
+      "url": "https://www.atlasobscura.com/places/the-hidden-spiegeltent",
+      "short": "The Hidden Spiegeltent in Chicago, Illinois",
       "minutes": 1
     }
   ]
