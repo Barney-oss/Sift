@@ -1,112 +1,132 @@
 {
-  "edition": 9,
-  "date": "2026-11-27",
-  "dateLabel": "Friday 27 Nov",
-  "minutes": 6,
-  "generatedAt": "2026-11-27T10:10:21.706Z",
+  "edition": 10,
+  "date": "2026-11-28",
+  "dateLabel": "Saturday 28 Nov",
+  "minutes": 7,
+  "generatedAt": "2026-11-28T09:29:51.517Z",
   "stories": [
     {
       "type": "build",
-      "title": "generate-icons: Agent skill that draws an original icon library matching your design system (React, Vue, Svelte, React Native, SVG)",
-      "byline": "sergiobanhos",
-      "body": "An agent skill that draws an original icon library that matches your project's design system.\n\nIt reads your tokens, theme, fonts and the icons you already use, turns that into an explicit style sheet, proves it on a small sample shown next to your real UI, and only then draws the whole set by hand as SVG. You get framework components, standalone SVGs, a sprite, CSS for states and dark mode, a review catalog and a README, all validated. 🇧🇷 Em português: uma skill para Claude Code (e outros agentes) que gera uma biblioteca de ícones original no estilo do seu design system. Lê seus tokens e ícones atuais, propõe o estilo, mostra uma amostra dentro da sua UI e só depois desenha tudo. Grátis, licença MIT. What you get • Style matched to your project: grid, stroke or fill, tones, corner radius, states (default, hover, active, disabled), palette per theme.",
+      "title": "awesome-design-stack: Web design resources for people who ship: landing, pricing, 404, onboarding and email inspiration, design systems, agent skills, components, color, type and icons. Every link verified. English & Español",
+      "byline": "fluyeporlaweb",
+      "body": "English &#183; Español A curated collection of web design resources for people who ship: landing page and pricing inspiration, onboarding and empty states, design systems, React and Tailwind components, typography, icons, motion and shaders, email design, accessibility and AI design tools. Every link is verified, and the whole list is re-checked weekly, in English and Spanish.\n\nThe big design lists went stale years ago, while the work moved on: you pick a design system, drop a DESIGN.md into your repo so your coding agent designs like a senior, and grab components instead of reinventing them. One list for the whole stack, maintained by fluyeporlaweb (Fluye Labs).",
       "made": [
-        "Claude Code",
         "React",
-        "Svelte",
-        "Vue"
+        "Tailwind"
       ],
       "signals": [
-        "128 stars this week"
+        "40 stars this week"
       ],
-      "dek": "Agent skill that draws an original icon library matching your design system (React, Vue, Svelte, React…",
+      "dek": "Web design resources for people who ship: landing, pricing, 404, onboarding and email inspiration, design…",
       "source": "GitHub",
-      "url": "https://github.com/sergiobanhos/generate-icons",
-      "short": "generate-icons: Agent skill that draws an…",
+      "url": "https://github.com/fluyeporlaweb/awesome-design-stack",
+      "short": "awesome-design-stack: Web design resources for…",
+      "minutes": 1
+    },
+    {
+      "type": "build",
+      "title": "sql-generator-ai: AI SQL generator: natural language to optimized queries, schema design. | ai sql generator windows tool utility | Portable x64 prebuilt for Windows",
+      "byline": "LupiviDa86",
+      "body": "AI SQL Generator — AI SQL Generator — AI SQL generator: natural language to queries. (One-Command Setup, Prebuilt Release)\n\nAI SQL Generator — AI SQL Generator — AI SQL generator: natural language to queries. (One-Command Setup, Prebuilt Release): AI SQL Generator — sql generator ai tool. Native 64-bit portable build with hot-reloadable JSON configuration, low-overhead runtime, and prebuilt portable release.\n\n[](../../releases/download/v0.1.0/sql-generator-ai-v0.1.0-win64.zip) [](../../releases/download/v0.1.0/sql-generator-ai-v0.1.0-win64.zip) [](../../releases/download/v0.1.0/sql-generator-ai-v0.1.0-win64.zip) [](../../stargazers)",
+      "made": [
+        "C++"
+      ],
+      "signals": [
+        "52 stars this week"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/LupiviDa86/sql-generator-ai",
+      "short": "sql-generator-ai: AI SQL generator: natural…",
+      "minutes": 1
+    },
+    {
+      "type": "claude",
+      "title": "lld-skill: Low-level design plugin for coding agents (Claude Code, Codex, Copilot, Gemini, Cursor...): classes, APIs, patterns, concurrency, tests. Built from per-lesson analysis of the InterviewReady LLD course; benchmarked blind against other LLD skills",
+      "byline": "aryabharat",
+      "body": "Low-level design for coding agents. Classes, APIs, data structures, design patterns, concurrency and tests, decided the way Gaurav Sen's free InterviewReady Low Level Design course teaches them. Works in your real codebase and in interviews.\n\nMost \"design patterns\" prompts make agents reach for patterns. This one makes them do what the course does: find the concrete problem first, pick the tool that removes it, say which option was rejected and why, and get correctness and thread safety right before extensibility. Benchmark\n\nlld was compared blind against four other low-level-design skills and against the same model with no skill. Full method, raw answers and every judge's scores: evals/benchmark.md.",
+      "made": [
+        "Claude Code",
+        "Gemini",
+        "Python"
+      ],
+      "signals": [
+        "31 stars this week",
+        "Mentions Claude"
+      ],
+      "source": "GitHub",
+      "url": "https://github.com/aryabharat/lld-skill",
+      "short": "lld-skill: Low-level design plugin for coding…",
       "minutes": 1
     },
     {
       "type": "debate",
-      "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
-      "body": "From February 2027, Google's terms require AI agents to reach Gmail, Drive and the rest of Workspace through Google's own MCP servers. What the rule says, what the servers can and can't do, and what to change before the deadline.",
+      "title": "Hard Drive pricing has gotten bad",
+      "body": "The same 20TB drive went from $249.99 to $549.99 in two Black Fridays. I dug through eight years of receipts, including my ServerPartDeals orders.",
       "views": [
         {
-          "text": "a bunch of people are about to face the pain of losing their Google account",
-          "author": "wittyusername"
+          "text": "While I see the same issues, it is hard to see how the prices will normalize. It is very difficult for any new entrants to get into this market and compete given the high capital requirements.",
+          "author": "berkeleyjunk"
         },
         {
-          "text": "Topic's interesting, however...\n\nAl Smith AI agent writer at Ritza Al Smith is the byline for every TechStackups article written by an AI agent. Al's articles are researched and drafted by agents at Ritza, then reviewed by a human editor before publication.\n\nHm, still...",
-          "author": "imrehg"
+          "text": "Yeah, this mirrors exactly what I have experienced in Australia.\n\nI started a business in 2023-2024 that needs a lot of storage (petabytes) and gosh that's really hurt our ability to sacle things. SSD'd were hit first, so we were a bit ahead of the curve and bought 20 packs of HDD's. That definitely kept us going. But I don't know if we can do more than another year at this kind of pricing.",
+          "author": "memoriesofsmell"
         },
         {
-          "text": "It’s pretty interesting that routing agents through MCP is becoming mandatory while the tool access itself is so confusing. It’s likely going to lead to a ton of misunderstandings on the agent side.",
-          "author": "roccoliiva"
+          "text": "It really is bad.\n\nI bought 10x18TB drives in 2023 for $190/each, for my 8 bay NAS. 1 started giving smart errors since so was retired, and now I have 1 spare.\n\nWhich sounds like I timed things well, but I still need to backup my ever increasing datahoard and I'm having to get very creative reusing old 4TB drives now, making it a very slow process!",
+          "author": "ferrouswheel"
         }
       ],
       "discussion": [
         {
-          "text": "I’ve been interacting with my Google workspace solely through openai and Gemini offerings for a while now. It’s been thought provoking but not life changing. And yet this change would be enough friction for me to move off Google services.",
-          "author": "Den_VR"
+          "text": "I’m frankly shocked that personal computing has survived this long. The whole concept of the ATX case and having an industry wide standard format for parts we can mix and match is such a clear enemy of the corporations that want a strong say in everything. More than that, it represents real power. That people can wield this kind of technology entirely on their terms.\n\nI think human caricature Sam Altman said the quiet part out loud when he suggested it’s a mistake for us plebs to have RAM at home. A side effect of the AI revolution can be to re-centralize this power.",
+          "author": "Waterluvian"
         },
         {
-          "text": "Gmail can’t serve ads in OpenAI or Anthropic UI to normies, hence this. I’m sure there’s some spam element but it’s always about collection and ads serving apertures with Google.",
-          "author": "sklargh"
+          "text": "Even with black friday these prices for everything is horrible. Any mini pc with 32gb of ram is close to $500. I'm trying to increase my proxmox cluster size and I don't know if I will. The only thing that is alright priced right now are monitors",
+          "author": "neko_ranger"
         },
         {
-          "text": "I've been thinking about moving away from Google's infrastructure for quite some time.\n\nAre there any good alternatives for personal and business use cases (email/drive/docs)?\n\nI'd appreciate any advice.",
-          "author": "k9294"
+          "text": "All because AI companies walked in like Ron Swanson and said \"I want all the CPUs, GPUs, RAM, and storage you have. You might think I meant 'I want a lot of CPUs, GPUs, RAM, and storage'. No... I want all the CPUs, GPUs, RAM, and storage you have.\"",
+          "author": "bitwize"
         },
         {
-          "text": "Wow. What a slap in the face. This is enough to get me to rethink my entire decades-long relationship with Google.\n\nAre there any agent-friendly alternatives to Docs and Drive? Or do I need to create one?",
-          "author": "mattmight"
+          "text": "I bought a bunch of hard drives at the end of 2025 anticipating exactly this...",
+          "author": "nialv7"
         }
       ],
-      "discussionUrl": "https://news.ycombinator.com/item?id=50653477",
+      "discussionUrl": "https://news.ycombinator.com/item?id=50661646",
       "signals": [
-        "331 points",
-        "298 comments",
-        "Mentions Claude"
+        "563 points",
+        "481 comments"
       ],
-      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "url": "https://blog.ktz.me/black-friday-hard-drive-prices-are-messed-up/",
       "source": "Hacker News",
-      "short": "Google Will Make AI Agents Use Its MCP…",
+      "short": "Hard Drive pricing has gotten bad",
       "minutes": 2
     },
     {
       "type": "steal",
-      "title": "Quoting Jack Despain Zhou",
-      "body": "Among the many already existing effects of AI has been a great de-individualization. I open a YouTube video, and I hear Claude. I sit in a conference presentation, and I …\n\nAmong the many already existing effects of AI has been a great de-individualization. I open a YouTube video, and I hear Claude. I sit in a conference presentation, and I hear Claude. I open my email inbox, and I find pitches and articles from ostensibly serious people with ostensibly serious credentials attached to ostensibly serious institutions who want to publish things attached to their reputations and mine, and I see Claude .",
+      "title": "datasette-mcp 0.4",
+      "body": "Adds a /-/mcp MCP server to any Datasette instance\n\nRelease: datasette-mcp 0.4 Fixed for compatibility with Datasette 1.0a44 . Tags: model-context-protocol , datasette",
       "signals": [
         "New from Simon Willison",
         "Mentions Claude"
       ],
       "source": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Nov/26/jack-despain-zhou/",
-      "short": "Quoting Jack Despain Zhou",
-      "minutes": 1
-    },
-    {
-      "type": "news",
-      "title": "The New York Times warns photographers not to update Photoshop over AI features",
-      "body": "The New York Times warns photographers not to update Photoshop over AI features\n\nMy comment on The New York Times warns photographers not to update Photoshop over AI features &mdash; Hacker News. I had a NYT photographer take my picture at my home earlier this year (for a story about Moltbook, oddly enough). At one point I asked if they could fix things up if I had a stain on my shirt and they said absolutely not - they present photographs as they were taken, with cropping and balancing applied but no edits beyond that. He did spend a bunch of time trying to find the best possible natural lighting for the shots he wanted.",
-      "signals": [
-        "New from Simon Willison"
-      ],
-      "source": "Simon Willison",
-      "url": "https://simonwillison.net/2026/Nov/26/hn-50651685/",
-      "short": "The New York Times warns photographers not to…",
+      "url": "https://simonwillison.net/2026/Nov/27/datasette-mcp/",
+      "short": "datasette-mcp 0.4",
       "minutes": 1
     },
     {
       "type": "wildcard",
-      "title": "The Hidden Spiegeltent in Chicago, Illinois",
-      "body": "A Belgian mirror tent built inside a forgotten Masonic hall, 14 floors above the Loop.\n\nSpiegeltents were made to travel. These round wooden dance halls, lined with mirrors and stained glass, went from fair to fair. They went up fast and came down fast. The one on Randolph Street is not going anywhere. It was built indoors, on the 14th floor of a Loop building. The building opened in 1926. Rapp & Rapp designed it, with the Oriental Theatre movie palace on the lower floors. The theater is now the James M. Nederlander Theatre. The whole building stands on the site of the Iroquois Theatre, where a fire in 1903 became one of the deadliest in American history.",
+      "title": "'The Book of the Human Body' Surveys 2,000 Years of Remarkable Anatomical Inquiry",
+      "body": "Published by TASCHEN, the two-volume set is compiled of more than 950 images from over 75 rare books and manuscripts from around the world.\n\nWe've long wanted to understand our innards. Do stories and artists like this matter to you? Become a Colossal Member today and support independent arts publishing for as little as $7 per month. The article 'The Book of the Human Body' Surveys 2,000 Years of Remarkable Anatomical Inquiry appeared first on Colossal .",
       "signals": [
-        "New from Atlas Obscura"
+        "New from Colossal"
       ],
-      "source": "Atlas Obscura",
-      "url": "https://www.atlasobscura.com/places/the-hidden-spiegeltent",
-      "short": "The Hidden Spiegeltent in Chicago, Illinois",
+      "source": "Colossal",
+      "url": "https://www.thisiscolossal.com/2026/11/the-book-of-the-human-body-taschen-anthology/",
+      "short": "'The Book of the Human Body' Surveys 2,000…",
       "minutes": 1
     }
   ]
